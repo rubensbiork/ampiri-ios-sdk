@@ -1,0 +1,67 @@
+PODS:
+  - AdColony (2.6.1)
+  - ampiri-ios-sdk (3.0.0):
+    - ampiri-ios-sdk/Adapters (= 3.0.0)
+    - ampiri-ios-sdk/Core (= 3.0.0)
+  - ampiri-ios-sdk/Adapters (3.0.0):
+    - ampiri-ios-sdk/Adapters/AdColonyAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/ChartboostAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/FBAudienceAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/GoogleMobileAdsAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/MopubAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/NativeXAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/UnityAdsAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Adapters/VungleAdapter (= 3.0.0)
+    - ampiri-ios-sdk/Core
+  - ampiri-ios-sdk/Adapters/AdColonyAdapter (3.0.0):
+    - AdColony (~> 2.6)
+    - ampiri-ios-sdk/Core
+  - ampiri-ios-sdk/Adapters/ChartboostAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - ChartboostSDK (~> 6.1)
+  - ampiri-ios-sdk/Adapters/FBAudienceAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - FBAudienceNetwork (~> 4.8)
+  - ampiri-ios-sdk/Adapters/GoogleMobileAdsAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - GoogleMobileAds (~> 7.6)
+  - ampiri-ios-sdk/Adapters/MopubAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - mopub-ios-sdk (~> 4.4)
+  - ampiri-ios-sdk/Adapters/NativeXAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - NativeX-iOS-SDK (~> 5.5)
+  - ampiri-ios-sdk/Adapters/UnityAdsAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - UnityAds (~> 1.5)
+  - ampiri-ios-sdk/Adapters/VungleAdapter (3.0.0):
+    - ampiri-ios-sdk/Core
+    - VungleSDK-iOS (~> 3.2)
+  - ampiri-ios-sdk/Core (3.0.0)
+  - ChartboostSDK (6.4.0)
+  - FBAudienceNetwork (4.10.1)
+  - GoogleMobileAds (7.6.0)
+  - mopub-ios-sdk (4.5.0):
+    - mopub-ios-sdk/MoPubSDK (= 4.5.0)
+  - mopub-ios-sdk/MoPubSDK (4.5.0)
+  - NativeX-iOS-SDK (5.5.2)
+  - UnityAds (1.5.2)
+  - VungleSDK-iOS (3.2.0.1)
+
+DEPENDENCIES:
+  - ampiri-ios-sdk
+
+SPEC CHECKSUMS:
+  AdColony: a9859672fee49d9a81017d1fffa3133bf8538bd8
+  ampiri-ios-sdk: db33a55bec0d251cb8de98ac9ec1311f009e3148
+  ChartboostSDK: 1a7e970c983042eaeb887821452cfceebbe88c81
+  FBAudienceNetwork: 0f70ec0af1e726d3451c429e93120dd201aea431
+  GoogleMobileAds: c2f4d3ef1be73d58ec25158addfde463636433a6
+  mopub-ios-sdk: d488c7e7dfb3be8d3c1e53d1120ca15202cefe4f
+  NativeX-iOS-SDK: e3794c7bc01653c0f79ba6c5ec11fc671f8853e4
+  UnityAds: 6078c1cc50a900e6f3d49cd8a56a3cc4c05c52dd
+  VungleSDK-iOS: e18cf2f47cf0abe096d4b162f583bd197de1ea28
+
+PODFILE CHECKSUM: e9f13af8257fe9546ef1de76ca916ec3b075acfe
+
+COCOAPODS: 1.0.0.beta.6

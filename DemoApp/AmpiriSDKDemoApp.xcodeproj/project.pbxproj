@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FBB4B441CA414F9002F7E15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B291CA414F9002F7E15 /* AppDelegate.m */; };
+		7FBB4B451CA414F9002F7E15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2A1CA414F9002F7E15 /* LaunchScreen.xib */; };
+		7FBB4B461CA414F9002F7E15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2C1CA414F9002F7E15 /* Images.xcassets */; };
+		7FBB4B471CA414F9002F7E15 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2D1CA414F9002F7E15 /* Info.plist */; };
+		7FBB4B481CA414F9002F7E15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2E1CA414F9002F7E15 /* main.m */; };
+		7FBB4B491CA414F9002F7E15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2F1CA414F9002F7E15 /* Main.storyboard */; };
+		7FBB4B4A1CA414F9002F7E15 /* AMPBannersDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B321CA414F9002F7E15 /* AMPBannersDetailViewController.m */; };
+		7FBB4B4B1CA414F9002F7E15 /* AMPFullscreensDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B341CA414F9002F7E15 /* AMPFullscreensDetailViewController.m */; };
+		7FBB4B4C1CA414F9002F7E15 /* AMPMasterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B361CA414F9002F7E15 /* AMPMasterTableViewController.m */; };
+		7FBB4B4D1CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B391CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m */; };
+		7FBB4B4E1CA414F9002F7E15 /* AMPVideosDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3B1CA414F9002F7E15 /* AMPVideosDetailViewController.m */; };
+		7FBB4B4F1CA414F9002F7E15 /* NativeBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */; };
+		7FBB4B501CA414F9002F7E15 /* NativeBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */; };
+		7FBB4B511CA414F9002F7E15 /* NativePlusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B401CA414F9002F7E15 /* NativePlusView.m */; };
+		7FBB4B521CA414F9002F7E15 /* NativePlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */; };
+		7FBB4B531CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */; };
+		EDCF569F315D9802B8FD92A7 /* libPods-AmpiriSDKDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BA0769B419D900B379944B /* libPods-AmpiriSDKDemoApp.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02C15DE0DDA02ECED281C233 /* Pods-AmpiriSDKDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7FBB4B281CA414F9002F7E15 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7FBB4B291CA414F9002F7E15 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7FBB4B2B1CA414F9002F7E15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7FBB4B2C1CA414F9002F7E15 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7FBB4B2D1CA414F9002F7E15 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FBB4B2E1CA414F9002F7E15 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FBB4B2F1CA414F9002F7E15 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7FBB4B311CA414F9002F7E15 /* AMPBannersDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPBannersDetailViewController.h; sourceTree = "<group>"; };
+		7FBB4B321CA414F9002F7E15 /* AMPBannersDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPBannersDetailViewController.m; sourceTree = "<group>"; };
+		7FBB4B331CA414F9002F7E15 /* AMPFullscreensDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPFullscreensDetailViewController.h; sourceTree = "<group>"; };
+		7FBB4B341CA414F9002F7E15 /* AMPFullscreensDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPFullscreensDetailViewController.m; sourceTree = "<group>"; };
+		7FBB4B351CA414F9002F7E15 /* AMPMasterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPMasterTableViewController.h; sourceTree = "<group>"; };
+		7FBB4B361CA414F9002F7E15 /* AMPMasterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPMasterTableViewController.m; sourceTree = "<group>"; };
+		7FBB4B381CA414F9002F7E15 /* AMPNativeAdDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPNativeAdDetailsViewController.h; sourceTree = "<group>"; };
+		7FBB4B391CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPNativeAdDetailsViewController.m; sourceTree = "<group>"; };
+		7FBB4B3A1CA414F9002F7E15 /* AMPVideosDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPVideosDetailViewController.h; sourceTree = "<group>"; };
+		7FBB4B3B1CA414F9002F7E15 /* AMPVideosDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPVideosDetailViewController.m; sourceTree = "<group>"; };
+		7FBB4B3C1CA414F9002F7E15 /* NativeBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeBannerView.h; sourceTree = "<group>"; };
+		7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeBannerView.m; sourceTree = "<group>"; };
+		7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeBannerView.xib; sourceTree = "<group>"; };
+		7FBB4B3F1CA414F9002F7E15 /* NativePlusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePlusView.h; sourceTree = "<group>"; };
+		7FBB4B401CA414F9002F7E15 /* NativePlusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativePlusView.m; sourceTree = "<group>"; };
+		7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativePlusView.xib; sourceTree = "<group>"; };
+		7FBB4B421CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AMPLoadFromSroryboard.h"; sourceTree = "<group>"; };
+		7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMPLoadFromSroryboard.m"; sourceTree = "<group>"; };
+		85BA0769B419D900B379944B /* libPods-AmpiriSDKDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmpiriSDKDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9016A0171CA422CE00120744 /* AmpiriSDKDemoApp.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmpiriSDKDemoApp.pch; sourceTree = "<group>"; };
+		905097CC1C0F026E00C96364 /* AmpiriSDKDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmpiriSDKDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAADB75BBCAE12CA15C76DC7 /* Pods-AmpiriSDKDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		905097C91C0F026E00C96364 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDCF569F315D9802B8FD92A7 /* libPods-AmpiriSDKDemoApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62E9CF49871D2F23FD49B156 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85BA0769B419D900B379944B /* libPods-AmpiriSDKDemoApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FBB4B271CA414F9002F7E15 /* AmpiriSDKDemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B581CA4156D002F7E15 /* Supporting Files */,
+				7FBB4B571CA41560002F7E15 /* Utils */,
+				7FBB4B561CA41549002F7E15 /* Views */,
+				7FBB4B541CA41507002F7E15 /* Controllers */,
+				7FBB4B281CA414F9002F7E15 /* AppDelegate.h */,
+				7FBB4B291CA414F9002F7E15 /* AppDelegate.m */,
+				7FBB4B2C1CA414F9002F7E15 /* Images.xcassets */,
+				7FBB4B2F1CA414F9002F7E15 /* Main.storyboard */,
+			);
+			path = AmpiriSDKDemoApp;
+			sourceTree = "<group>";
+		};
+		7FBB4B541CA41507002F7E15 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B551CA41538002F7E15 /* Detail */,
+				7FBB4B351CA414F9002F7E15 /* AMPMasterTableViewController.h */,
+				7FBB4B361CA414F9002F7E15 /* AMPMasterTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		7FBB4B551CA41538002F7E15 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B381CA414F9002F7E15 /* AMPNativeAdDetailsViewController.h */,
+				7FBB4B391CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m */,
+				7FBB4B3A1CA414F9002F7E15 /* AMPVideosDetailViewController.h */,
+				7FBB4B3B1CA414F9002F7E15 /* AMPVideosDetailViewController.m */,
+				7FBB4B311CA414F9002F7E15 /* AMPBannersDetailViewController.h */,
+				7FBB4B321CA414F9002F7E15 /* AMPBannersDetailViewController.m */,
+				7FBB4B331CA414F9002F7E15 /* AMPFullscreensDetailViewController.h */,
+				7FBB4B341CA414F9002F7E15 /* AMPFullscreensDetailViewController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		7FBB4B561CA41549002F7E15 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B3C1CA414F9002F7E15 /* NativeBannerView.h */,
+				7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */,
+				7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */,
+				7FBB4B3F1CA414F9002F7E15 /* NativePlusView.h */,
+				7FBB4B401CA414F9002F7E15 /* NativePlusView.m */,
+				7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7FBB4B571CA41560002F7E15 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B421CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.h */,
+				7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		7FBB4B581CA4156D002F7E15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9016A0171CA422CE00120744 /* AmpiriSDKDemoApp.pch */,
+				7FBB4B2A1CA414F9002F7E15 /* LaunchScreen.xib */,
+				7FBB4B2D1CA414F9002F7E15 /* Info.plist */,
+				7FBB4B2E1CA414F9002F7E15 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		905097C31C0F026E00C96364 = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B271CA414F9002F7E15 /* AmpiriSDKDemoApp */,
+				905097CD1C0F026E00C96364 /* Products */,
+				D058311F10ACF57A0DB0E2A5 /* Pods */,
+				62E9CF49871D2F23FD49B156 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		905097CD1C0F026E00C96364 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				905097CC1C0F026E00C96364 /* AmpiriSDKDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D058311F10ACF57A0DB0E2A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02C15DE0DDA02ECED281C233 /* Pods-AmpiriSDKDemoApp.debug.xcconfig */,
+				FAADB75BBCAE12CA15C76DC7 /* Pods-AmpiriSDKDemoApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		905097CB1C0F026E00C96364 /* AmpiriSDKDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 905097E31C0F026E00C96364 /* Build configuration list for PBXNativeTarget "AmpiriSDKDemoApp" */;
+			buildPhases = (
+				E2948F0D3CAEBC5AAB8E2632 /* 📦 Check Pods Manifest.lock */,
+				905097C81C0F026E00C96364 /* Sources */,
+				905097C91C0F026E00C96364 /* Frameworks */,
+				905097CA1C0F026E00C96364 /* Resources */,
+				76CCA5EDB7C595CD06ADA4AB /* 📦 Embed Pods Frameworks */,
+				E4AFBB6F4EE408BA71253013 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AmpiriSDKDemoApp;
+			productName = MoneytapSDKTestApp;
+			productReference = 905097CC1C0F026E00C96364 /* AmpiriSDKDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		905097C41C0F026E00C96364 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = glispa.com;
+				TargetAttributes = {
+					905097CB1C0F026E00C96364 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 7C7H88B9P9;
+					};
+				};
+			};
+			buildConfigurationList = 905097C71C0F026E00C96364 /* Build configuration list for PBXProject "AmpiriSDKDemoApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 905097C31C0F026E00C96364;
+			productRefGroup = 905097CD1C0F026E00C96364 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				905097CB1C0F026E00C96364 /* AmpiriSDKDemoApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		905097CA1C0F026E00C96364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBB4B501CA414F9002F7E15 /* NativeBannerView.xib in Resources */,
+				7FBB4B451CA414F9002F7E15 /* LaunchScreen.xib in Resources */,
+				7FBB4B461CA414F9002F7E15 /* Images.xcassets in Resources */,
+				7FBB4B521CA414F9002F7E15 /* NativePlusView.xib in Resources */,
+				7FBB4B471CA414F9002F7E15 /* Info.plist in Resources */,
+				7FBB4B491CA414F9002F7E15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76CCA5EDB7C595CD06ADA4AB /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2948F0D3CAEBC5AAB8E2632 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4AFBB6F4EE408BA71253013 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		905097C81C0F026E00C96364 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FBB4B4D1CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m in Sources */,
+				7FBB4B481CA414F9002F7E15 /* main.m in Sources */,
+				7FBB4B441CA414F9002F7E15 /* AppDelegate.m in Sources */,
+				7FBB4B531CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m in Sources */,
+				7FBB4B4E1CA414F9002F7E15 /* AMPVideosDetailViewController.m in Sources */,
+				7FBB4B4A1CA414F9002F7E15 /* AMPBannersDetailViewController.m in Sources */,
+				7FBB4B4F1CA414F9002F7E15 /* NativeBannerView.m in Sources */,
+				7FBB4B4C1CA414F9002F7E15 /* AMPMasterTableViewController.m in Sources */,
+				7FBB4B4B1CA414F9002F7E15 /* AMPFullscreensDetailViewController.m in Sources */,
+				7FBB4B511CA414F9002F7E15 /* NativePlusView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7FBB4B2A1CA414F9002F7E15 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FBB4B2B1CA414F9002F7E15 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		905097E11C0F026E00C96364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					include/MoneytapSDK,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		905097E21C0F026E00C96364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					include/MoneytapSDK,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		905097E41C0F026E00C96364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02C15DE0DDA02ECED281C233 /* Pods-AmpiriSDKDemoApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AmpiriSDKDemoApp/AmpiriSDKDemoApp.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/AmpiriSDKDemoApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"QuickLook\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+					"-lxml2",
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glispa.mediation.test;
+				PRODUCT_NAME = AmpiriSDKDemoApp;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		905097E51C0F026E00C96364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAADB75BBCAE12CA15C76DC7 /* Pods-AmpiriSDKDemoApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AmpiriSDKDemoApp/AmpiriSDKDemoApp.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/AmpiriSDKDemoApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"QuickLook\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lz",
+					"-lxml2",
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glispa.mediation.test;
+				PRODUCT_NAME = AmpiriSDKDemoApp;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		905097C71C0F026E00C96364 /* Build configuration list for PBXProject "AmpiriSDKDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				905097E11C0F026E00C96364 /* Debug */,
+				905097E21C0F026E00C96364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		905097E31C0F026E00C96364 /* Build configuration list for PBXNativeTarget "AmpiriSDKDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				905097E41C0F026E00C96364 /* Debug */,
+				905097E51C0F026E00C96364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 905097C41C0F026E00C96364 /* Project object */;
+}

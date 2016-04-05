@@ -1,0 +1,20 @@
+//
+//  AmpiriSDKDemoApp.pch
+//  AmpiriSDK
+//
+//  Created by Glispa GmbH on 12/08/15.
+//  Copyright (c) 2015 Glispa GmbH. All rights reserved.
+//
+
+#ifndef AmpiriSDK_AmpiriSDK_pch
+#define AmpiriSDK_AmpiriSDK_pch
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <AmpiriSDK/AmpiriSDK.h>
+
+
+#endif
+
+#endif
