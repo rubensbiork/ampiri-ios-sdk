@@ -12,6 +12,8 @@
 #import "AMPVideosDetailViewController.h"
 #import "UIViewController+AMPLoadFromSroryboard.h"
 #import "AMPNativeAdDetailsViewController.h"
+#import "AMPTableViewLocationControlAdDetailsViewController.h"
+#import "AMPCollectionViewLocationControlAdDetailsViewController.h"
 
 
 @interface AMPMasterTableViewController ()
@@ -22,16 +24,12 @@
 
 @implementation AMPMasterTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 
 #pragma mark - Table view data source
 
 
 - (NSArray *)adItems {
-    return @[@"BANNERS", @"INTERSTITIALS", @"VIDEOS", @"NATIVE"];
+    return @[@"BANNERS", @"INTERSTITIALS", @"VIDEOS", @"NATIVE", @"IN-FEED"];
 }
 
 
@@ -69,6 +67,20 @@
             [self.splitViewController showDetailViewController:[AMPNativeAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]
                                                         sender:nil];
             break;
+        
+        case 4:{
+            UITabBarController *tabBarController = [[UITabBarController alloc] init];
+            tabBarController.viewControllers = @[[AMPTableViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"], [AMPCollectionViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]];
+            
+            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *_Nonnull obj,
+                                                                        NSUInteger idx,
+                                                                        BOOL *_Nonnull stop) {
+                obj.title = idx == 0 ? @"Table" : @"Collection";
+            }];
+            [self.splitViewController showDetailViewController:tabBarController sender:nil];
+            break;
+        }
+
         default:
             break;
     }

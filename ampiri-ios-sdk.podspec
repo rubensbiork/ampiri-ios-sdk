@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "ampiri-ios-sdk"
-s.version          = "3.0.0"
+s.version          = "3.1.0"
 s.summary          = "Ampiri iOS SDK"
 
 
@@ -11,7 +11,7 @@ s.author           = { "Ampiri" => "monetize@glispa.com" }
 s.platform     = :ios, '7.0'
 s.requires_arc = true
 
-s.source       = { :git => "https://github.com/ampiri/ampiri-ios-sdk.git", :tag => '3.0.0' }
+s.source       = { :git => "https://github.com/ampiri/ampiri-ios-sdk.git", :tag => '3.1.0' }
 
 # s.frameworks = "WebKit", "Security", "QuickLook", "MobileCoreServices", "CoreText", "AssetsLibrary",
 # "Foundation", "CoreData", "Social", "MessageUI", "MediaPlayer", "EventKit", "EventKitUI",
@@ -35,8 +35,8 @@ s.subspec 'Adapters' do |adapters|
 
   adapters.subspec 'GoogleMobileAdsAdapter' do |s2|
     s2.dependency 'ampiri-ios-sdk/Core'
-    s2.dependency 'GoogleMobileAds', '~> 7.6'
     s2.vendored_libraries = 'Adapters/libAMPGoogleMobileAdsAdapter/libAMPGoogleMobileAdsAdapter.a'
+    s2.dependency 'Google-Mobile-Ads-SDK', '~> 7.8'
   end
 
   adapters.subspec 'MopubAdapter' do |s3|
@@ -74,5 +74,12 @@ s.subspec 'Adapters' do |adapters|
     s8.dependency 'AdColony', '~> 2.6'
     s8.vendored_libraries = 'Adapters/libAMPAdColonyAdapter/libAMPAdColonyAdapter.a'
   end
+
+  adapters.subspec 'AppLovinAdapter' do |s9|
+    s9.dependency 'ampiri-ios-sdk/Core'
+    s9.vendored_libraries = 'Adapters/libAMPAppLovinAdapter/libAMPAppLovinAdapter.a', 'Adapters/libAMPAppLovinAdapter/ApplovinSDK/libAppLovinSdk.a'
+    s9.source_files = 'Adapters/libAMPAppLovinAdapter/ApplovinSDK/*.h'
+  end
+
 end
 end

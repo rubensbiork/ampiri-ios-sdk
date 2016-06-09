@@ -1,25 +1,43 @@
-## Initialization
+Table of contents
+=================
+
+* [Initialization](#initialization)
+* [Adding through Cocoapods](#adding-through-cocoapods)
+* [Adding SDK manually](#adding-sdk-manually)
+* [Standard banners](#standard-banners)
+* [Interstitials](#interstitials)
+* [Video Ads](#video-ads)
+* [Native ads](#native-ads)
+* [Location Control](#location-control)
+* [Other](#other)
+
+
+Initialization
+==============
 
 Ampiri iOS SDK supports iOS 7.0 or higher.
 
 You can add AmpiriSDK to your project using [Cocoapods](http://cocoapods.org) (recommeded) or manually.
 
-## Adding through Cocoapods
+Adding through Cocoapods
+========================
 
 1. If you don't have pods in your project, set them up using [Getting started guide](https://guides.cocoapods.org/using/getting-started.html)
 2. If you want to use AmpiriSDK with all mediated ad networks add `pod 'ampiri-ios-sdk'` to your Podfile
 3. If you want to use AmpiriSDK with server-side mediated networks only add `pod 'ampiri-ios-sdk/Core` to your Podfile
 4. If you want to use some client-side network adapters, add them in your Podfile. Adapters will add their dependent libraries automatically.
-	- `ampiri-ios-sdk/Adapters/FBAudienceAdapter` - adapter for [Facebook Audience](https://developers.facebook.com/docs/ios)
-	- `ampiri-ios-sdk/Adapters/GoogleMobileAdsAdapter` - adapter for [Google Mobile Ads SDK](https://developers.google.com/admob/ios/download)
-	- `ampiri-ios-sdk/Adapters/MopubAdapter` - adapter for [MoPub](https://github.com/mopub/mopub-ios-sdk)
-   	- `ampiri-ios-sdk/Adapters/ChartboostAdapter` - adapter for [Chartboost](http://cboo.st/ios_v6-3)
-   	- `ampiri-ios-sdk/Adapters/NativeXAdapter` - adapter for [NativeX](https://github.com/nativex/NativeX-iOS-SDK)
-   	- `ampiri-ios-sdk/Adapters/UnityAdsAdapter` - adapter for [Unity Ads(Applifier)](https://github.com/Applifier/unity-ads-sdk)
-   	- `ampiri-ios-sdk/Adapters/VungleAdapter` - adapter for [Vungle](https://v.vungle.com/sdk)
-   	- `ampiri-ios-sdk/Adapters/AdColonyAdapter` - adapter for [AdColony](https://github.com/AdColony/AdColony-iOS-SDK)
+- `ampiri-ios-sdk/Adapters/FBAudienceAdapter` - adapter for [Facebook Audience](https://developers.facebook.com/docs/ios)
+- `ampiri-ios-sdk/Adapters/GoogleMobileAdsAdapter` - adapter for [Google Mobile Ads SDK](https://developers.google.com/admob/ios/download)
+- `ampiri-ios-sdk/Adapters/MopubAdapter` - adapter for [MoPub](https://github.com/mopub/mopub-ios-sdk)
+- `ampiri-ios-sdk/Adapters/ChartboostAdapter` - adapter for [Chartboost](http://cboo.st/ios_v6-3)
+- `ampiri-ios-sdk/Adapters/NativeXAdapter` - adapter for [NativeX](https://github.com/nativex/NativeX-iOS-SDK)
+- `ampiri-ios-sdk/Adapters/UnityAdsAdapter` - adapter for [Unity Ads(Applifier)](https://github.com/Applifier/unity-ads-sdk)
+- `ampiri-ios-sdk/Adapters/VungleAdapter` - adapter for [Vungle](https://v.vungle.com/sdk)
+- `ampiri-ios-sdk/Adapters/AdColonyAdapter` - adapter for [AdColony](https://github.com/AdColony/AdColony-iOS-SDK)
+- `ampiri-ios-sdk/Adapters/AppLovinAdapter` - adapter for [AppLovin](https://www.applovin.com/)
 
-## Adding SDK manually
+Adding SDK manually
+===================
 
 ### **1.** Add SDK files to your project (required)
 
@@ -40,6 +58,7 @@ To show **interstitial** ads from client-side mediated networks in your applicat
 * [Facebook Audience](https://developers.facebook.com/docs/ios) library
 * [MoPub](https://github.com/mopub/mopub-ios-sdk) library
 * [NativeX](https://github.com/nativex/NativeX-iOS-SDK) library
+* [AppLovin](https://www.applovin.com/) library
 
 To show **video** ads from client-side mediated networks in your application you need to add:
 
@@ -54,17 +73,26 @@ To show **native** ads from client-side mediated networks in your application yo
 * [Google Mobile Ads SDK](https://developers.google.com/admob/ios/download) library
 * [Facebook Audience](https://developers.facebook.com/docs/ios) library
 * [MoPub](https://github.com/mopub/mopub-ios-sdk) library
+* [AppLovin](https://www.applovin.com/) library
 
-**Warning: AmpiriSDK 3.0.0 was designed and verified to work correctly with following versions of 3rd party ad networks SDKs:**
+**Note: for using AppLovin you have to add your AppLovinSdkKey to app Info.plist which could be created [here](http://applovin.com/developers):**
+
+```xml
+<key>AppLovinSdkKey</key>
+<string>12345QWERTY_asdfg-09876_12345QWERTY_asdfg-09876_12345QWERTY_asdfg-09876_12345QWERTY_asdfg</string>
+```
+
+**Warning: AmpiriSDK 3.1.0 was designed and verified to work correctly with following versions of 3rd party ad networks SDKs:**
 
 * AdColony – 2.6.1
-* Chartboost – 6.4.0
-* Google Mobile Ads – 7.6.0
-* NativeX – 5.5.2
-* Unity Ads – 1.5.2
+* Chartboost – 6.4.4
+* Google Mobile Ads – 7.8.1
+* NativeX – 5.5.6.3
+* Unity Ads – 1.5.6
 * Vungle – 3.2.0.1
-* Facebook Audience – 4.10.1
-* MoPub – 4.4.0
+* Facebook Audience – 4.12.0
+* MoPub – 4.6.0
+* AppLovin – 3.1
 
 We do not guarantee stable and correct behavior of AmpiriSDK if you add manually another versions of ad networks SDKs
 
@@ -79,6 +107,7 @@ For each added external ad network from the section above you should add SDK ada
 * Vungle – libAMPVungleAdapter
 * Facebook Audience – libAMPFBAudienceAdapter
 * MoPub – libAMPMopubAdapter
+* AppLovin – libAMPAppLovinAdapter
 
 ### **4.** Setup external networks
 You should setup each added external network on the Ampiri website, otherwise they will not be used for showing ads.
@@ -138,7 +167,8 @@ To disable ATS add to your application Info.plist file following settings:
 </dict>
 ```
 
-## Standard banners
+Standard banners
+================
 
 ID of advertising space for testing (STANDARD): `"00000000-0000-0000-0000-000000000003"`
 Available banner sizes:
@@ -199,7 +229,7 @@ If you want to stop and remove banner from screen:
 ```
 
 
-###Standard banner events handling
+### Standard banner events handling
 
 To process banner events, you should implement blocks or subscribe to Notifications:
 
@@ -210,7 +240,8 @@ To process banner events, you should implement blocks or subscribe to Notificati
 |` kAMPNotification_BannerClicked `| Called after a click on the banner. After this event the app will be minimized and an external browser is opened.|
 
 
-## Interstitials
+Interstitials
+=============
 
 ID of advertising space for testing (FULLSCREEN): `"00000000-0000-0000-0000-000000000002"`
 Banner size is defined automatically, depending on the screen size.
@@ -257,7 +288,7 @@ For example:
 
 @weakify(self); // libextobjc lib
 
-[[Ampiri sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
+[[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
 options:AMPFullscreenLoadOptionsDefault
 forViewController:self
 success:^(AMPFullscreenBannerController *fullscreenController) {
@@ -284,7 +315,8 @@ To process interstitial events, you should implement blocks or subscribe to Noti
 
 
 
-## Video Ads
+Video Ads
+=========
 
 ID of video ad space for testing (VIDEO): `"00000000-0000-0000-0000-000000000006"`
 
@@ -308,7 +340,7 @@ For example:
 
 @weakify(self); // libextobjc lib
 
-[[Ampiri sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
+[[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
 success:^(AMPVideoController *videoController) {
 @strongify(self); // libextobjc lib
 self.videoController = videoController;
@@ -336,7 +368,8 @@ To process video ad events, you should implement blocks or subscribe to Notifica
 
 
 
-## Native ads
+Native ads
+==========
 
 ID of advertising space for testing (Native ad): `"00000000-0000-0000-0000-000000000008"`
 
@@ -345,13 +378,13 @@ The layout for a Native ad is configured by developer with the help of Interface
 Use the following methods in your UIViewController subclass:
 
 The following method performs async downloading of Native ad with all linked resources and renders ad data into binded UI controls after that.
- 
+
 ```objective-c
-- (void)loadNativeAdWithSize:(CGSize)size
-identifier:(NSString *)identifier
-classForRendering:(NSString *)className
-success:(void (^)(UIView<AMPNativeViewInterface> *adNativeViewContainer))success
-failure:(void (^)(NSError *error))failure;
+- (void)loadNativeAdWithIdentifier:(NSString *)identifier
+parentViewController:(UIViewController *)viewController
+adViewClassForRendering:(Class)adViewClass
+success:(void (^)(UIView *adNativeViewContainer))success
+failure:(void (^)(AMPError *error))failure;
 ```
 
 There's a common algorithm to use a Native Ad:
@@ -360,9 +393,9 @@ There's a common algorithm to use a Native Ad:
 
 2) Choose one of two ways:
 
-   a) XIB way - Design the layout of `MyNativeBannerView` in a separate XIB file. Developer should bind the  desired UI controls in this XIB and properties from `<AMPNativeViewInterface>`, which `AMPNativeView` adopts. The implementation of `MyNativeBannerView` class haves to override `+ (NSString*)xibName` method, which returns the name of same XIB.   
+a) XIB way - Design the layout of `MyNativeBannerView` in a separate XIB file. Developer should bind the  desired UI controls in this XIB and properties from `<AMPNativeViewInterface>`, which `AMPNativeView` adopts. The implementation of `MyNativeBannerView` class haves to override `+ (NSString*)xibName` method, which returns the name of same XIB.   
 
-   b) Coding way - The implementation of `MyNativeBannerView` class must be performed by the creation and placement  UI controls using `<AMPNativeViewInterface>`, which `AMPNativeView` adopts
+b) Coding way - The implementation of `MyNativeBannerView` class must be performed by the creation and placement  UI controls using `<AMPNativeViewInterface>`, which `AMPNativeView` adopts
 
 3) Call loadNativeAdWithSize with required parameters, where the identifier is your private advertising space ID and className is the name of the `MyNativeBannerView` class. After downloading of ad data, SDK initiates an instance of `MyNativeBannerView` class created in step 2 . After that SDK renders native ad data in binded controls of this instance. Not all controls are filled this way, only main: `mtTitleTextLabel, mtMainTextLabel,  mtIconImageView, mtMainImageView`. When rendering is finished, the successful completion block with this instance will be invoked.
 
@@ -380,8 +413,11 @@ For example:
 #import "Ampiri.h"
 
 __weak typeof(self) weakSelf = self;
-[[Ampiri sharedSDK] loadNativeAdWithSize:CGSizeZero identifier:@"00000000-0000-0000-0000-000000000008" classForRendering:NSStringFromClass([MyNativeBannerView class]) success:^(UIView<AMPNativeViewInterface> *adNativeViewContainer) {
-UIView<AMPNativeViewInterface> *nativeView = adNativeViewContainer;
+[[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:@"00000000-0000-0000-0000-000000000008" 
+parentViewController:self
+classForRendering:NSStringFromClass([MyNativeBannerView class])
+success:^(UIView *adNativeViewContainer) {
+UIView *nativeView = adNativeViewContainer;
 nativeView.frame = weakSelf.adContainerView.bounds;
 [weakSelf.adContainerView addSubview:nativeView];
 [nativeView registerViewControllerForInteraction:weakSelf];
@@ -389,12 +425,110 @@ nativeView.frame = weakSelf.adContainerView.bounds;
 }];
 ```
 
+Location Control
+================
+
+ID of advertising space for testing (like for Native ad): `"00000000-0000-0000-0000-000000000008"`
+
+Location control is a smart technology to add native ads as items in your feeds based on *UITableView* or *UICollectionView*. Settings for location control are returned from server side and you could change it as you wish. 
+
+For the easiest integration you could use our customizable templates: *in-Feed* and *Content Stream* based on `AMPNativeAdsTemplateType` enum:
+
+```objective-c
+- (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
+parentViewController:(UIViewController *)viewController
+identifier:(NSString *)identifier
+templateType:(AMPNativeAdsTemplateType)templateType
+templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
+
+- (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
+parentViewController:(UIViewController *)viewController
+identifier:(NSString *)identifier
+useDefaultGridMode:(BOOL)gridMode
+templateType:(AMPNativeAdsTemplateType)templateType
+templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;                                       
+```
+List of customisations: 
+
+| Property of the AMPTemplateCustomizationObject | Descriprtion  |
+|:-----------------------------------------------------------------------|:-------------------------------------------------------------------------|
+|`ampBackgroundColor `| color of ad cells |
+|`ampTitleFont `| font of the title label in ad cells |
+|`ampTitleColor `| text color of the title label in ad cells |
+|`ampDescriptionTextFont `| font of the description label in ad cells |
+|`ampDescriptionTextColor `| text color of the description label in ad cells |
+|`ampDescriptionTextLeftOffset `| left offset for description label in ad cells|
+|`ampDescriptionTextRigthOffset `| right offset for description label in ad cells|
+|`ampCoverImageLeftOffset `| left offset for ad main image view|
+|`ampCoverImageRightOffset `| right offset for ad main image view|
+|`ampCoverImageTopOffset `| top offset for ad main image view|
+|`ampCoverImageBottomOffset `| bottom offset for ad main image view|
+|`ampCoverImageCornerRadius `| corner radius of ad main image layer|
+|`ampCTAFont `| call to action label font |
+|`ampCTAColor `| call to action view background color|
+|`ampCTATextColor `| call to action label text color|
+|`ampCTABorderColor `| call to action layer border color|
+|`ampCTACornerRadius `| call to action layer corner radius |
+|`ampCTABorderWidth `| call to action layer border width|
+|`ampCTARightOffset `| right offset for ad call to action view|
+|`ampCTABottomOffset `| bottom offset for ad call to action view|
+|`ampSponsoredFont `| sponsored label font|
+|`ampSponsoredColor `| sponsored label text color|
+|`ampIconLeftOffset `| left offset for ad app icon view|
+|`ampIconTopOffset `| top offset for ad app icon view|
+|`ampIconHeight `| height for ad app icon view|
+|`ampIconWidth `| width for ad app icon view|
+|`ampIconCornerRadius `| corner radius of ad app icon layer|
+|`ampIconContentMode `| content mode of ad app icon view|
+
+If you want to use your own representation of native ad use this methods:
+
+```objective-c
+- (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
+parentViewController:(UIViewController *)viewController
+identifier:(NSString *)identifier
+adViewClassForRendering:(Class)adViewClass;
+
+- (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
+parentViewController:(UIViewController *)viewController
+identifier:(NSString *)identifier
+useDefaultGridMode:(BOOL)gridMode
+adViewClassForRendering:(Class)adViewClass;                                      
+```
+
+These methods work the same way as [Native Ads](#native-ads). You have to use instruction of this type of ads to set `adViewClass` field in methods.
+
+For `UITableView` you have to do nothing in `UITableViewDelegate` and `UITableViewDataSource` methods to add ads in you feed, native ads will be added automatically.
+
+For `UICollectionView` you have to write some code in `UICollectionViewDelegate` and `UICollectionViewDataSource` methods to add ads in you feed if you use custom collection view layout only, for `UICollectionViewFlowLayout` native ads will be added automatically:
+
+```objective-c
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+if ([self.adapter shouldDisplayAdAtIndexPath:indexPath]) {
+YourAdContainerCollectionViewCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:NSStringFromClass([YourAdContainerCollectionViewCell class])
+forIndexPath:indexPath];
+cell.layer.zPosition = 1000;
+return [self.adapter adRenderedAdCellAtIndexPath:indexPath inCell:cell];
+} else {
+//your feed cell
+}
+}
+```
+**Note: if your want to know original index path of cell in your feed without ads use this method (it may be important to load data from your data array):**
+```objective-c
+- (NSIndexPath *)originalIndexPath:(NSIndexPath *)indexPath;
+```
+
+Other
+=====
+
 
 ### SDK Version
 
 ```objective-c
 #import "Ampiri.h"
-NSString *version = [Ampiri version];
+NSString *version = [AmpiriSDK version];
 ```
 
 
@@ -403,7 +537,7 @@ During the development, it is highly recommended to set testMode to `YES` to avo
 
 ```objective-c
 #import "Ampiri.h"
-[Ampiri setTestMode:YES];
+[AmpiriSDK setTestMode:YES];
 ```
 
 
@@ -438,23 +572,23 @@ For example:
 #import "Ampiri.h"
 
 //remove all user data from everywhere
-[Ampiri recetUserData];
+[AmpiriSDK recetUserData];
 
-[Ampiri setGender:AMPUserGenderMale];
+[AmpiriSDK setGender:AMPUserGenderMale];
 //Or if you want to save gender data in NSUserDefaults
-//[Ampiri setGender:AMPUserGenderMale saveInUserDefaults:YES];
+//[AmpiriSDK setGender:AMPUserGenderMale saveInUserDefaults:YES];
 
 
-[Ampiri setAge:25];
+[AmpiriSDK setAge:25];
 //Or if you want to save age data in NSUserDefaults
-//[Ampiri setAge:25 saveInUserDefaults:YES];
+//[AmpiriSDK setAge:25 saveInUserDefaults:YES];
 
 // this method set age too
-[Ampiri setBirthday:[NSDate date]];
+[AmpiriSDK setBirthday:[NSDate date]];
 //Or if you want to save age data in NSUserDefaults
-//[Ampiri setBirthday:[NSDate date] saveInUserDefaults:YES];
+//[AmpiriSDK setBirthday:[NSDate date] saveInUserDefaults:YES];
 
-[Ampiri setInterests:@[@"Ampiri", @"coding", @"iOS", @"to be superman"]];
+[AmpiriSDK setInterests:@[@"Ampiri", @"coding", @"iOS", @"to be superman"]];
 //Or if you want to save interests data in NSUserDefaults
-//[Ampiri setInterests:@[@"Ampiri", @"coding", @"iOS", @"to be superman"] saveInUserDefaults:YES];
+//[AmpiriSDK setInterests:@[@"Ampiri", @"coding", @"iOS", @"to be superman"] saveInUserDefaults:YES];
 ```

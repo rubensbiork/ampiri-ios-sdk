@@ -22,7 +22,7 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
 @property(weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
 
 @property(weak, nonatomic) IBOutlet UIView *adContainerView;
-@property(strong, nonatomic) UIView <AMPNativeViewInterface> *nativeView;
+@property(strong, nonatomic) UIView *nativeView;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerHeightConstraint;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerBottomConstraint;
 
@@ -52,20 +52,22 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
     self.showButton.enabled = NO;
     __weak typeof(self) weakSelf = self;
     NSString *className = [self templateClassName];
-    [self prepareHeight];
-    [[AmpiriSDK sharedSDK]
-     loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
-     classNameForRendering:className
-     success:^(UIView <AMPNativeViewInterface> *adNativeViewContainer) {
-         [weakSelf.nativeView removeFromSuperview];
-         
-         weakSelf.nativeView = adNativeViewContainer;
-         weakSelf.showButton.userInteractionEnabled = YES;
-         weakSelf.showButton.enabled = YES;
-     }
-     failure:^(NSError *error) {
-         
-     }];
+    Class adViewClass = NSClassFromString(className);
+    if (adViewClass) {
+        [self prepareHeight];
+        
+        [[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
+                                     parentViewController:self adViewClassForRendering:adViewClass
+                                                  success:^(UIView *adNativeViewContainer) {
+                                                      [weakSelf.nativeView removeFromSuperview];
+                                                      
+                                                      weakSelf.nativeView = adNativeViewContainer;
+                                                      weakSelf.showButton.userInteractionEnabled = YES;
+                                                      weakSelf.showButton.enabled = YES;
+                                                  } failure:nil];
+    } else {
+        NSLog(@"Native Ad: invalid view class");
+    }
 }
 
 
@@ -78,21 +80,24 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
     self.showButton.enabled = NO;
     __weak typeof(self) weakSelf = self;
     NSString *className = [self templateClassName];
-    [self prepareHeight];
-    [[AmpiriSDK sharedSDK]
-     loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
-     classNameForRendering:className
-     success:^(UIView <AMPNativeViewInterface> *adNativeViewContainer) {
-         [weakSelf.nativeView removeFromSuperview];
-         
-         weakSelf.nativeView = adNativeViewContainer;
-         [weakSelf renderAd];
-     }
-     failure:^(NSError *error) {
-         
-     }];
+    Class adViewClass = NSClassFromString(className);
+    if (adViewClass) {
+        [self prepareHeight];
+        
+        [[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
+                                     parentViewController:self adViewClassForRendering:adViewClass
+                                                  success:^(UIView *adNativeViewContainer) {
+                                                      [weakSelf.nativeView removeFromSuperview];
+                                                      
+                                                      weakSelf.nativeView = adNativeViewContainer;
+                                                      [weakSelf renderAd];
+                                                  } failure:nil];
+    } else {
+        NSLog(@"Native Ad: invalid view class");
+    }
 }
 
+#pragma mark - Private
 
 - (NSString *)templateClassName {
     NSString *className;
@@ -100,11 +105,11 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
         case 0:
             className = NSStringFromClass([NativeBannerView class]);
             break;
-            
+
         case 1:
             className = NSStringFromClass([NativePlusView class]);
             break;
-            
+
         default:
             break;
     }
@@ -118,11 +123,11 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
         case 0:
             height = [NativeBannerView desiredHeight];
             break;
-            
+
         case 1:
             height = [NativePlusView desiredHeight];
             break;
-            
+
         default:
             break;
     }
@@ -130,17 +135,8 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
 }
 
 
-#pragma mark - Private
-
-
 - (void)renderAd {
     if (![self.nativeView superview]) {
-        //Sample of some extra rendering
-        NSString *ratingString = [@"" stringByPaddingToLength:lround(self.nativeView.nativeAd.starRating)
-                                                   withString:@"*"
-                                              startingAtIndex:0];
-        [(UILabel *) self.nativeView.ampRatingView setText:ratingString];
-        //
         self.nativeContainerHeightConstraint.constant = self.desiredHeight;
         [self.adContainerView layoutIfNeeded];
         
@@ -148,7 +144,6 @@ static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-0
         self.nativeView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.adContainerView addSubview:self.nativeView];
         [self showBannerWithAnimation:YES];
-        [self.nativeView registerViewControllerForInteraction:self];
     }
 }
 

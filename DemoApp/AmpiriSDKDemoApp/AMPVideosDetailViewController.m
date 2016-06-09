@@ -36,9 +36,9 @@
 
 - (IBAction)loadClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
-                                             success:^(AMPVideoController *videoController) {
-                                                 self.videoController = videoController;
-                                             } failure:nil];
+                                           success:^(AMPVideoController *videoController) {
+                                               self.videoController = videoController;
+                                           } failure:nil];
 }
 
 
@@ -49,9 +49,9 @@
 
 - (IBAction)loadAndShowClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
-                                             success:^(AMPVideoController *videoController) {
-                                                 [videoController showFromViewController:self];
-                                             } failure:nil];
+                                           success:^(AMPVideoController *videoController) {
+                                               [videoController showFromViewController:self];
+                                           } failure:nil];
 }
 
 @end

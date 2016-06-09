@@ -15,6 +15,10 @@
 @property(nonatomic, strong) CLLocation *location;
 @property(nonatomic, readonly) BOOL ready;
 
+/**
+ *  Show fullscreen banner modally
+ *  @param viewController               - UIViewController for modal presentation
+ */
 - (void)showFromViewController:(UIViewController *)viewController;
 
 @end

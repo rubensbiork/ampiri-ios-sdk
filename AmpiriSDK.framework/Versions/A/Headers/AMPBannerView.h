@@ -20,10 +20,19 @@
 @property(nonatomic, strong) CLLocation *location;
 @property(nonatomic, assign) BOOL autoUpdate;
 
+/**
+ *  Dismiss banner
+ */
 - (void)stop;
 
+/**
+ *  Pause auto update of banner
+ */
 - (void)pauseAutoUpdate;
 
+/**
+ *  Resume auto update of banner
+ */
 - (void)resumeAutoUpdate;
 
 @end

@@ -51,9 +51,9 @@
 
     self.bannerView =
         [[AmpiriSDK sharedSDK] loadBannerWithSize:self.bannerSize
-                                         identifier:@"00000000-0000-0000-0000-000000000003"
-                                            success:nil
-                                            failure:nil];
+                                       identifier:@"00000000-0000-0000-0000-000000000003"
+                                          success:nil
+                                          failure:nil];
 
     [self.view addSubview:self.bannerView];
 
@@ -116,8 +116,6 @@
     } else {
         self.bannerSize = AMP_BANNER_SIZE_728x90;
     }
-
-    self.bannerSize = self.bannerSize;
 }
 
 @end

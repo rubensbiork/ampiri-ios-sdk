@@ -39,11 +39,11 @@
 
 - (IBAction)loadClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
-                                                  options:AMPFullscreenLoadOptionsDefault
-                                        forViewController:self
-                                                  success:^(AMPFullscreenBannerController *fullscreenController) {
-                                                      self.fullscreenController = fullscreenController;
-                                                  } failure:nil];
+                                                options:AMPFullscreenLoadOptionsDefault
+                                      forViewController:self
+                                                success:^(AMPFullscreenBannerController *fullscreenController) {
+                                                    self.fullscreenController = fullscreenController;
+                                                } failure:nil];
 }
 
 
@@ -54,19 +54,19 @@
 
 - (IBAction)loadAndShowClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
-                                                  options:AMPFullscreenLoadOptionsShowAfterLoad
-                                        forViewController:self
-                                                  success:nil
-                                                  failure:nil];
+                                                options:AMPFullscreenLoadOptionsShowAfterLoad
+                                      forViewController:self
+                                                success:nil
+                                                failure:nil];
 }
 
 
 - (IBAction)loadAndShowWithDelayClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
-                                                  options:AMPFullscreenLoadOptionsShowAfterLoadWithDelay
-                                        forViewController:self
-                                                  success:nil
-                                                  failure:nil];
+                                                options:AMPFullscreenLoadOptionsShowAfterLoadWithDelay
+                                      forViewController:self
+                                                success:nil
+                                                failure:nil];
 }
 
 @end
