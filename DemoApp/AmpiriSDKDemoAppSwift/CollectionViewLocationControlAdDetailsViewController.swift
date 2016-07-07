@@ -20,7 +20,7 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
     
     
     private var adapter: AMPCollectionViewStreamAdapter?
-    private var dataSource: [AMPTweet] = [AMPTweet]()
+    private var dataSource: [AMPDataUnit] = [AMPDataUnit]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +31,7 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
         self.flowLayout = self.collectionView.collectionViewLayout
         self.collectionView.showsHorizontalScrollIndicator = false
         
-        AMPTweetsManager.sharedManager().loadNextSetOfTweets { (tweets:[AMPTweet]!, error: NSError!) in
-            self.dataSource = tweets
-            self.collectionView.reloadData()
-        }
+        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -54,7 +51,7 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
         self.loadButton.enabled = false
         self.layoutModeSwitch.enabled = false
         
-        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToCollectionView(self.collectionView, parentViewController: self, identifier: "00000000-0000-0000-0000-000000000008", useDefaultGridMode: self.layoutModeSwitch.on, templateType: .InFeed, templateCustomization: nil)
+        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToCollectionView(self.collectionView, parentViewController: self, identifier: "7f900c7d-7ce3-4190-8e93-310053e70ca2", useDefaultGridMode: self.layoutModeSwitch.on, templateType: .InFeed, templateCustomization: nil)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,24 +73,28 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
     private func standardCellForCollectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, withCellIdentifier identifier: String) -> UICollectionViewCell {
         
         let cell: AMPLocationControlCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! AMPLocationControlCollectionViewCell
-        let actualIndexPath: NSIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
+        var actualIndexPath: NSIndexPath = indexPath
         
-        let tweet: AMPTweet = self.dataSource[actualIndexPath.row]
+        if  !self.layoutModeSwitch.on {
+            actualIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
+        }
         
+        let item: AMPDataUnit = self.dataSource[actualIndexPath.row]
+        cell.tweetNameLabel.text = item.name
         if let imageHeightConstraint = cell.tweetImageHeightConstraint {
-            if tweet.imageURL == nil || tweet.imageURL.absoluteString.isEmpty {
+            if item.photo == nil {
                 imageHeightConstraint.constant = 0
-                cell.tweetImageView.image = nil
             } else {
-                cell.tweetImageView.setImageWithURL(tweet.imageURL, delegate: nil)
                 imageHeightConstraint.constant = (self.collectionView.frame.size.width - 4) / 2
             }
         }
-        
-        cell.tweetDateLabel.text = tweet.date
+
+        cell.tweetImageView.image = item.photo
+
+        cell.tweetDateLabel.text = item.pinUnit
         
         if let textLabel = cell.tweetTextLabel {
-            textLabel.text = tweet.tweetMessage
+            textLabel.text = item.specification
         }
         
         cell.layoutIfNeeded()
@@ -110,28 +111,7 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         if self.layoutModeSwitch.on {
-            return collectionView.amp_sizeForCellWithIdentifier("AMPLocationControlCollectionViewCell", indexPath: indexPath, fixedWidth: (self.collectionView.frame.size.width - 4) / 2, configuration: { (collectionCell) in
-                if let cell: AMPLocationControlCollectionViewCell = collectionCell as? AMPLocationControlCollectionViewCell {
-                    let actualIndexPath: NSIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
-                    
-                    let tweet: AMPTweet = self.dataSource[actualIndexPath.row]
-                    
-                    if let imageHeightConstraint = cell.tweetImageHeightConstraint {
-                        if tweet.imageURL == nil || tweet.imageURL.absoluteString.isEmpty {
-                            imageHeightConstraint.constant = 0
-                            cell.tweetImageView.image = nil
-                        } else {
-                            cell.tweetImageView.setImageWithURL(tweet.imageURL, delegate: nil)
-                            imageHeightConstraint.constant = (self.collectionView.frame.size.width - 4) / 2
-                        }
-                    }
-                    
-                    cell.tweetDateLabel.text = tweet.date
-                    cell.tweetTextLabel.text = tweet.tweetMessage
-                    
-                    cell.layoutIfNeeded()
-                }
-            })
+            return CGSize(width: Int((collectionView.frame.size.width - 4) / 2.0), height: Int((collectionView.frame.size.width - 4) / 1.1))
         } else {
             return CGSizeZero
         }
@@ -157,5 +137,15 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
     
     func shouldUseDefaultAttributeForItemAtIndexPath(indexPath: NSIndexPath!) -> Bool {
         return self.adapter != nil ? (self.adapter?.shouldDisplayAdAtIndexPath(indexPath))! : false
+    }
+    
+    
+    func loadData() {
+        let units = AMPDataUnitManager.createDataUnitList() as! [AMPDataUnit]
+        organizeData(units, dividedBySectionsCount: 3)
+    }
+    
+    func organizeData(dataArray:[AMPDataUnit], dividedBySectionsCount sectionsCount: Int) {
+        self.dataSource = [AMPDataUnit]() + dataArray
     }
 }

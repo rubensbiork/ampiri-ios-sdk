@@ -11,8 +11,8 @@
 #import "NativeBannerView.h"
 #import <AmpiriSDK/AmpiriSDK.h>
 #import "AMPLocationControlCollectionViewCell.h"
-#import "UICollectionView+AMPDynamicCell.h"
-#import "AMPTweetsManager.h"
+#import "AMPDataUnitManager.h"
+#import "AMPDataUnit.h"
 //----Custom layout support
 #import "CollectionViewCircleLayout.h"
 #import "AMPLocationControlCustomCollectionViewCell.h"
@@ -20,8 +20,8 @@
 //-----------
 
 static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-0000-000000000008";
-
-@interface AMPCollectionViewLocationControlAdDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CollectionViewCircleLayoutTwoKindDelegate>
+                               //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
+@interface AMPCollectionViewLocationControlAdDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CollectionViewCircleLayoutTwoKindDelegate, AMPCollectionViewStreamAdapterDelegate>
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(weak, nonatomic) IBOutlet UIButton *loadButton;
 @property(weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
@@ -49,10 +49,21 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     
     self.dataSource = [NSMutableArray new];
     
-    [[AMPTweetsManager sharedManager] loadNextSetOfTweets:^(NSArray *tweets, NSError *error) {
-        [self.dataSource addObjectsFromArray:tweets];
-        [self.collectionView reloadData];
-    }];
+    [self loadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(adsDidLoad)
+                                                 name:kAMPNotification_LocationControlAdsDidLoad
+                                               object:nil];
+}
+
+
+- (void)adsDidLoad {
+    NSLog(@"Ads for the Location control did load!");
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -84,19 +95,23 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     AMPLocationControlCollectionViewCell *adCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(cellClass)
                                                                                              forIndexPath:indexPath];
     
-    NSIndexPath *actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
-    AMPTweet *tweet = self.dataSource[actualPath.row];
+    NSIndexPath *actualPath = indexPath;
+    if (![self isGridMode]) {
+        actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
+    }
+
+    AMPDataUnit *item = self.dataSource[actualPath.row];
     
-    adCell.tweetNameLabel.text = tweet.author;
-    if (!tweet.imageURL || ([[tweet.imageURL absoluteString] isEqual:@""])) {
+    adCell.tweetNameLabel.text = item.name;
+    if (!item.photo) {
         [adCell.tweetImageHeightConstraint setConstant:0];
         adCell.tweetImageView.image = nil;
     } else {
-        [adCell.tweetImageView setImageWithURL:tweet.imageURL delegate:nil];
         [adCell.tweetImageHeightConstraint setConstant:(self.collectionView.frame.size.width - 4) / 2];
+        adCell.tweetImageView.image = item.photo;
     }
-    adCell.tweetDateLabel.text = tweet.date;
-    adCell.tweetTextLabel.text = tweet.tweetMessage;
+    adCell.tweetTextLabel.text = item.specification;
+    adCell.tweetDateLabel.text = item.pinUnit;
     
     [adCell layoutIfNeeded];
     return adCell;
@@ -114,30 +129,7 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isGridMode]) {
-        CGSize size  = [collectionView amp_sizeForCellWithIdentifier:NSStringFromClass([AMPLocationControlCollectionViewCell class])
-                                                           indexPath:indexPath
-                                                          fixedWidth:(self.collectionView.frame.size.width - 4) / 2
-                                                       configuration:^(AMPLocationControlCollectionViewCell *adCell) {
-                                                           NSIndexPath *actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
-                                                           AMPTweet *tweet = self.dataSource[actualPath.row];
-                                                           
-                                                           adCell.tweetNameLabel.text = tweet.author;
-                                                           if (!tweet.imageURL || ([[tweet.imageURL absoluteString]
-                                                                                    isEqual:@""])) {
-                                                               [adCell.tweetImageHeightConstraint setConstant:0];
-                                                           } else {
-                                                               [adCell.tweetImageHeightConstraint setConstant:(self.collectionView
-                                                                                                               .frame
-                                                                                                               .size
-                                                                                                               .width - 4) / 2];
-                                                           }
-                                                           adCell.tweetDateLabel.text = tweet.date;
-                                                           adCell.tweetTextLabel.text = tweet.tweetMessage;
-                                                           
-                                                           [adCell layoutIfNeeded];
-                                                           
-                                                       }];
-        return size;
+        return CGSizeMake((NSInteger)((self.collectionView.frame.size.width - 4) / 2), (NSInteger)((self.collectionView.frame.size.width - 4) / 1.1f));
     } else {
         NSLog(@"Unexpected step. Size should be stored in CollectionViewCircleLayout.");
         return CGSizeZero;
@@ -157,12 +149,22 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     
     
     BOOL shouldUseGridMode = [self isGridMode];
-    self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
-                                                        parentViewController:self
-                                                                  identifier:kAMPNativeInFeedTestAdPlacementID
-                                                          useDefaultGridMode:shouldUseGridMode
-                                                                templateType:self.templateSwitch.selectedSegmentIndex
-                                                       templateCustomization:nil];
+    if (self.templateSwitch.selectedSegmentIndex == self.templateSwitch.numberOfSegments - 1) {
+        self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
+                                                            parentViewController:self
+                                                                      identifier:kAMPNativeInFeedTestAdPlacementID
+                                                              useDefaultGridMode:shouldUseGridMode
+                                                                        delegate:self
+                                                         adViewClassForRendering:[NativeBannerView class]];
+    } else {
+        self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
+                                                            parentViewController:self
+                                                                      identifier:kAMPNativeInFeedTestAdPlacementID
+                                                              useDefaultGridMode:shouldUseGridMode
+                                                                    templateType:self.templateSwitch.selectedSegmentIndex
+                                                           templateCustomization:nil];
+    }
+
 }
 
 
@@ -205,6 +207,23 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 
 - (BOOL)shouldUseDefaultAttributeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return  self.adapter ? [self.adapter shouldDisplayAdAtIndexPath:indexPath] : NO;
+}
+
+#pragma mark - Data
+
+- (void)loadData {
+    NSArray *units  = [AMPDataUnitManager createDataUnitList];
+    [self organizeData:units];
+}
+
+- (void)organizeData:(NSArray*)dataArray {
+    self.dataSource = [NSMutableArray arrayWithArray:dataArray];
+}
+
+#pragma marl - AMPCollectionViewStreamAdapterDelegate
+
+- (CGSize)sizeForAdAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(320, [NativeBannerView desiredHeight]);
 }
 
 @end

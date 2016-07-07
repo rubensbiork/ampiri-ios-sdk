@@ -39,7 +39,7 @@ class BannersDetailViewController: UIViewController {
             self.bannerView = nil
         }
         
-        self.bannerView = AmpiriSDK.sharedSDK().loadBannerWithSize(self.bannerSize!, identifier: "00000000-0000-0000-0000-000000000003", success: nil, failure: nil)
+        self.bannerView = AmpiriSDK.sharedSDK().loadBannerWithSize(self.bannerSize!, identifier: "04c447d7-ffb8-4ba1-985e-4d2b9f88cd69", success: nil, failure: nil)
         
         self.view.addSubview(self.bannerView!)
         

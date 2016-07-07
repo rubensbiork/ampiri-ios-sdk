@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AMPMediaContainerView.h"
 
 @class AMPNativeAd;
 @class AMPStarRatingView;
@@ -20,7 +20,7 @@
 @property(weak, nonatomic) IBOutlet UILabel *ampTitleTextLabel;
 @property(weak, nonatomic) IBOutlet UILabel *ampSubtitleTextLabel;
 @property(weak, nonatomic) IBOutlet UIImageView *ampIconImageView;
-@property(weak, nonatomic) IBOutlet UIImageView *ampMainImageView;
+@property(weak, nonatomic) IBOutlet AMPMediaContainerView *ampMainMediaView;
 @property(weak, nonatomic) IBOutlet UILabel *ampCallToActionTextLabel;
 @property(weak, nonatomic) IBOutlet UIView *ampPrivacyInfoContainerView;
 @property(weak, nonatomic) IBOutlet AMPStarRatingView *ampRatingStarView;
@@ -32,9 +32,6 @@
  */
 - (void)registerViewControllerForInteraction:(UIViewController *)viewController;
 
-//Deprecated
-@property(weak, nonatomic) IBOutlet UIView *ampRatingView;
-
 @end
 
 @interface AMPNativeView : UIView <AMPNativeViewInterface>
@@ -43,16 +40,13 @@
 @property(weak, nonatomic) IBOutlet UILabel *ampTitleTextLabel;
 @property(weak, nonatomic) IBOutlet UILabel *ampSubtitleTextLabel;
 @property(weak, nonatomic) IBOutlet UIImageView *ampIconImageView;
-@property(weak, nonatomic) IBOutlet UIImageView *ampMainImageView;
+@property(weak, nonatomic) IBOutlet AMPMediaContainerView *ampMainMediaView;;
 @property(weak, nonatomic) IBOutlet UILabel *ampCallToActionTextLabel;
 @property(weak, nonatomic) IBOutlet UIView *ampPrivacyInfoContainerView;
 @property(weak, nonatomic) IBOutlet AMPStarRatingView *ampRatingStarView;
 @property(strong, nonatomic, readonly) AMPNativeAd *nativeAd;
 
 + (NSString *)xibName;
-
-//Deprecated
-@property(weak, nonatomic) IBOutlet UIView *ampRatingView;
 
 @end
 

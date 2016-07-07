@@ -61,7 +61,7 @@ class NativeAdDetailsViewController: UIViewController {
             break
         }
         
-        AmpiriSDK.sharedSDK().loadNativeAdWithIdentifier("00000000-0000-0000-0000-000000000008", parentViewController:self, adViewClassForRendering: classForRendering, success: { (view) in
+        AmpiriSDK.sharedSDK().loadNativeAdWithIdentifier("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController:self, adViewClassForRendering: classForRendering, success: { (view) in
             self.nativeView = view
             self.showButton.userInteractionEnabled = true;
             self.showButton.enabled = true;
@@ -94,7 +94,7 @@ class NativeAdDetailsViewController: UIViewController {
             break
         }
         
-        AmpiriSDK.sharedSDK().loadNativeAdWithIdentifier("00000000-0000-0000-0000-000000000008", parentViewController:self,  adViewClassForRendering: classForRendering, success: { (view) in
+        AmpiriSDK.sharedSDK().loadNativeAdWithIdentifier("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController:self,  adViewClassForRendering: classForRendering, success: { (view) in
             self.nativeView = view
             self.renderBannerAd()
             }, failure: nil)

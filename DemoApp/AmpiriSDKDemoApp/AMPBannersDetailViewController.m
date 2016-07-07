@@ -8,6 +8,8 @@
 
 #import "AMPBannersDetailViewController.h"
 
+static NSString* const kAMPTestBannerAdId = @"04c447d7-ffb8-4ba1-985e-4d2b9f88cd69";
+              //only Facebook banner ad = @"26938bf3-3843-4160-9e1c-4a1f2df3611d"
 
 @interface AMPBannersDetailViewController ()
 
@@ -51,7 +53,7 @@
 
     self.bannerView =
         [[AmpiriSDK sharedSDK] loadBannerWithSize:self.bannerSize
-                                       identifier:@"00000000-0000-0000-0000-000000000003"
+                                       identifier:kAMPTestBannerAdId
                                           success:nil
                                           failure:nil];
 

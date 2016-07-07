@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		035284976FA4497F04403994 /* libPods-AmpiriSDKDemoAppSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4422879814DE1F695B0355EB /* libPods-AmpiriSDKDemoAppSwift.a */; };
+		480DDE8B1D2D5D370070C222 /* AMPDataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581C1D2D35E500FC0921 /* AMPDataUnit.m */; };
+		480DDE8C1D2D5D370070C222 /* AMPDataUnitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581E1D2D35E500FC0921 /* AMPDataUnitManager.m */; };
+		4827581F1D2D35E500FC0921 /* AMPDataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581C1D2D35E500FC0921 /* AMPDataUnit.m */; };
+		482758201D2D35E500FC0921 /* AMPDataUnitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581E1D2D35E500FC0921 /* AMPDataUnitManager.m */; };
 		4856EDD61D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD31D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m */; };
 		4856EDD71D06CBDE008E68F8 /* CollectionViewCircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD51D06CBDE008E68F8 /* CollectionViewCircleLayout.m */; };
 		4856EDDC1D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */; };
@@ -48,10 +52,6 @@
 		BF2CB9D41CEDFB4F00176530 /* AMPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866D1CD8E60700B345ED /* AMPImageView.m */; };
 		BF2CB9D71CEDFC0600176530 /* NSDictionary+AMPHasKey.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686771CD8EBB700B345ED /* NSDictionary+AMPHasKey.m */; };
 		BF2CB9D81CEDFC1600176530 /* AMPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866B1CD8E60700B345ED /* AMPImageCache.m */; };
-		BF2CB9D91CEDFC1900176530 /* UICollectionView+AMPDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66865D1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m */; };
-		BF2CB9DA1CEDFC1D00176530 /* UITableViewCell+AMPAutoLayoutHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66865F1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m */; };
-		BF2CB9DB1CEDFC2500176530 /* AMPTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686711CD8E9F500B345ED /* AMPTweet.m */; };
-		BF2CB9DC1CEDFC2800176530 /* AMPTweetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686731CD8E9F500B345ED /* AMPTweetsManager.m */; };
 		BF2CB9DF1CEE12F000176530 /* NativePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9DE1CEE12F000176530 /* NativePlusView.swift */; };
 		BF2CB9E11CEE142C00176530 /* NativeBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9E01CEE142C00176530 /* NativeBannerView.swift */; };
 		BF2CB9E31CEE149800176530 /* NativeBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2CB9E21CEE149800176530 /* NativeBannerView.xib */; };
@@ -59,14 +59,10 @@
 		BF2CB9E71CEE15E600176530 /* NativeAdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9E61CEE15E600176530 /* NativeAdDetailsViewController.swift */; };
 		BF66865A1CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686571CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m */; };
 		BF66865B1CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686591CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m */; };
-		BF6686601CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66865D1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m */; };
-		BF6686611CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66865F1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m */; };
 		BF6686671CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */; };
 		BF6686681CD8E52800B345ED /* AMPLocationControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686661CD8E52800B345ED /* AMPLocationControlTableViewCell.m */; };
 		BF66866E1CD8E60700B345ED /* AMPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866B1CD8E60700B345ED /* AMPImageCache.m */; };
 		BF66866F1CD8E60700B345ED /* AMPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866D1CD8E60700B345ED /* AMPImageView.m */; };
-		BF6686741CD8E9F500B345ED /* AMPTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686711CD8E9F500B345ED /* AMPTweet.m */; };
-		BF6686751CD8E9F500B345ED /* AMPTweetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686731CD8E9F500B345ED /* AMPTweetsManager.m */; };
 		BF6686781CD8EBB700B345ED /* NSDictionary+AMPHasKey.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686771CD8EBB700B345ED /* NSDictionary+AMPHasKey.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +70,10 @@
 		10008039745A1979802EE2F3 /* libPods-AmpiriSDKDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmpiriSDKDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243D3F0E5B4E7B6605940856 /* Pods-AmpiriSDKDemoAppSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoAppSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoAppSwift/Pods-AmpiriSDKDemoAppSwift.release.xcconfig"; sourceTree = "<group>"; };
 		4422879814DE1F695B0355EB /* libPods-AmpiriSDKDemoAppSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmpiriSDKDemoAppSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4827581B1D2D35E500FC0921 /* AMPDataUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPDataUnit.h; sourceTree = "<group>"; };
+		4827581C1D2D35E500FC0921 /* AMPDataUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPDataUnit.m; sourceTree = "<group>"; };
+		4827581D1D2D35E500FC0921 /* AMPDataUnitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPDataUnitManager.h; sourceTree = "<group>"; };
+		4827581E1D2D35E500FC0921 /* AMPDataUnitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPDataUnitManager.m; sourceTree = "<group>"; };
 		4856EDD21D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCircleLayoutAttributes.h; sourceTree = "<group>"; };
 		4856EDD31D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCircleLayoutAttributes.m; sourceTree = "<group>"; };
 		4856EDD41D06CBDE008E68F8 /* CollectionViewCircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCircleLayout.h; sourceTree = "<group>"; };
@@ -134,10 +134,6 @@
 		BF6686571CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPCollectionViewLocationControlAdDetailsViewController.m; sourceTree = "<group>"; };
 		BF6686581CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPTableViewLocationControlAdDetailsViewController.h; sourceTree = "<group>"; };
 		BF6686591CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPTableViewLocationControlAdDetailsViewController.m; sourceTree = "<group>"; };
-		BF66865C1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+AMPDynamicCell.h"; sourceTree = "<group>"; };
-		BF66865D1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+AMPDynamicCell.m"; sourceTree = "<group>"; };
-		BF66865E1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AMPAutoLayoutHeight.h"; sourceTree = "<group>"; };
-		BF66865F1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AMPAutoLayoutHeight.m"; sourceTree = "<group>"; };
 		BF6686631CD8E52800B345ED /* AMPLocationControlCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPLocationControlCollectionViewCell.h; sourceTree = "<group>"; };
 		BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPLocationControlCollectionViewCell.m; sourceTree = "<group>"; };
 		BF6686651CD8E52800B345ED /* AMPLocationControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPLocationControlTableViewCell.h; sourceTree = "<group>"; };
@@ -146,10 +142,6 @@
 		BF66866B1CD8E60700B345ED /* AMPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPImageCache.m; sourceTree = "<group>"; };
 		BF66866C1CD8E60700B345ED /* AMPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPImageView.h; sourceTree = "<group>"; };
 		BF66866D1CD8E60700B345ED /* AMPImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPImageView.m; sourceTree = "<group>"; };
-		BF6686701CD8E9F500B345ED /* AMPTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPTweet.h; sourceTree = "<group>"; };
-		BF6686711CD8E9F500B345ED /* AMPTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPTweet.m; sourceTree = "<group>"; };
-		BF6686721CD8E9F500B345ED /* AMPTweetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPTweetsManager.h; sourceTree = "<group>"; };
-		BF6686731CD8E9F500B345ED /* AMPTweetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPTweetsManager.m; sourceTree = "<group>"; };
 		BF6686761CD8EBB700B345ED /* NSDictionary+AMPHasKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AMPHasKey.h"; sourceTree = "<group>"; };
 		BF6686771CD8EBB700B345ED /* NSDictionary+AMPHasKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AMPHasKey.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,10 +255,6 @@
 				BF6686771CD8EBB700B345ED /* NSDictionary+AMPHasKey.m */,
 				BF66866A1CD8E60700B345ED /* AMPImageCache.h */,
 				BF66866B1CD8E60700B345ED /* AMPImageCache.m */,
-				BF66865C1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.h */,
-				BF66865D1CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m */,
-				BF66865E1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.h */,
-				BF66865F1CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m */,
 				7FBB4B421CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.h */,
 				7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */,
 			);
@@ -389,10 +377,10 @@
 		BF6686691CD8E5D400B345ED /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				BF6686701CD8E9F500B345ED /* AMPTweet.h */,
-				BF6686711CD8E9F500B345ED /* AMPTweet.m */,
-				BF6686721CD8E9F500B345ED /* AMPTweetsManager.h */,
-				BF6686731CD8E9F500B345ED /* AMPTweetsManager.m */,
+				4827581B1D2D35E500FC0921 /* AMPDataUnit.h */,
+				4827581C1D2D35E500FC0921 /* AMPDataUnit.m */,
+				4827581D1D2D35E500FC0921 /* AMPDataUnitManager.h */,
+				4827581E1D2D35E500FC0921 /* AMPDataUnitManager.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -611,8 +599,6 @@
 				BF66865B1CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m in Sources */,
 				7FBB4B441CA414F9002F7E15 /* AppDelegate.m in Sources */,
 				BF66866F1CD8E60700B345ED /* AMPImageView.m in Sources */,
-				BF6686601CD8E07900B345ED /* UICollectionView+AMPDynamicCell.m in Sources */,
-				BF6686751CD8E9F500B345ED /* AMPTweetsManager.m in Sources */,
 				BF66865A1CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m in Sources */,
 				7FBB4B531CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m in Sources */,
 				4856EDD61D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */,
@@ -620,14 +606,14 @@
 				BF6686781CD8EBB700B345ED /* NSDictionary+AMPHasKey.m in Sources */,
 				7FBB4B4E1CA414F9002F7E15 /* AMPVideosDetailViewController.m in Sources */,
 				4856EDD71D06CBDE008E68F8 /* CollectionViewCircleLayout.m in Sources */,
-				BF6686741CD8E9F500B345ED /* AMPTweet.m in Sources */,
 				7FBB4B4A1CA414F9002F7E15 /* AMPBannersDetailViewController.m in Sources */,
 				7FBB4B4F1CA414F9002F7E15 /* NativeBannerView.m in Sources */,
-				BF6686611CD8E07900B345ED /* UITableViewCell+AMPAutoLayoutHeight.m in Sources */,
 				7FBB4B4C1CA414F9002F7E15 /* AMPMasterTableViewController.m in Sources */,
 				BF66866E1CD8E60700B345ED /* AMPImageCache.m in Sources */,
+				482758201D2D35E500FC0921 /* AMPDataUnitManager.m in Sources */,
 				7FBB4B4B1CA414F9002F7E15 /* AMPFullscreensDetailViewController.m in Sources */,
 				7FBB4B511CA414F9002F7E15 /* NativePlusView.m in Sources */,
+				4827581F1D2D35E500FC0921 /* AMPDataUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,8 +623,8 @@
 			files = (
 				BF2CB9D21CEDFB4700176530 /* AMPLocationControlCollectionViewCell.m in Sources */,
 				BF2CB9D11CEDF19200176530 /* UIViewController+AMPLoadFromSroryboard.m in Sources */,
+				480DDE8C1D2D5D370070C222 /* AMPDataUnitManager.m in Sources */,
 				4856EDE81D070422008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */,
-				BF2CB9DC1CEDFC2800176530 /* AMPTweetsManager.m in Sources */,
 				BF2CB9CC1CEDE6EE00176530 /* FullscreensDetailViewController.swift in Sources */,
 				BF2CB9D01CEDEA1E00176530 /* BannersDetailViewController.swift in Sources */,
 				4856EDE51D0702BC008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */,
@@ -647,17 +633,15 @@
 				4856EDE61D0702BC008E68F8 /* CollectionViewCircleLayout.m in Sources */,
 				BF2CB9D81CEDFC1600176530 /* AMPImageCache.m in Sources */,
 				BF2CB9D41CEDFB4F00176530 /* AMPImageView.m in Sources */,
+				480DDE8B1D2D5D370070C222 /* AMPDataUnit.m in Sources */,
 				4856EDE31D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift in Sources */,
-				BF2CB9DA1CEDFC1D00176530 /* UITableViewCell+AMPAutoLayoutHeight.m in Sources */,
 				4856EDE41D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift in Sources */,
 				4856EDE71D070405008E68F8 /* AMPLocationControlCustomCollectionViewCell.m in Sources */,
 				BF2CB9C91CEDE53100176530 /* MasterTableViewController.swift in Sources */,
 				BF2CB9CE1CEDE94F00176530 /* VideoDetailViewController.swift in Sources */,
-				BF2CB9DB1CEDFC2500176530 /* AMPTweet.m in Sources */,
 				BF2CB9D71CEDFC0600176530 /* NSDictionary+AMPHasKey.m in Sources */,
 				BF2CB9B61CEDBEDB00176530 /* AppDelegate.swift in Sources */,
 				BF2CB9E11CEE142C00176530 /* NativeBannerView.swift in Sources */,
-				BF2CB9D91CEDFC1900176530 /* UICollectionView+AMPDynamicCell.m in Sources */,
 				BF2CB9E71CEE15E600176530 /* NativeAdDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,7 +788,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AmpiriSDKDemoApp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -857,7 +841,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AmpiriSDKDemoApp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
@@ -900,7 +884,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AmpiriSDKDemoAppSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glispa.AmpiriSDKDemoAppSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -917,7 +901,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AmpiriSDKDemoAppSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glispa.AmpiriSDKDemoAppSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";

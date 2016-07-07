@@ -34,7 +34,7 @@ class FullscreensDetailViewController: UIViewController {
 
     
     @IBAction func loadClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("00000000-0000-0000-0000-000000000002", options: .Default, forViewController: self, success: { (fullscreenViewController) in
+        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .Default, forViewController: self, success: { (fullscreenViewController) in
                 self.fullscreenController = fullscreenViewController
             }, failure: nil)
     }
@@ -44,11 +44,11 @@ class FullscreensDetailViewController: UIViewController {
     }
     
     @IBAction func loadAndShowClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("00000000-0000-0000-0000-000000000002", options: .ShowAfterLoad, forViewController: self, success: nil, failure: nil)
+        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .ShowAfterLoad, forViewController: self, success: nil, failure: nil)
     }
     
     @IBAction func loadAndShowWithDelayClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("00000000-0000-0000-0000-000000000002", options: .ShowAfterLoadWithDelay, forViewController: self, success: nil, failure: nil)
+        AmpiriSDK.sharedSDK().loadFullscreenWithIdentifier("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .ShowAfterLoadWithDelay, forViewController: self, success: nil, failure: nil)
     }
 
 }

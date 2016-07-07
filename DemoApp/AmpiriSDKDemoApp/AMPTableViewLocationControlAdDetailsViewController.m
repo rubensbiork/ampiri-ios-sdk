@@ -10,11 +10,14 @@
 #import "NativeBannerView.h"
 #import <AmpiriSDK/AmpiriSDK.h>
 #import "AMPLocationControlTableViewCell.h"
-#import "UITableViewCell+AMPAutoLayoutHeight.h"
-#import "AMPTweetsManager.h"
+#import "AMPDataUnitManager.h"
+#import "AMPDataUnit.h"
 
 
-static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-0000-000000000008";
+static NSString *const kAMPNativeInFeedTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
+                               //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
+
+static NSInteger const kAMPSectionsCount = 3;
 
 @interface AMPTableViewLocationControlAdDetailsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
@@ -34,36 +37,48 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     
     self.loadButton.layer.masksToBounds = YES;
     self.loadButton.layer.cornerRadius = CGRectGetHeight(self.loadButton.frame) / 3;
-    
-    self.dataSource = [NSMutableArray new];
-    
-    [[AMPTweetsManager sharedManager] loadNextSetOfTweets:^(NSArray *tweets, NSError *error) {
-        [self.dataSource addObjectsFromArray:tweets];
-        [self.tableView reloadData];
-    }];
-    
     self.tableView.tableFooterView = [UIView new];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(adsDidLoad)
+                                                 name:kAMPNotification_LocationControlAdsDidLoad
+                                               object:nil];
+
+    [self loadData];
 }
 
+- (void)adsDidLoad {
+    NSLog(@"Ads for the Location control did load!");
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.adapter cancelAdsLoading];
 }
 
-
 #pragma  mark - Actions
 - (IBAction)loadClicked:(id)sender {
     self.loadButton.enabled = NO;
     
-    self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
-                                                   parentViewController:self
-                                                             identifier:kAMPNativeInFeedTestAdPlacementID
-                                                           templateType:self.templateSwitch.selectedSegmentIndex
-                                                  templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
-                                                      templateCustomizationObject.ampCTABorderWidth = 1;
-                                                      templateCustomizationObject.ampCTACornerRadius = 5;
-                                                  }];
+    if (self.templateSwitch.selectedSegmentIndex == self.templateSwitch.numberOfSegments - 1) {
+        self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
+                                                       parentViewController:self
+                                                                 identifier:kAMPNativeInFeedTestAdPlacementID
+                                                    adViewClassForRendering:[NativeBannerView class]];
+    } else {
+        self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
+                                                       parentViewController:self
+                                                                 identifier:kAMPNativeInFeedTestAdPlacementID
+                                                               templateType:self.templateSwitch.selectedSegmentIndex
+                                                      templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
+                                                          templateCustomizationObject.ampCTABorderWidth = 1;
+                                                          templateCustomizationObject.ampCTACornerRadius = 5;
+                                                      }];
+    }
 }
 
 - (IBAction)editModeClicked:(UIButton *)sender {
@@ -76,7 +91,7 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return self.dataSource.count;
 }
 
 
@@ -86,42 +101,18 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     return view;
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 18;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource count] / [self numberOfSectionsInTableView:tableView];
+    return [self.dataSource[section] count];
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AMPLocationControlTableViewCell *adCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AMPLocationControlTableViewCell class])];
-    
-    CGFloat height =  [adCell amp_heightWithWidth:adCell.frame.size.width
-                               customizationBlock:^(AMPLocationControlTableViewCell *cell) {
-                                   NSIndexPath *actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
-                                   AMPTweet *tweet = self.dataSource[actualPath.section * [self tableView:tableView
-                                                                                    numberOfRowsInSection:actualPath.section] + actualPath
-                                                                     .row];
-                                   
-                                   adCell.tweetNameLabel.text = tweet.author;
-                                   if (!tweet.imageURL || ([[tweet.imageURL absoluteString] isEqual:@""])) {
-                                       [adCell.tweetImageWidthConstrint setConstant:0];
-                                       [adCell.tweetImageHeigthConstrint setConstant:0];
-                                   } else {
-                                       [adCell.tweetImageWidthConstrint setConstant:120];
-                                       [adCell.tweetImageHeigthConstrint setConstant:120];
-                                   }
-                                   adCell.tweetDateLabel.text = tweet.date;
-                                   adCell.tweetTextLabel.text = tweet.tweetMessage;
-                                   
-                                   [adCell layoutIfNeeded];
-                                   
-                               }];
-    return height;
+    return 140;
 }
 
 
@@ -139,23 +130,21 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     AMPLocationControlTableViewCell *adCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AMPLocationControlTableViewCell class])];
     
     NSIndexPath *actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
-    AMPTweet *tweet = self.dataSource[actualPath.section * [self tableView:tableView
-                                                     numberOfRowsInSection:actualPath.section] + actualPath
-                                      .row];
+    AMPDataUnit *item = self.dataSource[actualPath.section][actualPath.row];
     
-    
-    adCell.tweetNameLabel.text = tweet.author;
-    if (!tweet.imageURL || ([[tweet.imageURL absoluteString] isEqual:@""])) {
+    adCell.tweetNameLabel.text = item.name;
+    if (!item.photo) {
         adCell.tweetImageView.image = nil;
         [adCell.tweetImageWidthConstrint setConstant:0];
         [adCell.tweetImageHeigthConstrint setConstant:20];
     } else {
-        [adCell.tweetImageView setImageWithURL:tweet.imageURL delegate:nil];
+        adCell.tweetImageView.image = item.photo;
         [adCell.tweetImageWidthConstrint setConstant:120];
         [adCell.tweetImageHeigthConstrint setConstant:120];
     }
-    adCell.tweetDateLabel.text = tweet.date;
-    adCell.tweetTextLabel.text = tweet.tweetMessage;
+
+    adCell.tweetTextLabel.text = item.specification;
+    adCell.tweetDateLabel.text = item.pinUnit;
     
     [adCell layoutIfNeeded];
     
@@ -171,7 +160,16 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 - (void) tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
  forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.dataSource removeObjectAtIndex:indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSMutableArray *itemsGroupe = self.dataSource[indexPath.section];
+        [itemsGroupe removeObjectAtIndex:indexPath.row];
+        
+        if ( self.adapter == nil ) {
+            [tableView beginUpdates];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView endUpdates];
+        }
+    }
 }
 
 // Data manipulation - reorder / moving support
@@ -186,9 +184,33 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void) tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSNumber *n = [self.dataSource objectAtIndex:sourceIndexPath.row];
-    [self.dataSource removeObjectAtIndex:sourceIndexPath.row];
-    [self.dataSource insertObject:n atIndex:destinationIndexPath.row];
+    AMPDataUnit *unit = self.dataSource[sourceIndexPath.section][sourceIndexPath.row];
+    [self.dataSource[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];
+    [self.dataSource[destinationIndexPath.section] insertObject:unit atIndex:destinationIndexPath.row];
+}
+
+#pragma mark - Data
+
+- (void)loadData {
+    NSArray *units = [AMPDataUnitManager createDataUnitList];
+    [self organizeData:units bySection:kAMPSectionsCount];
+}
+
+- (void)organizeData:(NSArray*)dataArray bySection:(NSInteger)sectionsCount{
+    self.dataSource = [NSMutableArray new];
+    NSInteger itemsInSection = dataArray.count / sectionsCount;
+    NSInteger startPos = 0;
+    for (int i = 0; i < sectionsCount; i++) {
+        NSArray *groupe = [dataArray subarrayWithRange:NSMakeRange(startPos, MIN(itemsInSection, dataArray.count - startPos))];
+        startPos += groupe.count;
+        NSMutableArray *itemsGroupe = [NSMutableArray arrayWithArray:groupe];
+        [self.dataSource addObject:itemsGroupe];
+    }
+    
+    if (startPos < dataArray.count) {
+        NSMutableArray *itemsGroupe = [self.dataSource lastObject];
+        [itemsGroupe arrayByAddingObjectsFromArray:[dataArray subarrayWithRange:NSMakeRange(startPos,dataArray.count - startPos)]];
+    }
 }
 
 @end

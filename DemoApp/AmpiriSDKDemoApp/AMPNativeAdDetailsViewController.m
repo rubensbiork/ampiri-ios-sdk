@@ -12,7 +12,8 @@
 #import "NativePlusView.h"
 
 
-static NSString *const kAMPNativeTestAdPlacementID = @"00000000-0000-0000-0000-000000000008";
+static NSString *const kAMPNativeTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
+                         //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
 
 @interface AMPNativeAdDetailsViewController ()
 

@@ -1,6 +1,29 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.0]
+### Added
+- Facebook media view support (Native video and Carousel ads)
+- Location control ads preloading
+- Internal web view for showing non-AppStore ads.
+- Fixed size items for Location control in `UICollectionView`
+
+### Changed
+- iOS Deployment target set to 8.0
+- AdColony SDK updated to 2.6.2
+- Facebook Audience SDK updated to 4.13.1
+- Vungle SDK updated to 3.2.1
+- Chartboost SDK updated to 6.4.6
+- Mopub SDK updated to 4.7.0
+
+### Fixed
+- InMobi banners click handling
+- Admob ads display in Feed
+- Location control memory usage
+- Location control impression issues
+- Smooth scroll for location control
+
+
 ## [3.1.0]
 ### Added
 - Feed ads support for ```UITableView``` and ```UICollectionView```
@@ -24,3 +47,4 @@ All notable changes to this project will be documented in this file.
 
 
 [3.1.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.1.0
+[3.2.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.0

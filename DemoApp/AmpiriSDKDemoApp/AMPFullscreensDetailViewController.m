@@ -8,7 +8,8 @@
 
 #import "AMPFullscreensDetailViewController.h"
 
-
+static NSString* const kAMPTestFullscreenAdId = @"2cb34a73-0012-4264-9526-bde1fce2ba92";
+            //only Facebook interstitial ad = @"97596a22-b078-4f2f-bf56-26bc4f415bb2"
 @interface AMPFullscreensDetailViewController ()
 
 @property(weak, nonatomic) IBOutlet UIButton *loadButton;
@@ -38,7 +39,7 @@
 
 
 - (IBAction)loadClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
+    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:kAMPTestFullscreenAdId
                                                 options:AMPFullscreenLoadOptionsDefault
                                       forViewController:self
                                                 success:^(AMPFullscreenBannerController *fullscreenController) {
@@ -53,7 +54,7 @@
 
 
 - (IBAction)loadAndShowClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
+    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:kAMPTestFullscreenAdId
                                                 options:AMPFullscreenLoadOptionsShowAfterLoad
                                       forViewController:self
                                                 success:nil
@@ -62,7 +63,7 @@
 
 
 - (IBAction)loadAndShowWithDelayClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"00000000-0000-0000-0000-000000000002"
+    [[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:kAMPTestFullscreenAdId
                                                 options:AMPFullscreenLoadOptionsShowAfterLoadWithDelay
                                       forViewController:self
                                                 success:nil

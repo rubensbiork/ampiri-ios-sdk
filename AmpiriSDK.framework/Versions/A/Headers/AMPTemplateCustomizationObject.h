@@ -33,14 +33,15 @@ Customization of the description label
 
 
 /*
- Customization of the cover image button
+ Customization of the cover media view
  */
 
-@property(nonatomic, assign) CGFloat ampCoverImageLeftOffset;
-@property(nonatomic, assign) CGFloat ampCoverImageRightOffset;
-@property(nonatomic, assign) CGFloat ampCoverImageTopOffset;
-@property(nonatomic, assign) CGFloat ampCoverImageBottomOffset;
-@property(nonatomic, assign) CGFloat ampCoverImageCornerRadius;
+@property(nonatomic, assign) CGFloat ampCoverMediaLeftOffset;
+@property(nonatomic, assign) CGFloat ampCoverMediaRightOffset;
+@property(nonatomic, assign) CGFloat ampCoverMediaTopOffset;
+@property(nonatomic, assign) CGFloat ampCoverMediaBottomOffset;
+@property(nonatomic, assign) CGFloat ampCoverMediaCornerRadius;
+@property(nonatomic, assign) BOOL ampCoverMediaAutoPlayEnabled;
 
 /*
  Customization of the CTA button

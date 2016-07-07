@@ -8,6 +8,7 @@
 
 #import "AMPVideosDetailViewController.h"
 
+static NSString* const kAMPTestVideoAdId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d69";
 
 @interface AMPVideosDetailViewController ()
 
@@ -35,7 +36,7 @@
 
 
 - (IBAction)loadClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
+    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:kAMPTestVideoAdId
                                            success:^(AMPVideoController *videoController) {
                                                self.videoController = videoController;
                                            } failure:nil];
@@ -48,7 +49,7 @@
 
 
 - (IBAction)loadAndShowClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"00000000-0000-0000-0000-000000000006"
+    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:kAMPTestVideoAdId
                                            success:^(AMPVideoController *videoController) {
                                                [videoController showFromViewController:self];
                                            } failure:nil];

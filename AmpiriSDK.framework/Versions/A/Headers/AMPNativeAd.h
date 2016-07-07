@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface AMPNativeAd : NSObject
 
 @property(nonatomic, strong) UIImage *image;

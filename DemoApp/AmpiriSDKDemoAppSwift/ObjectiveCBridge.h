@@ -14,9 +14,8 @@
 #import "AMPLocationControlTableViewCell.h"
 #import "AMPLocationControlCollectionViewCell.h"
 #import "CollectionViewCircleLayout.h"
-#import "UITableViewCell+AMPAutoLayoutHeight.h"
-#import "UICollectionView+AMPDynamicCell.h"
-#import "AMPTweetsManager.h"
+#import "AMPDataUnitManager.h"
+#import "AMPDataUnit.h"
 
 #import "AMPLocationControlCustomCollectionViewCell.h"
 #import "AMPAdContainerCollectionViewCell.h"

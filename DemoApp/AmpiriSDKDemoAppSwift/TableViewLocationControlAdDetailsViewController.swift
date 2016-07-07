@@ -15,7 +15,7 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
     @IBOutlet weak var templateSwitch: UISegmentedControl!
     
     private var adapter: AMPTableViewStreamAdapter?
-    private var dataSource: [AMPTweet] = [AMPTweet]()
+    private var dataSource: [[AMPDataUnit]] = [[AMPDataUnit]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,7 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
         self.loadButton.layer.masksToBounds = true
         self.loadButton.layer.cornerRadius = CGRectGetHeight(self.loadButton.frame) / 3
         
-        AMPTweetsManager.sharedManager().loadNextSetOfTweets { (tweets:[AMPTweet]!, error: NSError!) in
-            self.dataSource = tweets
-            self.tableView.reloadData()
-        }
+        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -37,18 +34,18 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
     @IBAction func loadClicked(sender: UIButton) {
         self.loadButton.enabled = false
         
-        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToTableView(tableView, parentViewController: self, identifier: "00000000-0000-0000-0000-000000000008", templateType: self.templateSwitch.selectedSegmentIndex == 0 ? .InFeed : .ContentStream, templateCustomization: { (templateCustomizationObject: AMPTemplateCustomizationObject!) in
+        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToTableView(tableView, parentViewController: self, identifier: "7f900c7d-7ce3-4190-8e93-310053e70ca2", templateType: self.templateSwitch.selectedSegmentIndex == 0 ? .InFeed : .ContentStream, templateCustomization: { (templateCustomizationObject: AMPTemplateCustomizationObject!) in
             templateCustomizationObject.ampCTABorderWidth = 1
             templateCustomizationObject.ampCTACornerRadius = 5
         })
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return dataSource.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count / self.numberOfSectionsInTableView(tableView)
+        return dataSource[section].count
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -62,56 +59,54 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell: AMPLocationControlTableViewCell = tableView.dequeueReusableCellWithIdentifier("AMPLocationControlTableViewCell") as! AMPLocationControlTableViewCell
-        
-        let height: CGFloat = cell.amp_heightWithWidth(cell.frame.size.width) { (cellForRendering) in
-            if let adCell: AMPLocationControlTableViewCell = cellForRendering as? AMPLocationControlTableViewCell {
-                let actualIndexPath: NSIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
-                
-                let tweet: AMPTweet = self.dataSource[actualIndexPath.section * self.numberOfSectionsInTableView(tableView) + actualIndexPath
-                        .row]
-                
-                if tweet.imageURL == nil || tweet.imageURL.absoluteString.isEmpty {
-                    adCell.tweetImageWidthConstrint.constant = 0
-                    adCell.tweetImageHeigthConstrint.constant = 0
-                } else {
-                    adCell.tweetImageWidthConstrint.constant = 120
-                    adCell.tweetImageHeigthConstrint.constant = 120
-                }
-                
-                adCell.tweetDateLabel.text = tweet.date;
-                adCell.tweetTextLabel.text = tweet.tweetMessage;
-                
-                adCell.layoutIfNeeded();
-
-            }
-        }
-        
-        return height
+        return 140
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: AMPLocationControlTableViewCell = tableView.dequeueReusableCellWithIdentifier("AMPLocationControlTableViewCell") as! AMPLocationControlTableViewCell
         let actualIndexPath: NSIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
         
-        let tweet: AMPTweet = self.dataSource[actualIndexPath.section * self.numberOfSectionsInTableView(tableView) + actualIndexPath
-            .row]
+        let item: AMPDataUnit = self.dataSource[actualIndexPath.section][actualIndexPath.row]
         
-        if tweet.imageURL == nil || tweet.imageURL.absoluteString.isEmpty {
+        cell.tweetNameLabel.text = item.name
+        if  item.photo == nil {
             cell.tweetImageView.image = nil
             cell.tweetImageWidthConstrint.constant = 0
-            cell.tweetImageHeigthConstrint.constant = 0
+            cell.tweetImageHeigthConstrint.constant = 20
         } else {
-            cell.tweetImageView.setImageWithURL(tweet.imageURL, delegate: nil)
+            cell.tweetImageView.image = item.photo
             cell.tweetImageWidthConstrint.constant = 120
             cell.tweetImageHeigthConstrint.constant = 120
         }
         
-        cell.tweetDateLabel.text = tweet.date;
-        cell.tweetTextLabel.text = tweet.tweetMessage;
+        cell.tweetTextLabel.text = item.specification
+        cell.tweetDateLabel.text = item.pinUnit
         
-        cell.layoutIfNeeded();
+        cell.layoutIfNeeded()
         
         return cell
+    }
+    
+    func loadData() {
+        let units = AMPDataUnitManager.createDataUnitList() as! [AMPDataUnit]
+        organizeData(units, dividedBySectionsCount: 3)
+    }
+    
+    func organizeData(dataArray:[AMPDataUnit], dividedBySectionsCount sectionsCount: Int) {
+        self.dataSource = [Array<AMPDataUnit>]()
+        let itemsInSection: Int = Int(dataArray.count / sectionsCount)
+        var startPos: Int = 0
+        for _ in 0..<sectionsCount {
+            let lastPosition = min(startPos + itemsInSection, dataArray.count)
+            let itemsGroupe = Array(dataArray[startPos..<lastPosition])
+            startPos += itemsGroupe.count
+            self.dataSource.append(itemsGroupe)
+        }
+        
+        if startPos < dataArray.count {
+            var itemsGroupe = self.dataSource[self.dataSource.count - 1]
+            itemsGroupe += dataArray[startPos..<dataArray.count]
+            self.dataSource[self.dataSource.count - 1] = itemsGroupe
+        }
     }
 }

@@ -184,6 +184,7 @@
  *  @param viewController           - UIViewController which delegate collectionView
  *  @param identifier               - your Ads place id identifier
  *  @param gridMode                 - set "YES" if you use UICollectionViewFlowLayout, set "NO" if you use you own custom UICollectionViewLayout
+ *  @param delegate                 - delegate of AMPCollectionViewStreamAdapter
  *  @param adViewClass              - UIView subclass with your own native ad representation
  *
  *  @return AMPCollectionViewStreamAdapter object which add native ads to your UICollectionView and return original indexPaths
@@ -192,6 +193,7 @@
                                                   parentViewController:(UIViewController *)viewController
                                                             identifier:(NSString *)identifier
                                                     useDefaultGridMode:(BOOL)gridMode
+                                                              delegate:(id<AMPCollectionViewStreamAdapterDelegate>)delegate
                                                adViewClassForRendering:(Class)adViewClass;
 
 
@@ -315,6 +317,13 @@
                         failure:(void (^)(AMPError *error))failure;
 
 @end
+
+
+//Location control
+/*
+ Called after ads for location control have been loaded. After this event you can reload your UITableView/UICollectionView or could wait - ads will be added automatically during scrolling.
+ */
+extern NSString *const kAMPNotification_LocationControlAdsDidLoad;
 
 //BANNERS
 /*

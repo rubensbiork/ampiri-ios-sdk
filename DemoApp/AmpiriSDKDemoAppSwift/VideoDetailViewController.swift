@@ -30,7 +30,7 @@ class VideoDetailViewController: UIViewController {
     
     
     @IBAction func loadClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadVideoWithIdentifier("00000000-0000-0000-0000-000000000006", success: { (videoViewController) in
+        AmpiriSDK.sharedSDK().loadVideoWithIdentifier("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: { (videoViewController) in
             self.videoController = videoViewController
             }, failure: nil)
     }
@@ -40,7 +40,7 @@ class VideoDetailViewController: UIViewController {
     }
     
     @IBAction func loadAndShowClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadVideoWithIdentifier("00000000-0000-0000-0000-000000000006", success: { (videoViewController) in
+        AmpiriSDK.sharedSDK().loadVideoWithIdentifier("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: { (videoViewController) in
             videoViewController.showFromViewController(self)
             }, failure: nil)
     }

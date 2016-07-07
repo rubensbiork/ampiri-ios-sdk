@@ -29,7 +29,7 @@
 
 
 - (NSArray *)adItems {
-    return @[@"BANNERS", @"INTERSTITIALS", @"VIDEOS", @"NATIVE", @"IN-FEED"];
+    return @[@"BANNERS", @"INTERSTITIALS", @"VIDEOS", @"NATIVE", @"LOCATION CONTROL"];
 }
 
 
@@ -63,12 +63,14 @@
             [self.splitViewController showDetailViewController:[AMPVideosDetailViewController amp_loadFromStoryboardWithName:@"Main"]
                                                         sender:nil];
             break;
+            
         case 3:
             [self.splitViewController showDetailViewController:[AMPNativeAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]
                                                         sender:nil];
             break;
         
-        case 4:{
+        case 4:
+        {
             UITabBarController *tabBarController = [[UITabBarController alloc] init];
             tabBarController.viewControllers = @[[AMPTableViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"], [AMPCollectionViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]];
             
