@@ -64,9 +64,8 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: AMPLocationControlTableViewCell = tableView.dequeueReusableCellWithIdentifier("AMPLocationControlTableViewCell") as! AMPLocationControlTableViewCell
-        let actualIndexPath: NSIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
         
-        let item: AMPDataUnit = self.dataSource[actualIndexPath.section][actualIndexPath.row]
+        let item: AMPDataUnit = self.dataSource[indexPath.section][indexPath.row]
         
         cell.tweetNameLabel.text = item.name
         if  item.photo == nil {

@@ -129,8 +129,7 @@ static NSInteger const kAMPSectionsCount = 3;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMPLocationControlTableViewCell *adCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AMPLocationControlTableViewCell class])];
     
-    NSIndexPath *actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
-    AMPDataUnit *item = self.dataSource[actualPath.section][actualPath.row];
+    AMPDataUnit *item = self.dataSource[indexPath.section][indexPath.row];
     
     adCell.tweetNameLabel.text = item.name;
     if (!item.photo) {
