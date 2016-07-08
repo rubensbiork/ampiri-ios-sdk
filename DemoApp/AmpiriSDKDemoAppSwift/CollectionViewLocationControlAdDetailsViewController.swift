@@ -36,7 +36,6 @@ class CollectionViewLocationControlAdDetailsViewController: UIViewController, UI
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.adapter?.cancelAdsLoading()
     }
     
     @IBAction func didCustolLayoutSwitchValueChanged(sender: UIButton) {

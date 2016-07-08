@@ -28,7 +28,6 @@ class TableViewLocationControlAdDetailsViewController: UIViewController, UITable
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.adapter?.cancelAdsLoading()
     }
     
     @IBAction func loadClicked(sender: UIButton) {

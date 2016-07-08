@@ -57,7 +57,6 @@ static NSInteger const kAMPSectionsCount = 3;
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.adapter cancelAdsLoading];
 }
 
 #pragma  mark - Actions
