@@ -1,31 +1,29 @@
 //  AMPTableViewLocationControlAdDetailsViewController.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 2/15/16.
 //  Copyright © 2016 Glispa GmbH All rights reserved.
 //
 
 #import "AMPTableViewLocationControlAdDetailsViewController.h"
-#import "AMPNativeAdDetailsViewController.h"
 #import "NativeBannerView.h"
-#import <AmpiriSDK/AmpiriSDK.h>
 #import "AMPLocationControlTableViewCell.h"
 #import "AMPDataUnitManager.h"
 #import "AMPDataUnit.h"
 
 
-static NSString *const kAMPNativeInFeedTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
-                               //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
+static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
+//only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
 
 static NSInteger const kAMPSectionsCount = 3;
 
 @interface AMPTableViewLocationControlAdDetailsViewController () <UITableViewDataSource, UITableViewDelegate>
-@property(weak, nonatomic) IBOutlet UITableView *tableView;
-@property(weak, nonatomic) IBOutlet UIButton *loadButton;
-@property(weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *loadButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
 
-@property(strong, nonatomic) AMPTableViewStreamAdapter *adapter;
-@property(nonatomic, strong) NSMutableArray *dataSource;
+@property (strong, nonatomic) AMPTableViewStreamAdapter *adapter;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 
 @end
@@ -40,9 +38,9 @@ static NSInteger const kAMPSectionsCount = 3;
     self.tableView.tableFooterView = [UIView new];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(adsDidLoad)
-                                                 name:kAMPNotification_LocationControlAdsDidLoad
-                                               object:nil];
+                                          selector:@selector(adsDidLoad)
+                                          name:kAMPNotification_LocationControlAdsDidLoad
+                                          object:nil];
 
     [self loadData];
 }
@@ -60,23 +58,24 @@ static NSInteger const kAMPSectionsCount = 3;
 }
 
 #pragma  mark - Actions
+
 - (IBAction)loadClicked:(id)sender {
     self.loadButton.enabled = NO;
     
     if (self.templateSwitch.selectedSegmentIndex == self.templateSwitch.numberOfSegments - 1) {
         self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
-                                                       parentViewController:self
-                                                                 identifier:kAMPNativeInFeedTestAdPlacementID
-                                                    adViewClassForRendering:[NativeBannerView class]];
+                                              parentViewController:self
+                                              adUnitId:kAMPNativeLocationControlAdUnitId
+                                              adViewClassForRendering:[NativeBannerView class]];
     } else {
         self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
-                                                       parentViewController:self
-                                                                 identifier:kAMPNativeInFeedTestAdPlacementID
-                                                               templateType:self.templateSwitch.selectedSegmentIndex
-                                                      templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
-                                                          templateCustomizationObject.ampCTABorderWidth = 1;
-                                                          templateCustomizationObject.ampCTACornerRadius = 5;
-                                                      }];
+                                              parentViewController:self
+                                              adUnitId:kAMPNativeLocationControlAdUnitId
+                                              templateType:self.templateSwitch.selectedSegmentIndex
+                                              templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
+                                                  templateCustomizationObject.ampCTABorderWidth = 1;
+                                                  templateCustomizationObject.ampCTACornerRadius = 5;
+                                              }];
     }
 }
 
@@ -120,7 +119,7 @@ static NSInteger const kAMPSectionsCount = 3;
 
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+                               editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
 
@@ -133,16 +132,11 @@ static NSInteger const kAMPSectionsCount = 3;
     adCell.tweetNameLabel.text = item.name;
     if (!item.photo) {
         adCell.tweetImageView.image = nil;
-        [adCell.tweetImageWidthConstrint setConstant:0];
-        [adCell.tweetImageHeigthConstrint setConstant:20];
     } else {
         adCell.tweetImageView.image = item.photo;
-        [adCell.tweetImageWidthConstrint setConstant:120];
-        [adCell.tweetImageHeigthConstrint setConstant:120];
     }
 
     adCell.tweetTextLabel.text = item.specification;
-    adCell.tweetDateLabel.text = item.pinUnit;
     
     [adCell layoutIfNeeded];
     
@@ -155,14 +149,14 @@ static NSInteger const kAMPSectionsCount = 3;
 }
 
 
-- (void) tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
- forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+        forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSMutableArray *itemsGroupe = self.dataSource[indexPath.section];
         [itemsGroupe removeObjectAtIndex:indexPath.row];
         
-        if ( self.adapter == nil ) {
+        if (self.adapter == nil) {
             [tableView beginUpdates];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [tableView endUpdates];
@@ -172,16 +166,16 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 
 // Data manipulation - reorder / moving support
 
-- (NSIndexPath *)              tableView:(UITableView *)tableView
-targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-                     toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+- (NSIndexPath *)tableView:(UITableView *)tableView
+                 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+                 toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
     return proposedDestinationIndexPath;
 }
 
 
-- (void) tableView:(UITableView *)tableView
-moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-       toIndexPath:(NSIndexPath *)destinationIndexPath {
+- (void)tableView:(UITableView *)tableView
+        moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+        toIndexPath:(NSIndexPath *)destinationIndexPath {
     AMPDataUnit *unit = self.dataSource[sourceIndexPath.section][sourceIndexPath.row];
     [self.dataSource[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];
     [self.dataSource[destinationIndexPath.section] insertObject:unit atIndex:destinationIndexPath.row];
@@ -194,7 +188,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [self organizeData:units bySection:kAMPSectionsCount];
 }
 
-- (void)organizeData:(NSArray*)dataArray bySection:(NSInteger)sectionsCount{
+- (void)organizeData:(NSArray *)dataArray bySection:(NSInteger)sectionsCount {
     self.dataSource = [NSMutableArray new];
     NSInteger itemsInSection = dataArray.count / sectionsCount;
     NSInteger startPos = 0;
@@ -207,7 +201,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     if (startPos < dataArray.count) {
         NSMutableArray *itemsGroupe = [self.dataSource lastObject];
-        [itemsGroupe arrayByAddingObjectsFromArray:[dataArray subarrayWithRange:NSMakeRange(startPos,dataArray.count - startPos)]];
+        [itemsGroupe arrayByAddingObjectsFromArray:[dataArray subarrayWithRange:NSMakeRange(startPos, dataArray.count - startPos)]];
     }
 }
 

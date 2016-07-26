@@ -1,33 +1,32 @@
 //
 //  AMPNativeAdDetailsViewController.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 14.12.15.
 //  Copyright © 2015 Glispa GmbH All rights reserved.
 //
 
 #import "AMPNativeAdDetailsViewController.h"
-#import <AmpiriSDK/AmpiriSDK.h>
 #import "NativeBannerView.h"
 #import "NativePlusView.h"
 
 
-static NSString *const kAMPNativeTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
-                         //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
+static NSString *const kAMPNativeAdUnitId = @"7f900c7d-7ce3-4190-8e93-310053e70ca2";
+//only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
 
 @interface AMPNativeAdDetailsViewController ()
 
-@property(weak, nonatomic) IBOutlet UIButton *loadButton;
-@property(weak, nonatomic) IBOutlet UIButton *showButton;
-@property(weak, nonatomic) IBOutlet UIButton *loadAndShowButton;
-@property(weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *loadButton;
+@property (weak, nonatomic) IBOutlet UIButton *showButton;
+@property (weak, nonatomic) IBOutlet UIButton *loadAndShowButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
 
-@property(weak, nonatomic) IBOutlet UIView *adContainerView;
-@property(strong, nonatomic) UIView *nativeView;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerHeightConstraint;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIView *adContainerView;
+@property (strong, nonatomic) UIView *nativeView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nativeContainerBottomConstraint;
 
-@property(assign, nonatomic) CGFloat desiredHeight;
+@property (assign, nonatomic) CGFloat desiredHeight;
 
 @end
 
@@ -57,15 +56,15 @@ static NSString *const kAMPNativeTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-3
     if (adViewClass) {
         [self prepareHeight];
         
-        [[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
-                                     parentViewController:self adViewClassForRendering:adViewClass
-                                                  success:^(UIView *adNativeViewContainer) {
-                                                      [weakSelf.nativeView removeFromSuperview];
-                                                      
-                                                      weakSelf.nativeView = adNativeViewContainer;
-                                                      weakSelf.showButton.userInteractionEnabled = YES;
-                                                      weakSelf.showButton.enabled = YES;
-                                                  } failure:nil];
+        [[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:kAMPNativeAdUnitId
+                               parentViewController:self adViewClassForRendering:adViewClass
+                               success:^(UIView *adNativeViewContainer) {
+                                   [weakSelf.nativeView removeFromSuperview];
+
+                                   weakSelf.nativeView = adNativeViewContainer;
+                                   weakSelf.showButton.userInteractionEnabled = YES;
+                                   weakSelf.showButton.enabled = YES;
+                               } failure:nil];
     } else {
         NSLog(@"Native Ad: invalid view class");
     }
@@ -85,14 +84,14 @@ static NSString *const kAMPNativeTestAdPlacementID = @"7f900c7d-7ce3-4190-8e93-3
     if (adViewClass) {
         [self prepareHeight];
         
-        [[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:kAMPNativeTestAdPlacementID
-                                     parentViewController:self adViewClassForRendering:adViewClass
-                                                  success:^(UIView *adNativeViewContainer) {
-                                                      [weakSelf.nativeView removeFromSuperview];
-                                                      
-                                                      weakSelf.nativeView = adNativeViewContainer;
-                                                      [weakSelf renderAd];
-                                                  } failure:nil];
+        [[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:kAMPNativeAdUnitId
+                               parentViewController:self adViewClassForRendering:adViewClass
+                               success:^(UIView *adNativeViewContainer) {
+                                   [weakSelf.nativeView removeFromSuperview];
+
+                                   weakSelf.nativeView = adNativeViewContainer;
+                                   [weakSelf renderAd];
+                               } failure:nil];
     } else {
         NSLog(@"Native Ad: invalid view class");
     }

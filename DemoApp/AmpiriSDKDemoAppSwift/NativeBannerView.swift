@@ -13,7 +13,7 @@ class NativeBannerView: AMPNativeView {
     static func desiredHeight() -> CGFloat {
         return 60.0
     }
-    
+
     override static func xibName() -> String {
         return NSStringFromClass(self)
     }

@@ -17,5 +17,6 @@
 @property(nonatomic, copy) NSString *subtitle;
 @property(nonatomic, copy) NSString *callToActionTitle;
 @property(nonatomic, assign) CGFloat starRating;
+@property(nonatomic, strong) UIImage *adChoiceIcon;
 
 @end

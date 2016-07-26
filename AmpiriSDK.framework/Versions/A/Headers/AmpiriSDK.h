@@ -133,7 +133,7 @@
  *  Add location control for native ads to your UITableView
  *  @param tableView                - UITableView which should content native ads
  *  @param viewController           - UIViewController which delegate tableView
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param templateType             - type of native ads representation template
  *  @param templateCustomization    - (optional) customization for ads representation template
  *
@@ -141,21 +141,21 @@
  */
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
                                         parentViewController:(UIViewController *)viewController
-                                                  identifier:(NSString *)identifier
+                                                    adUnitId:(NSString *)adUnitId
                                                 templateType:(AMPNativeAdsTemplateType)templateType
                                        templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
 /**
  *  Add location control for native ads to your UITableView
  *  @param tableView                - UITableView which should content native ads
  *  @param viewController           - UIViewController which delegate tableView
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param adViewClass              - UIView subclass with your own native ad representation
  *
  *  @return AMPTableViewStreamAdapter object which add native ads to your UITableView and return original indexPaths
  */
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
                                         parentViewController:(UIViewController *)viewController
-                                                  identifier:(NSString *)identifier
+                                                    adUnitId:(NSString *)adUnitId
                                      adViewClassForRendering:(Class)adViewClass;
 
 
@@ -164,7 +164,7 @@
  *  Add location control for native ads to your UICollectionView
  *  @param collectionView           - UICollectionView which should content native ads
  *  @param viewController           - UIViewController which delegate collectionView
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param gridMode                 - set "YES" if you use UICollectionViewFlowLayout, set "NO" if you use you own custom UICollectionViewLayout
  *  @param templateType             - type of native ads representation template
  *  @param templateCustomization    - (optional) customization for ads representation template
@@ -173,7 +173,7 @@
  */
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
                                                   parentViewController:(UIViewController *)viewController
-                                                            identifier:(NSString *)identifier
+                                                              adUnitId:(NSString *)adUnitId
                                                     useDefaultGridMode:(BOOL)gridMode
                                                           templateType:(AMPNativeAdsTemplateType)templateType
                                                  templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
@@ -182,7 +182,7 @@
  *  Add location control for native ads to your UICollectionView
  *  @param collectionView           - UICollectionView which should content native ads
  *  @param viewController           - UIViewController which delegate collectionView
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param gridMode                 - set "YES" if you use UICollectionViewFlowLayout, set "NO" if you use you own custom UICollectionViewLayout
  *  @param delegate                 - delegate of AMPCollectionViewStreamAdapter
  *  @param adViewClass              - UIView subclass with your own native ad representation
@@ -191,9 +191,9 @@
  */
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
                                                   parentViewController:(UIViewController *)viewController
-                                                            identifier:(NSString *)identifier
+                                                              adUnitId:(NSString *)adUnitId
                                                     useDefaultGridMode:(BOOL)gridMode
-                                                              delegate:(id<AMPCollectionViewStreamAdapterDelegate>)delegate
+                                                              delegate:(id <AMPCollectionViewStreamAdapterDelegate>)delegate
                                                adViewClassForRendering:(Class)adViewClass;
 
 
@@ -204,17 +204,17 @@
 
 /**
  *  Load and render native ad by your own representation template
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param viewController           - UIViewController which delegate tableView
  *  @param adViewClass              - UIView subclass with your own native ad representation
  *  @param success                  - called when native ad successfully downloaded and rendered, returns rendered UIView
  *  @param failure                  - (optional) called when native ad download fails, returns AMPError
  */
-- (void)loadNativeAdWithIdentifier:(NSString *)identifier
-              parentViewController:(UIViewController *)viewController
-           adViewClassForRendering:(Class)adViewClass
-                           success:(void (^)(UIView *adNativeViewContainer))success
-                           failure:(void (^)(AMPError *error))failure;
+- (void)loadNativeAdWithAdUnitId:(NSString *)adUnitId
+            parentViewController:(UIViewController *)viewController
+         adViewClassForRendering:(Class)adViewClass
+                         success:(void (^)(UIView *adNativeViewContainer))success
+                         failure:(void (^)(AMPError *error))failure;
 
 
 @end
@@ -225,14 +225,14 @@
 /**
  *  Load banner ads
  *  @param size                     - size of banner, you should choose between two sizes: AMP_BANNER_SIZE_320x50 and AMP_BANNER_SIZE_728x90
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param success                  - (optional) called when banner successfully downloaded, returns downloaded banner
  *  @param failure                  - (optional) called when banner download fails, returns AMPError
  *
  *  @return AMPBannerView object which you should add to your banner place on screen
  */
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
-                           identifier:(NSString *)identifier
+                             adUnitId:(NSString *)adUnitId
                               success:(void (^)(AMPBannerView *banner))success
                               failure:(void (^)(AMPError *error))failure;
 
@@ -240,7 +240,7 @@
  *  Load banner ads
  *  @param size                     - size of banner, you should choose between two sizes: AMP_BANNER_SIZE_320x50 and AMP_BANNER_SIZE_728x90
  *  @param location                 - (optional) location of user for more targeted ads
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param success                  - (optional) called when banner successfully downloaded, returns downloaded banner
  *  @param failure                  - (optional) called when banner download fails, returns AMPError
  *
@@ -248,7 +248,7 @@
  */
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
                              location:(CLLocation *)location
-                           identifier:(NSString *)identifier
+                             adUnitId:(NSString *)adUnitId
                               success:(void (^)(AMPBannerView *banner))success
                               failure:(void (^)(AMPError *error))failure;
 
@@ -257,24 +257,25 @@
 
 @interface AmpiriSDK (AMPFullscreens)
 
+
 /**
  *  Load interstitial ads
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param options                  - option of banner presentation time, you could choose between only load option (AMPFullscreenLoadOptionsDefault),
  show after load (AMPFullscreenLoadOptionsShowAfterLoad) and show after load with delay which declare at the server side (AMPFullscreenLoadOptionsShowAfterLoadWithDelay)
  *  @param viewController           - UIViewController for modal presentation of interstitial ad
  *  @param success                  - (optional) called when interstitial successfully downloaded, returns downloaded interstitial
  *  @param failure                  - (optional) called when interstitial download fails, returns AMPError
  */
-- (void)loadFullscreenWithIdentifier:(NSString *)identifier
-                             options:(AMPFullscreenLoadOptions)options
-                   forViewController:(UIViewController *)viewController
-                             success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
-                             failure:(void (^)(AMPError *error))failure;
+- (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
+                           options:(AMPFullscreenLoadOptions)options
+                 forViewController:(UIViewController *)viewController
+                           success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
+                           failure:(void (^)(AMPError *error))failure;
 
 /**
  *  Load interstitial ads
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param location                 - (optional) location of user for more targeted ads
  *  @param options                  - option of banner presentation time, you could choose between only load option (AMPFullscreenLoadOptionsDefault),
  show after load option (AMPFullscreenLoadOptionsShowAfterLoad) and show after load with delay which declare at the server side option (AMPFullscreenLoadOptionsShowAfterLoadWithDelay)
@@ -282,12 +283,12 @@
  *  @param success                  - (optional) called when interstitial successfully downloaded, returns downloaded interstitial
  *  @param failure                  - (optional) called when interstitial download fails, returns AMPError
  */
-- (void)loadFullscreenWithIdentifier:(NSString *)identifier
-                            location:(CLLocation *)location
-                             options:(AMPFullscreenLoadOptions)options
-                   forViewController:(UIViewController *)viewController
-                             success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
-                             failure:(void (^)(AMPError *error))failure;
+- (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
+                          location:(CLLocation *)location
+                           options:(AMPFullscreenLoadOptions)options
+                 forViewController:(UIViewController *)viewController
+                           success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
+                           failure:(void (^)(AMPError *error))failure;
 
 @end
 
@@ -296,25 +297,25 @@
 
 /**
  *  Load video ads
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param success                  - called when video successfully downloaded, returns downloaded video controller which could be presented modally
  *  @param failure                  - (optional) called when video download fails, returns AMPError
  */
-- (void)loadVideoWithIdentifier:(NSString *)identifier
-                        success:(void (^)(AMPVideoController *videoController))success
-                        failure:(void (^)(AMPError *error))failure;
+- (void)loadVideoWithAdUnitId:(NSString *)adUnitId
+                      success:(void (^)(AMPVideoController *videoController))success
+                      failure:(void (^)(AMPError *error))failure;
 
 /**
  *  Load video ads
- *  @param identifier               - your Ads place id identifier
+ *  @param adUnitId                 - your ad unit id
  *  @param location                 - (optional) location of user for more targeted ads
  *  @param success                  - called when video successfully downloaded, returns downloaded video controller which could be presented modally
  *  @param failure                  - (optional) called when video download fails, returns AMPError
  */
-- (void)loadVideoWithIdentifier:(NSString *)identifier
-                       location:(CLLocation *)location
-                        success:(void (^)(AMPVideoController *videoController))success
-                        failure:(void (^)(AMPError *error))failure;
+- (void)loadVideoWithAdUnitId:(NSString *)adUnitId
+                     location:(CLLocation *)location
+                      success:(void (^)(AMPVideoController *videoController))success
+                      failure:(void (^)(AMPError *error))failure;
 
 @end
 

@@ -1,49 +1,49 @@
 PODS:
   - AdColony (2.6.2)
-  - ampiri-ios-dev (3.2.0-312):
-    - ampiri-ios-dev/Adapters (= 3.2.0-312)
-    - ampiri-ios-dev/Core (= 3.2.0-312)
-  - ampiri-ios-dev/Adapters (3.2.0-312):
-    - ampiri-ios-dev/Adapters/AdColonyAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/AppLovinAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/ChartboostAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/FBAudienceAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/GoogleMobileAdsAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/MopubAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/NativeXAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/UnityAdsAdapter (= 3.2.0-312)
-    - ampiri-ios-dev/Adapters/VungleAdapter (= 3.2.0-312)
+  - ampiri-ios-dev (3.2.1-334):
+    - ampiri-ios-dev/Adapters (= 3.2.1-334)
+    - ampiri-ios-dev/Core (= 3.2.1-334)
+  - ampiri-ios-dev/Adapters (3.2.1-334):
+    - ampiri-ios-dev/Adapters/AdColonyAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/AppLovinAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/ChartboostAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/FBAudienceAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/GoogleMobileAdsAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/MopubAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/NativeXAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/UnityAdsAdapter (= 3.2.1-334)
+    - ampiri-ios-dev/Adapters/VungleAdapter (= 3.2.1-334)
     - ampiri-ios-dev/Core
-  - ampiri-ios-dev/Adapters/AdColonyAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/AdColonyAdapter (3.2.1-334):
     - AdColony (~> 2.6)
     - ampiri-ios-dev/Core
-  - ampiri-ios-dev/Adapters/AppLovinAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/AppLovinAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
-  - ampiri-ios-dev/Adapters/ChartboostAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/ChartboostAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - ChartboostSDK (~> 6.1)
-  - ampiri-ios-dev/Adapters/FBAudienceAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/FBAudienceAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - FBAudienceNetwork (~> 4.8)
-  - ampiri-ios-dev/Adapters/GoogleMobileAdsAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/GoogleMobileAdsAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - Google-Mobile-Ads-SDK (~> 7.8)
-  - ampiri-ios-dev/Adapters/MopubAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/MopubAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - mopub-ios-sdk (~> 4.4)
-  - ampiri-ios-dev/Adapters/NativeXAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/NativeXAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - NativeX-iOS-SDK (~> 5.5)
-  - ampiri-ios-dev/Adapters/UnityAdsAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/UnityAdsAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - UnityAds (~> 1.5)
-  - ampiri-ios-dev/Adapters/VungleAdapter (3.2.0-312):
+  - ampiri-ios-dev/Adapters/VungleAdapter (3.2.1-334):
     - ampiri-ios-dev/Core
     - VungleSDK-iOS (~> 3.2)
-  - ampiri-ios-dev/Core (3.2.0-312)
+  - ampiri-ios-dev/Core (3.2.1-334)
   - ChartboostSDK (6.4.6)
-  - FBAudienceNetwork (4.13.1)
-  - Google-Mobile-Ads-SDK (7.8.1)
+  - FBAudienceNetwork (4.14.0)
+  - Google-Mobile-Ads-SDK (7.9.1)
   - mopub-ios-sdk (4.7.0):
     - mopub-ios-sdk/MoPubSDK (= 4.7.0)
   - mopub-ios-sdk/MoPubSDK (4.7.0)
@@ -52,19 +52,19 @@ PODS:
   - VungleSDK-iOS (3.2.1)
 
 DEPENDENCIES:
-  - ampiri-ios-dev (~> 3.2.0-312)
+  - ampiri-ios-dev (~> 3.2.1-100)
 
 SPEC CHECKSUMS:
   AdColony: c91c627c389e8d26a22c05ce7585d83db0121c25
-  ampiri-ios-dev: bca96331f2ad988c82ba975c85db52973957a5cb
+  ampiri-ios-dev: 4f46ee7e536d87eced1a21b7dc33d02df37d5cd3
   ChartboostSDK: b63c32c4bc05eb43dd8f94a64154a34fb8695870
-  FBAudienceNetwork: 00f43ca44ee26fdadda3aa42032b8b87c8ace033
-  Google-Mobile-Ads-SDK: 3c2a6656117989469bfe7645640aa1de024a4c6c
+  FBAudienceNetwork: 483340b42f239d560cd3caf781e4ed35023ff724
+  Google-Mobile-Ads-SDK: 575583d7eae25793bb81ad8673737d1b4ecbedc5
   mopub-ios-sdk: e46b277cdb77b1745567b419742f77fed6865262
   NativeX-iOS-SDK: c4944ae069c9b1c550e290b2f2d4c2d5ce3204b5
   UnityAds: 717325c6fe6133fe83f7fd0f2993481df559637e
   VungleSDK-iOS: ae0f665177b9473042d36a67816a17a6ea33298b
 
-PODFILE CHECKSUM: 8ac33de2a9a041b84ce0d4fad73f751b9fb1b627
+PODFILE CHECKSUM: 5f005d5eb480ee81b065c7f0c9b767fb48ff2747
 
 COCOAPODS: 1.0.1

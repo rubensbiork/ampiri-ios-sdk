@@ -11,7 +11,7 @@
 
 @interface AMPImageCache ()
 
-@property(nonatomic, strong) NSCache *imgCache;
+@property (nonatomic, strong) NSCache *imgCache;
 
 @end
 

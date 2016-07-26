@@ -12,7 +12,7 @@
 
 @interface AMPImageView ()
 
-@property(nonatomic, weak) id <AFCImageViewDelegate> delegate;
+@property (nonatomic, weak) id <AFCImageViewDelegate> delegate;
 
 @end
 
@@ -21,11 +21,11 @@
 - (void)setImageWithURL:(NSURL *)imageURL delegate:(id <AFCImageViewDelegate>)delegate {
     if (imageURL.absoluteString.length > 0) {
         if ([[AMPImageCache sharedImageCache] doesExistImageWithURL:imageURL]) {
-           UIImage *tweetImage  = [[AMPImageCache sharedImageCache] imageWithURL:imageURL];
-           self.image = tweetImage;
+            UIImage *tweetImage = [[AMPImageCache sharedImageCache] imageWithURL:imageURL];
+            self.image = tweetImage;
             if ([self.delegate performSelector:@selector(imageLoadForURL:didLoadFromCache:)]) {
                 [self.delegate imageLoadForURL:imageURL didLoadFromCache:YES];
-           }
+            }
         } else {
             self.delegate = delegate;
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {

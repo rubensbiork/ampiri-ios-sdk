@@ -1,6 +1,6 @@
 //
 //  CollectionViewCircleLayout.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 19/05/16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.
@@ -9,7 +9,7 @@
 #import "CollectionViewCircleLayout.h"
 #import "CollectionCircleLayoutAttributes.h"
 
-@interface CollectionViewCircleLayout()
+@interface CollectionViewCircleLayout ()
 @property (nonatomic, strong) NSMutableArray *attributesList;
 @end
 
@@ -84,9 +84,9 @@
     NSInteger endVisibleIndex = [self itemNumbers] - 1;
     CGFloat thetaAngle = [self theta];
     if (currAngle < -thetaAngle) {
-        startVisibleIndex = MAX(0, (int)floor((-thetaAngle - currAngle) / anglePerItem) - 2);
+        startVisibleIndex = MAX(0, (int) floor((-thetaAngle - currAngle) / anglePerItem) - 2);
     }
-    endVisibleIndex = MIN (endVisibleIndex, (int)(ceil((thetaAngle - currAngle)/ anglePerItem)) + 2 );
+    endVisibleIndex = MIN (endVisibleIndex, (int) (ceil((thetaAngle - currAngle) / anglePerItem)) + 2);
     if (endVisibleIndex < startVisibleIndex) {
         endVisibleIndex = 0;
         startVisibleIndex = 0;

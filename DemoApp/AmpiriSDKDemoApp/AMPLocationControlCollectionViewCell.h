@@ -1,6 +1,6 @@
 //
 //  AMPLocationControlCollectionViewCell.h
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 22/04/16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.
@@ -12,10 +12,10 @@
 
 @interface AMPLocationControlCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic, weak) IBOutlet AMPImageView *tweetImageView;
-@property(nonatomic, weak) IBOutlet UILabel *tweetTextLabel;
-@property(nonatomic, weak) IBOutlet UILabel *tweetNameLabel;
-@property(nonatomic, weak) IBOutlet UILabel *tweetDateLabel;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint *tweetImageHeightConstraint;
+@property (nonatomic, weak) IBOutlet AMPImageView *tweetImageView;
+@property (nonatomic, weak) IBOutlet UILabel *tweetTextLabel;
+@property (nonatomic, weak) IBOutlet UILabel *tweetNameLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tweetImageHeightConstraint;
 
 @end

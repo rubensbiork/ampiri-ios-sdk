@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Glispa GmbH. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
 

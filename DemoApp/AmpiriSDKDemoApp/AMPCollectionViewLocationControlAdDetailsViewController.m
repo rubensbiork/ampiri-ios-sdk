@@ -1,15 +1,13 @@
 //
 //  AMPCollectionViewLocationControlAdDetailsViewController.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa on 22/04/16.
 //  Copyright © 2016 Glispa GmbH All rights reserved.
 //
 
 #import "AMPCollectionViewLocationControlAdDetailsViewController.h"
-#import "AMPNativeAdDetailsViewController.h"
 #import "NativeBannerView.h"
-#import <AmpiriSDK/AmpiriSDK.h>
 #import "AMPLocationControlCollectionViewCell.h"
 #import "AMPDataUnitManager.h"
 #import "AMPDataUnit.h"
@@ -19,19 +17,20 @@
 #import "AMPAdContainerCollectionViewCell.h"
 //-----------
 
-static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-0000-000000000008";
-                               //only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
+static NSString *const kAMPNativeLocationControlAdUnitId = @"00000000-0000-0000-0000-000000000008";
+
+//only Facebook native ad = @"49676759-aec5-4c6e-928c-4f09cf86d3fd"
 @interface AMPCollectionViewLocationControlAdDetailsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CollectionViewCircleLayoutTwoKindDelegate, AMPCollectionViewStreamAdapterDelegate>
-@property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property(weak, nonatomic) IBOutlet UIButton *loadButton;
-@property(weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *loadButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *templateSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *layoutModeSwitch;
 
 @property (strong, nonatomic) UICollectionViewLayout *flowLayout;
 @property (strong, nonatomic) UICollectionViewLayout *customLayout;
 
-@property(strong, nonatomic) AMPCollectionViewStreamAdapter *adapter;
-@property(nonatomic, strong) NSMutableArray *dataSource;
+@property (strong, nonatomic) AMPCollectionViewStreamAdapter *adapter;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
@@ -52,9 +51,9 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     [self loadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(adsDidLoad)
-                                                 name:kAMPNotification_LocationControlAdsDidLoad
-                                               object:nil];
+                                          selector:@selector(adsDidLoad)
+                                          name:kAMPNotification_LocationControlAdsDidLoad
+                                          object:nil];
 }
 
 
@@ -74,7 +73,7 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isGridMode]) {
         //standard UICollectionViewFlowLayout, ad rendering will be from-the-box
         return [self standardCellForCollectionView:collectionView cellForItemAtIndexPath:indexPath withClass:[AMPLocationControlCollectionViewCell class]];
@@ -89,11 +88,11 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 }
 
 - (UICollectionViewCell *)standardCellForCollectionView:(UICollectionView *)collectionView
-                                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
-                                              withClass:(Class)cellClass {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath
+                          withClass:(Class)cellClass {
     
     AMPLocationControlCollectionViewCell *adCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(cellClass)
-                                                                                             forIndexPath:indexPath];
+                                                                   forIndexPath:indexPath];
     
     NSIndexPath *actualPath = indexPath;
     if (![self isGridMode]) {
@@ -111,32 +110,31 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
         adCell.tweetImageView.image = item.photo;
     }
     adCell.tweetTextLabel.text = item.specification;
-    adCell.tweetDateLabel.text = item.pinUnit;
     
     [adCell layoutIfNeeded];
     return adCell;
 }
 
 - (UICollectionViewCell *)adCellForCollectionView:(UICollectionView *)collectionView
-                           cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     AMPAdContainerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AMPAdContainerCollectionViewCell class])
-                                                                                       forIndexPath:indexPath];
+                                                             forIndexPath:indexPath];
     cell.layer.zPosition = 1000;
     return [self.adapter adRenderedAdCellAtIndexPath:indexPath inCell:cell];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+          layout:(UICollectionViewLayout *)collectionViewLayout
+          sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isGridMode]) {
-        return CGSizeMake((NSInteger)((self.collectionView.frame.size.width - 4) / 2), (NSInteger)((self.collectionView.frame.size.width - 4) / 1.1f));
+        return CGSizeMake((NSInteger) ((self.collectionView.frame.size.width - 4) / 2), (NSInteger) ((self.collectionView.frame.size.width - 4) / 1.1f));
     } else {
         NSLog(@"Unexpected step. Size should be stored in CollectionViewCircleLayout.");
         return CGSizeZero;
     }
 }
 
--(BOOL) collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
 
@@ -151,18 +149,18 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
     BOOL shouldUseGridMode = [self isGridMode];
     if (self.templateSwitch.selectedSegmentIndex == self.templateSwitch.numberOfSegments - 1) {
         self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
-                                                            parentViewController:self
-                                                                      identifier:kAMPNativeInFeedTestAdPlacementID
-                                                              useDefaultGridMode:shouldUseGridMode
-                                                                        delegate:self
-                                                         adViewClassForRendering:[NativeBannerView class]];
+                                              parentViewController:self
+                                              adUnitId:kAMPNativeLocationControlAdUnitId
+                                              useDefaultGridMode:shouldUseGridMode
+                                              delegate:self
+                                              adViewClassForRendering:[NativeBannerView class]];
     } else {
         self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
-                                                            parentViewController:self
-                                                                      identifier:kAMPNativeInFeedTestAdPlacementID
-                                                              useDefaultGridMode:shouldUseGridMode
-                                                                    templateType:self.templateSwitch.selectedSegmentIndex
-                                                           templateCustomization:nil];
+                                              parentViewController:self
+                                              adUnitId:kAMPNativeLocationControlAdUnitId
+                                              useDefaultGridMode:shouldUseGridMode
+                                              templateType:self.templateSwitch.selectedSegmentIndex
+                                              templateCustomization:nil];
     }
 
 }
@@ -206,17 +204,17 @@ static NSString *const kAMPNativeInFeedTestAdPlacementID = @"00000000-0000-0000-
 #pragma mark - @protocol CollectionViewCircleLayoutTwoKindDelegate implementation
 
 - (BOOL)shouldUseDefaultAttributeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return  self.adapter ? [self.adapter shouldDisplayAdAtIndexPath:indexPath] : NO;
+    return self.adapter ? [self.adapter shouldDisplayAdAtIndexPath:indexPath] : NO;
 }
 
 #pragma mark - Data
 
 - (void)loadData {
-    NSArray *units  = [AMPDataUnitManager createDataUnitList];
+    NSArray *units = [AMPDataUnitManager createDataUnitList];
     [self organizeData:units];
 }
 
-- (void)organizeData:(NSArray*)dataArray {
+- (void)organizeData:(NSArray *)dataArray {
     self.dataSource = [NSMutableArray arrayWithArray:dataArray];
 }
 

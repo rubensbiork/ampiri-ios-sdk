@@ -1,6 +1,6 @@
 //
 //  CollectionCircleLayoutAttributes.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 19/05/16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.
@@ -22,7 +22,7 @@
 
 - (void)setAngle:(CGFloat)angle {
     _angle = angle;
-    self.zIndex = (NSInteger)(angle * 1000000);
+    self.zIndex = (NSInteger) (angle * 1000000);
     self.transform = CGAffineTransformMakeRotation(angle);
 }
 

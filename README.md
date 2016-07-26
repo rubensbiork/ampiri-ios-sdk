@@ -181,14 +181,14 @@ Use the following methods in your UIViewController subclass:
 
 ```objective-c
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 success:(void (^)(AMPBannerView *banner))success
 failure:(void (^)(AMPError *error))failure;
 ```
 ```
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
 location:(CLLocation *)location
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 success:(void (^)(AMPBannerView *banner))success
 failure:(void (^)(AMPError *error))failure;
 ```
@@ -200,7 +200,7 @@ For example:
 
 [self.bannerView stop];
 self.bannerView = [[AmpiriSDK sharedSDK] loadBannerWithSize:AMP_BANNER_SIZE_320x50
-identifier:@"04c447d7-ffb8-4ba1-985e-4d2b9f88cd69"
+adUnitId:@"04c447d7-ffb8-4ba1-985e-4d2b9f88cd69"
 success:nil
 failure:nil];
 
@@ -254,14 +254,14 @@ Banner size is defined automatically, depending on the screen size.
 Use the following methods in your UIViewController subclass:
 
 ```objective-c
-- (void)loadFullscreenWithIdentifier:(NSString *)identifier
+- (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
 options:(AMPFullscreenLoadOptions)options
 forViewController:(UIViewController *)viewController
 success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
 failure:(void (^)(AMPError *error))failure;
 
 
-- (void)loadFullscreenWithIdentifier:(NSString *)identifier
+- (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
 location:(CLLocation *)location
 options:(AMPFullscreenLoadOptions)options
 forViewController:(UIViewController *)viewController
@@ -292,7 +292,7 @@ For example:
 
 @weakify(self); // libextobjc lib
 
-[[AmpiriSDK sharedSDK] loadFullscreenWithIdentifier:@"2cb34a73-0012-4264-9526-bde1fce2ba92"
+[[AmpiriSDK sharedSDK] loadFullscreenWithAdUnitId:@"2cb34a73-0012-4264-9526-bde1fce2ba92"
 options:AMPFullscreenLoadOptionsDefault
 forViewController:self
 success:^(AMPFullscreenBannerController *fullscreenController) {
@@ -327,11 +327,11 @@ ID of video ad space for testing (VIDEO): `"87f65c4c-f12d-4bb6-96fd-063fe30c4d69
 Use the following methods in your UIViewController subclass:
 
 ```objective-c
-- (void)loadVideoWithIdentifier:(NSString *)identifier
+- (void)loadVideoWithAdUnitId:(NSString *)adUnitId
 success:(void (^)(AMPVideoController *videoController))success
 failure:(void (^)(AMPError *error))failure;
 
-- (void)loadVideoWithIdentifier:(NSString *)identifier
+- (void)loadVideoWithAdUnitId:(NSString *)adUnitId
 location:(CLLocation *)location
 success:(void (^)(AMPVideoController *videoController))success
 failure:(void (^)(AMPError *error))failure;
@@ -344,7 +344,7 @@ For example:
 
 @weakify(self); // libextobjc lib
 
-[[AmpiriSDK sharedSDK] loadVideoWithIdentifier:@"87f65c4c-f12d-4bb6-96fd-063fe30c4d69"
+[[AmpiriSDK sharedSDK] loadVideoWithAdUnitId:@"87f65c4c-f12d-4bb6-96fd-063fe30c4d69"
 success:^(AMPVideoController *videoController) {
 @strongify(self); // libextobjc lib
 self.videoController = videoController;
@@ -382,7 +382,7 @@ The layout for a native ad is configured by developers with the help of the Inte
 Use the following methods in your UIViewController subclass:
 
 ```objective-c
-- (void)loadNativeAdWithIdentifier:(NSString *)identifier
+- (void)loadNativeAdWithAdUnitId:(NSString *)adUnitId
 parentViewController:(UIViewController *)viewController
 adViewClassForRendering:(Class)adViewClass
 success:(void (^)(UIView *adNativeViewContainer))success
@@ -401,7 +401,7 @@ a) XIB option - Design the layout of `MyNativeBannerView` in a separate XIB file
 
 b) Coding option - The implementation of `MyNativeBannerView` class must be performed by the creation and placement of UI controls using `<AMPNativeViewInterface>`, which `AMPNativeView` adopts
 
-3) Call loadNativeAdWithSize with the required parameters, where the identifier is your private advertising space ID and className is the name of the `MyNativeBannerView` class. After downloading the ad data, SDK initiates an instance of `MyNativeBannerView` class created in step 2 . After that the SDK renders native ad data in bound controls of this instance. Not all controls are filled this way, only the main ones: `ampTitleTextLabel, ampMainTextLabel,  ampIconImageView, ampMainMediaView`. When rendering is finished, the successful completion block with this instance will be invoked.
+3) Call loadNativeAdWithSize with the required parameters, where the `adUnitId` is your private advertising space ID and className is the name of the `MyNativeBannerView` class. After downloading the ad data, SDK initiates an instance of `MyNativeBannerView` class created in step 2 . After that the SDK renders native ad data in bound controls of this instance. Not all controls are filled this way, only the main ones: `ampTitleTextLabel, ampMainTextLabel,  ampIconImageView, ampMainMediaView`. When rendering is finished, the successful completion block with this instance will be invoked.
 
 4) Render the other controls, like `ampRatingView`, in ad view container.  
 **Note: property *nativeAd* of *MyNativeBannerView* class can be empty and you will not be able to get ad data for extra rendering**.
@@ -416,7 +416,7 @@ For example:
 #import <AmpiriSDK/AmpiriSDK.h>
 
 __weak typeof(self) weakSelf = self;
-[[AmpiriSDK sharedSDK] loadNativeAdWithIdentifier:@"7f900c7d-7ce3-4190-8e93-310053e70ca2" 
+[[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:@"7f900c7d-7ce3-4190-8e93-310053e70ca2" 
 parentViewController:self
 classForRendering:NSStringFromClass([MyNativeBannerView class])
 success:^(UIView *adNativeViewContainer) {
@@ -441,13 +441,13 @@ For the easiest integration you could use our customizable templates: *in-Feed* 
 ```objective-c
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
 parentViewController:(UIViewController *)viewController
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 templateType:(AMPNativeAdsTemplateType)templateType
 templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
 
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
 parentViewController:(UIViewController *)viewController
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 useDefaultGridMode:(BOOL)gridMode
 templateType:(AMPNativeAdsTemplateType)templateType
 templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;                                       
@@ -490,12 +490,12 @@ If you want to use your own representation of a native ad, use these methods:
 ```objective-c
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
 parentViewController:(UIViewController *)viewController
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 adViewClassForRendering:(Class)adViewClass;
 
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
 parentViewController:(UIViewController *)viewController
-identifier:(NSString *)identifier
+adUnitId:(NSString *)adUnitId
 useDefaultGridMode:(BOOL)gridMode
 delegate:(id<AMPCollectionViewStreamAdapterDelegate>)delegate
 adViewClassForRendering:(Class)adViewClass;                                      

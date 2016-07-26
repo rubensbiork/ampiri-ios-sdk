@@ -1,6 +1,6 @@
 //
 //  NativePlusView.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 2/10/16.
 //  Copyright © 2016 Glispa GmbH All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  AMPLocationControlTableViewCell.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 21/04/16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.

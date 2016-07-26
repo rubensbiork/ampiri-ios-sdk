@@ -1,6 +1,6 @@
 //
 //  AMPVideosDetailViewController.m
-//  AmpiriSDKTestApp
+//  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 04/12/15.
 //  Copyright © 2015 Glispa GmbH All rights reserved.
@@ -8,15 +8,15 @@
 
 #import "AMPVideosDetailViewController.h"
 
-static NSString* const kAMPTestVideoAdId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d69";
+static NSString *const kAMPVideoAdUnitId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d69";
 
 @interface AMPVideosDetailViewController ()
 
-@property(weak, nonatomic) IBOutlet UIButton *loadButton;
-@property(weak, nonatomic) IBOutlet UIButton *showButton;
-@property(weak, nonatomic) IBOutlet UIButton *loadAndShowButton;
+@property (weak, nonatomic) IBOutlet UIButton *loadButton;
+@property (weak, nonatomic) IBOutlet UIButton *showButton;
+@property (weak, nonatomic) IBOutlet UIButton *loadAndShowButton;
 
-@property(strong, nonatomic) AMPVideoController *videoController;
+@property (strong, nonatomic) AMPVideoController *videoController;
 
 @end
 
@@ -36,10 +36,10 @@ static NSString* const kAMPTestVideoAdId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d6
 
 
 - (IBAction)loadClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:kAMPTestVideoAdId
-                                           success:^(AMPVideoController *videoController) {
-                                               self.videoController = videoController;
-                                           } failure:nil];
+    [[AmpiriSDK sharedSDK] loadVideoWithAdUnitId:kAMPVideoAdUnitId
+                           success:^(AMPVideoController *videoController) {
+                               self.videoController = videoController;
+                           } failure:nil];
 }
 
 
@@ -49,10 +49,10 @@ static NSString* const kAMPTestVideoAdId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d6
 
 
 - (IBAction)loadAndShowClicked:(id)sender {
-    [[AmpiriSDK sharedSDK] loadVideoWithIdentifier:kAMPTestVideoAdId
-                                           success:^(AMPVideoController *videoController) {
-                                               [videoController showFromViewController:self];
-                                           } failure:nil];
+    [[AmpiriSDK sharedSDK] loadVideoWithAdUnitId:kAMPVideoAdUnitId
+                           success:^(AMPVideoController *videoController) {
+                               [videoController showFromViewController:self];
+                           } failure:nil];
 }
 
 @end

@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.1]
+### Changed
+- `adUnitId` is used instead of different names for identifying ad units across the test application, demo application and documentation
+- Facebook Audience SDK updated to 4.14.0
+- Google Mobile Ads SDK updated to 7.9.0
+
+### Fixed
+- Crash caused by Facebook Audience SDK
+- Click was not registered for some Chartboost video ads
+- Disappearance of Mopub ads in location control
+
 ## [3.2.0]
 ### Added
 - Facebook media view support (Native video and Carousel ads)
@@ -15,8 +26,10 @@ All notable changes to this project will be documented in this file.
 - Vungle SDK updated to 3.2.1
 - Chartboost SDK updated to 6.4.6
 - Mopub SDK updated to 4.7.0
+- Rating is hidden in ad if it’s 0
 
 ### Fixed
+- Startapp interstitials click handling
 - InMobi banners click handling
 - Admob ads display in Feed
 - Location control memory usage
@@ -48,3 +61,4 @@ All notable changes to this project will be documented in this file.
 
 [3.1.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.1.0
 [3.2.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.0
+[3.2.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.1

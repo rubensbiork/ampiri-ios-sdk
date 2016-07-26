@@ -13,7 +13,7 @@ class NativePlusView: AMPNativeView {
     static func desiredHeight() -> CGFloat {
         return 300.0
     }
-    
+
     override static func xibName() -> String {
         return NSStringFromClass(self)
     }
