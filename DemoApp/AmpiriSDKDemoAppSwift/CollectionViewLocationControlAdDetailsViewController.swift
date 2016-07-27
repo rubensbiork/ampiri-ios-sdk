@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AmpiriSDK
 
 class CollectionViewLocationControlAdDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CollectionViewCircleLayoutTwoKindDelegate {
 

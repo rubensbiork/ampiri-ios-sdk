@@ -21,6 +21,10 @@
 #import "AMPTableViewStreamAdapter.h"
 #import "AMPCollectionViewStreamAdapter.h"
 #import "AMPTemplateCustomizationObject.h"
+#import "AMPInfeedNativeAd.h"
+#import "AMPStatistics.h"
+#import "AMPStreamAdapter.h"
+#import "AMPMediaContainerView.h"
 
 @interface AmpiriSDK : NSObject
 

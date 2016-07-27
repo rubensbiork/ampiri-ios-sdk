@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AmpiriSDK
 
 class TableViewLocationControlAdDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
