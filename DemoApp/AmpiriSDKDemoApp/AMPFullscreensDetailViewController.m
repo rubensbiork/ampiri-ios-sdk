@@ -41,11 +41,11 @@ static NSString *const kAMPTestFullscreenAdUnitId = @"2cb34a73-0012-4264-9526-bd
 
 - (IBAction)loadClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithAdUnitId:kAMPTestFullscreenAdUnitId
-                           options:AMPFullscreenLoadOptionsDefault
-                           forViewController:self
-                           success:^(AMPFullscreenBannerController *fullscreenController) {
-                               self.fullscreenController = fullscreenController;
-                           } failure:nil];
+                                              options:AMPFullscreenLoadOptionsDefault
+                                    forViewController:self
+                                              success:^(AMPFullscreenBannerController *fullscreenController) {
+                                                  self.fullscreenController = fullscreenController;
+                                              } failure:nil];
 }
 
 
@@ -56,19 +56,19 @@ static NSString *const kAMPTestFullscreenAdUnitId = @"2cb34a73-0012-4264-9526-bd
 
 - (IBAction)loadAndShowClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithAdUnitId:kAMPTestFullscreenAdUnitId
-                           options:AMPFullscreenLoadOptionsShowAfterLoad
-                           forViewController:self
-                           success:nil
-                           failure:nil];
+                                              options:AMPFullscreenLoadOptionsShowAfterLoad
+                                    forViewController:self
+                                              success:nil
+                                              failure:nil];
 }
 
 
 - (IBAction)loadAndShowWithDelayClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadFullscreenWithAdUnitId:kAMPTestFullscreenAdUnitId
-                           options:AMPFullscreenLoadOptionsShowAfterLoadWithDelay
-                           forViewController:self
-                           success:nil
-                           failure:nil];
+                                              options:AMPFullscreenLoadOptionsShowAfterLoadWithDelay
+                                    forViewController:self
+                                              success:nil
+                                              failure:nil];
 }
 
 @end

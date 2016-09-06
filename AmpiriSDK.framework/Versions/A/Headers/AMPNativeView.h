@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AMPMediaContainerView.h"
+#import "AMPAdResource.h"
 
 @class AMPNativeAd;
 @class AMPStarRatingView;
@@ -25,13 +26,13 @@
 @property(weak, nonatomic) IBOutlet UIView *ampPrivacyInfoContainerView;
 @property(weak, nonatomic) IBOutlet AMPStarRatingView *ampRatingStarView;
 @property(strong, nonatomic, readonly) AMPNativeAd *nativeAd;
+@property(assign, nonatomic, readonly) AMPAdResourceType requiredResources;
 
 /**
  *  You should regster your custom ad to interaction for registration clicks and impressions
  *  @param viewController               - UIViewController where your ad is located
  */
 - (void)registerViewControllerForInteraction:(UIViewController *)viewController;
-
 @end
 
 @interface AMPNativeView : UIView <AMPNativeViewInterface>
@@ -45,6 +46,7 @@
 @property(weak, nonatomic) IBOutlet UIView *ampPrivacyInfoContainerView;
 @property(weak, nonatomic) IBOutlet AMPStarRatingView *ampRatingStarView;
 @property(strong, nonatomic, readonly) AMPNativeAd *nativeAd;
+@property(assign, nonatomic, readonly) AMPAdResourceType requiredResources;
 
 + (NSString *)xibName;
 

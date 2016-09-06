@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
     AMPErrorCodeDND,
     AMPErrorResponseStatus,
     AMPErrorInvalidHandshake,
+    AMPErrorTooFrequentAttempts,
+    AMPErrorInvalidAdUnitID
 } AMPErrorCode;
 
 @interface AMPError : NSError
@@ -27,7 +29,11 @@ typedef enum : NSUInteger {
 
 + (id)errorWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription;
 
++ (id)errorWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary*)userInfo;
+
 - (id)initWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription;
+
+- (id)initWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary*)userInfo;
 
 + (instancetype)amp_invalidHTTPStatusError;
 
@@ -42,5 +48,9 @@ typedef enum : NSUInteger {
 + (instancetype)amp_responseStatusError;
 
 + (instancetype)amp_InvalidHandshakeError;
+
++ (instancetype)amp_tooFrequentAttempts;
+
++ (instancetype)amp_invalidAdUnitID;
 
 @end

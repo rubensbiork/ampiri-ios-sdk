@@ -36,12 +36,20 @@
 - (NSIndexPath *)originalIndexPath:(NSIndexPath *)indexPath;
 
 /**
- *  Converts original index paths to view's index paths
+ *  Converts dataSource index paths to view's index paths
  *  @param indexPaths                - array of index paths which returned UITableView or UICollectionView dataSource/delegate methods
  *
- *  @return original index paths array without ad cells
+ *  @return actual indexPath in UITableView or UICollectionView considering added Ads
  */
 - (NSMutableArray *)streamIndexPathsFromDataSourceIndexPaths:(NSArray *)indexPaths;
+
+/**
+ *  Converts original index path to view's index path
+ *  @param indexPath                - index path which returned UITableView or UICollectionView dataSource/delegate methods
+ *
+ *  @return actual indexPath in UITableView or UICollectionView considering added Ads
+ */
+- (NSIndexPath*)streamIndexPathFromDataSourceIndexPath:(NSIndexPath*)indexPath;
 
 /**
  *  Should display ad at this index path

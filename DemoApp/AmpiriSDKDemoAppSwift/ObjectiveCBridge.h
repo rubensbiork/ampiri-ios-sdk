@@ -9,7 +9,6 @@
 #ifndef ObjectiveCBridge_h
 #define ObjectiveCBridge_h
 
-#import "UIViewController+AMPLoadFromSroryboard.h"
 #import "AMPLocationControlTableViewCell.h"
 #import "AMPLocationControlCollectionViewCell.h"
 #import "CollectionViewCircleLayout.h"

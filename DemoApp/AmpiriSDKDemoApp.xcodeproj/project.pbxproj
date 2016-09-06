@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		035284976FA4497F04403994 /* libPods-AmpiriSDKDemoAppSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4422879814DE1F695B0355EB /* libPods-AmpiriSDKDemoAppSwift.a */; };
+		4737A40669CACE146658F5E3 /* ContentStreamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737AEEE524D0D6F8595666D /* ContentStreamTableViewController.swift */; };
+		4737A5EABE4A724411F85515 /* CustomTemplateFlowLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A2827B63D6185518E770 /* CustomTemplateFlowLayoutCollectionViewController.swift */; };
+		4737A8AF775CE13ABFDAE284 /* InfeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A97E5B4C1EDB9669EDDF /* InfeedTableViewController.swift */; };
+		4737A8D0D3E3E16107E5CFD1 /* InfeedFlowLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A2A01815BA0721F65410 /* InfeedFlowLayoutCollectionViewController.swift */; };
+		4737A95F71CC501843E4176F /* CustomTemplateCustomLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A7A8CD6FE1D74A55B8D9 /* CustomTemplateCustomLayoutCollectionViewController.swift */; };
+		4737A96A8962F55AB5CDB431 /* BaseFlowLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A52A75BFB1A5E39A357D /* BaseFlowLayoutCollectionViewController.swift */; };
+		4737A97F01E7A82AA6A377DD /* BaseCustomLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737AACEC6925AC16E10C087 /* BaseCustomLayoutCollectionViewController.swift */; };
+		4737AA92A30C29F583C6BD9A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737AE25132105E99EBF2107 /* BaseTableViewController.swift */; };
+		4737ACFB5CEE608350A67975 /* CustomTemplateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A7904EB7BCFB0AF66E6C /* CustomTemplateTableViewController.swift */; };
+		4737AD267A68761F69AFB23E /* ContentStreamFlowLayoutCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4737A811423750A040F27442 /* ContentStreamFlowLayoutCollectionViewController.swift */; };
 		480DDE8B1D2D5D370070C222 /* AMPDataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581C1D2D35E500FC0921 /* AMPDataUnit.m */; };
 		480DDE8C1D2D5D370070C222 /* AMPDataUnitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581E1D2D35E500FC0921 /* AMPDataUnitManager.m */; };
 		4827581F1D2D35E500FC0921 /* AMPDataUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4827581C1D2D35E500FC0921 /* AMPDataUnit.m */; };
@@ -16,12 +26,9 @@
 		4856EDD71D06CBDE008E68F8 /* CollectionViewCircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD51D06CBDE008E68F8 /* CollectionViewCircleLayout.m */; };
 		4856EDDC1D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */; };
 		4856EDDD1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDDB1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m */; };
-		4856EDE31D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDE11D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift */; };
-		4856EDE41D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDE21D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift */; };
 		4856EDE51D0702BC008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD31D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m */; };
 		4856EDE61D0702BC008E68F8 /* CollectionViewCircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD51D06CBDE008E68F8 /* CollectionViewCircleLayout.m */; };
 		4856EDE71D070405008E68F8 /* AMPLocationControlCustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDDB1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m */; };
-		4856EDE81D070422008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */; };
 		7FBB4B441CA414F9002F7E15 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B291CA414F9002F7E15 /* AppDelegate.m */; };
 		7FBB4B451CA414F9002F7E15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2A1CA414F9002F7E15 /* LaunchScreen.xib */; };
 		7FBB4B461CA414F9002F7E15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B2C1CA414F9002F7E15 /* Images.xcassets */; };
@@ -36,8 +43,41 @@
 		7FBB4B501CA414F9002F7E15 /* NativeBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */; };
 		7FBB4B511CA414F9002F7E15 /* NativePlusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B401CA414F9002F7E15 /* NativePlusView.m */; };
 		7FBB4B521CA414F9002F7E15 /* NativePlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */; };
-		7FBB4B531CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */; };
 		869E3FB09D65C005EAA50731 /* libPods-AmpiriSDKDemoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10008039745A1979802EE2F3 /* libPods-AmpiriSDKDemoApp.a */; };
+		907180C31D707CEE002B1DFD /* AdvancedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907180C21D707CEE002B1DFD /* AdvancedCollectionViewController.swift */; };
+		907180C51D7080B2002B1DFD /* AdvancedCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907180C41D7080B2002B1DFD /* AdvancedCollectionViewController.xib */; };
+		908BEB591D5DF0EA00DF53D6 /* AMPBaseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BEB581D5DF0EA00DF53D6 /* AMPBaseTableViewController.xib */; };
+		908BEB5B1D5DF0F900DF53D6 /* NativeBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */; };
+		908BEB5C1D5DF0FC00DF53D6 /* NativeBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */; };
+		908BEB5D1D5DF10100DF53D6 /* NativePlusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B401CA414F9002F7E15 /* NativePlusView.m */; };
+		908BEB5E1D5DF10400DF53D6 /* NativePlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */; };
+		908BEB601D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BEB5F1D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib */; };
+		908BEB611D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BEB5F1D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib */; };
+		908BEB651D5E162200DF53D6 /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908BEB621D5E162200DF53D6 /* BaseCollectionViewController.swift */; };
+		908BEB691D5E181600DF53D6 /* BaseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BEB681D5E181600DF53D6 /* BaseTableViewController.xib */; };
+		908BEB6B1D5E245D00DF53D6 /* BaseCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BEB6A1D5E245D00DF53D6 /* BaseCollectionViewController.xib */; };
+		90B5AE4E1D5B289B00990614 /* AMPContentStreamTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE491D5B289B00990614 /* AMPContentStreamTableViewController.m */; };
+		90B5AE4F1D5B289B00990614 /* AMPCustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE4B1D5B289B00990614 /* AMPCustomTableViewController.m */; };
+		90B5AE501D5B289B00990614 /* AMPInfeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE4D1D5B289B00990614 /* AMPInfeedTableViewController.m */; };
+		90B5AE531D5B2E7F00990614 /* AMPInfeedEditableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE521D5B2E7F00990614 /* AMPInfeedEditableTableViewController.m */; };
+		90B5AE5B1D5B349900990614 /* AMPBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE5A1D5B349900990614 /* AMPBaseTableViewController.m */; };
+		90B5AE601D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE5D1D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.m */; };
+		90B5AE611D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE5F1D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.m */; };
+		90B5AE641D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE631D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.m */; };
+		90B5AE6C1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE6B1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.m */; };
+		90B5AE6F1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE6E1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.m */; };
+		90B5AE751D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE731D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.m */; };
+		90B5AE7C1D5C610E00990614 /* AMPBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE7B1D5C610E00990614 /* AMPBaseCollectionViewController.m */; };
+		90B5AE7D1D5C610E00990614 /* AMPBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B5AE7B1D5C610E00990614 /* AMPBaseCollectionViewController.m */; };
+		90B5AE7F1D5C6B4400990614 /* AMPAdContainerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */; };
+		90B5AE841D5CB4D600990614 /* AMPBaseCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE831D5CB4D600990614 /* AMPBaseCollectionViewController.xib */; };
+		90B5AE851D5CB4D600990614 /* AMPBaseCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE831D5CB4D600990614 /* AMPBaseCollectionViewController.xib */; };
+		90B5AE871D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE861D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib */; };
+		90B5AE881D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE861D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib */; };
+		90B5AE8A1D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE891D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib */; };
+		90B5AE8B1D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE891D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib */; };
+		90B5AE901D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE8F1D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib */; };
+		90B5AE911D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B5AE8F1D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib */; };
 		BF2CB9B61CEDBEDB00176530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9B51CEDBEDB00176530 /* AppDelegate.swift */; };
 		BF2CB9BB1CEDBEDB00176530 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF2CB9B91CEDBEDB00176530 /* Main.storyboard */; };
 		BF2CB9BD1CEDBEDB00176530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2CB9BC1CEDBEDB00176530 /* Assets.xcassets */; };
@@ -46,7 +86,6 @@
 		BF2CB9CC1CEDE6EE00176530 /* FullscreensDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9CB1CEDE6EE00176530 /* FullscreensDetailViewController.swift */; };
 		BF2CB9CE1CEDE94F00176530 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9CD1CEDE94F00176530 /* VideoDetailViewController.swift */; };
 		BF2CB9D01CEDEA1E00176530 /* BannersDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9CF1CEDEA1E00176530 /* BannersDetailViewController.swift */; };
-		BF2CB9D11CEDF19200176530 /* UIViewController+AMPLoadFromSroryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */; };
 		BF2CB9D21CEDFB4700176530 /* AMPLocationControlCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */; };
 		BF2CB9D31CEDFB4B00176530 /* AMPLocationControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686661CD8E52800B345ED /* AMPLocationControlTableViewCell.m */; };
 		BF2CB9D41CEDFB4F00176530 /* AMPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866D1CD8E60700B345ED /* AMPImageView.m */; };
@@ -57,8 +96,6 @@
 		BF2CB9E31CEE149800176530 /* NativeBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2CB9E21CEE149800176530 /* NativeBannerView.xib */; };
 		BF2CB9E51CEE154300176530 /* NativePlusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2CB9E41CEE154300176530 /* NativePlusView.xib */; };
 		BF2CB9E71CEE15E600176530 /* NativeAdDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2CB9E61CEE15E600176530 /* NativeAdDetailsViewController.swift */; };
-		BF66865A1CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686571CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m */; };
-		BF66865B1CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686591CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m */; };
 		BF6686671CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */; };
 		BF6686681CD8E52800B345ED /* AMPLocationControlTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6686661CD8E52800B345ED /* AMPLocationControlTableViewCell.m */; };
 		BF66866E1CD8E60700B345ED /* AMPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BF66866B1CD8E60700B345ED /* AMPImageCache.m */; };
@@ -70,6 +107,16 @@
 		10008039745A1979802EE2F3 /* libPods-AmpiriSDKDemoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmpiriSDKDemoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243D3F0E5B4E7B6605940856 /* Pods-AmpiriSDKDemoAppSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoAppSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoAppSwift/Pods-AmpiriSDKDemoAppSwift.release.xcconfig"; sourceTree = "<group>"; };
 		4422879814DE1F695B0355EB /* libPods-AmpiriSDKDemoAppSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmpiriSDKDemoAppSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4737A2827B63D6185518E770 /* CustomTemplateFlowLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTemplateFlowLayoutCollectionViewController.swift; path = CollectionView/CustomTemplateFlowLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737A2A01815BA0721F65410 /* InfeedFlowLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfeedFlowLayoutCollectionViewController.swift; path = CollectionView/InfeedFlowLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737A52A75BFB1A5E39A357D /* BaseFlowLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseFlowLayoutCollectionViewController.swift; path = CollectionView/BaseFlowLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737A7904EB7BCFB0AF66E6C /* CustomTemplateTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTemplateTableViewController.swift; path = TableView/CustomTemplateTableViewController.swift; sourceTree = "<group>"; };
+		4737A7A8CD6FE1D74A55B8D9 /* CustomTemplateCustomLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTemplateCustomLayoutCollectionViewController.swift; path = CollectionView/CustomTemplateCustomLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737A811423750A040F27442 /* ContentStreamFlowLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentStreamFlowLayoutCollectionViewController.swift; path = CollectionView/ContentStreamFlowLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737A97E5B4C1EDB9669EDDF /* InfeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfeedTableViewController.swift; path = TableView/InfeedTableViewController.swift; sourceTree = "<group>"; };
+		4737AACEC6925AC16E10C087 /* BaseCustomLayoutCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCustomLayoutCollectionViewController.swift; path = CollectionView/BaseCustomLayoutCollectionViewController.swift; sourceTree = "<group>"; };
+		4737AE25132105E99EBF2107 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = TableView/BaseTableViewController.swift; sourceTree = "<group>"; };
+		4737AEEE524D0D6F8595666D /* ContentStreamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentStreamTableViewController.swift; path = TableView/ContentStreamTableViewController.swift; sourceTree = "<group>"; };
 		4827581B1D2D35E500FC0921 /* AMPDataUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPDataUnit.h; sourceTree = "<group>"; };
 		4827581C1D2D35E500FC0921 /* AMPDataUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPDataUnit.m; sourceTree = "<group>"; };
 		4827581D1D2D35E500FC0921 /* AMPDataUnitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPDataUnitManager.h; sourceTree = "<group>"; };
@@ -82,8 +129,6 @@
 		4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPAdContainerCollectionViewCell.m; sourceTree = "<group>"; };
 		4856EDDA1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPLocationControlCustomCollectionViewCell.h; sourceTree = "<group>"; };
 		4856EDDB1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPLocationControlCustomCollectionViewCell.m; sourceTree = "<group>"; };
-		4856EDE11D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLocationControlAdDetailsViewController.swift; sourceTree = "<group>"; };
-		4856EDE21D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewLocationControlAdDetailsViewController.swift; sourceTree = "<group>"; };
 		7FBB4B281CA414F9002F7E15 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FBB4B291CA414F9002F7E15 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7FBB4B2B1CA414F9002F7E15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -107,11 +152,44 @@
 		7FBB4B3F1CA414F9002F7E15 /* NativePlusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePlusView.h; sourceTree = "<group>"; };
 		7FBB4B401CA414F9002F7E15 /* NativePlusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativePlusView.m; sourceTree = "<group>"; };
 		7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativePlusView.xib; sourceTree = "<group>"; };
-		7FBB4B421CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AMPLoadFromSroryboard.h"; sourceTree = "<group>"; };
-		7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AMPLoadFromSroryboard.m"; sourceTree = "<group>"; };
 		87C8667ABF8086CBAD89142B /* Pods-AmpiriSDKDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		9016A0171CA422CE00120744 /* AmpiriSDKDemoApp.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmpiriSDKDemoApp.pch; sourceTree = "<group>"; };
 		905097CC1C0F026E00C96364 /* AmpiriSDKDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmpiriSDKDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		907180C21D707CEE002B1DFD /* AdvancedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedCollectionViewController.swift; path = CollectionView/AdvancedCollectionViewController.swift; sourceTree = "<group>"; };
+		907180C41D7080B2002B1DFD /* AdvancedCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdvancedCollectionViewController.xib; path = AmpiriSDKDemoApp/AdvancedCollectionViewController.xib; sourceTree = SOURCE_ROOT; };
+		908BEB581D5DF0EA00DF53D6 /* AMPBaseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPBaseTableViewController.xib; sourceTree = "<group>"; };
+		908BEB5F1D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPLocationControlTableViewCell.xib; sourceTree = "<group>"; };
+		908BEB621D5E162200DF53D6 /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
+		908BEB681D5E181600DF53D6 /* BaseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseTableViewController.xib; path = ../AmpiriSDKDemoApp/BaseTableViewController.xib; sourceTree = "<group>"; };
+		908BEB6A1D5E245D00DF53D6 /* BaseCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseCollectionViewController.xib; path = AmpiriSDKDemoApp/BaseCollectionViewController.xib; sourceTree = SOURCE_ROOT; };
+		90B5AE481D5B289B00990614 /* AMPContentStreamTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPContentStreamTableViewController.h; path = TableView/AMPContentStreamTableViewController.h; sourceTree = "<group>"; };
+		90B5AE491D5B289B00990614 /* AMPContentStreamTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPContentStreamTableViewController.m; path = TableView/AMPContentStreamTableViewController.m; sourceTree = "<group>"; };
+		90B5AE4A1D5B289B00990614 /* AMPCustomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPCustomTableViewController.h; path = TableView/AMPCustomTableViewController.h; sourceTree = "<group>"; };
+		90B5AE4B1D5B289B00990614 /* AMPCustomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPCustomTableViewController.m; path = TableView/AMPCustomTableViewController.m; sourceTree = "<group>"; };
+		90B5AE4C1D5B289B00990614 /* AMPInfeedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPInfeedTableViewController.h; path = TableView/AMPInfeedTableViewController.h; sourceTree = "<group>"; };
+		90B5AE4D1D5B289B00990614 /* AMPInfeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPInfeedTableViewController.m; path = TableView/AMPInfeedTableViewController.m; sourceTree = "<group>"; };
+		90B5AE511D5B2E7F00990614 /* AMPInfeedEditableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPInfeedEditableTableViewController.h; path = TableView/AMPInfeedEditableTableViewController.h; sourceTree = "<group>"; };
+		90B5AE521D5B2E7F00990614 /* AMPInfeedEditableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPInfeedEditableTableViewController.m; path = TableView/AMPInfeedEditableTableViewController.m; sourceTree = "<group>"; };
+		90B5AE591D5B349900990614 /* AMPBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPBaseTableViewController.h; path = TableView/AMPBaseTableViewController.h; sourceTree = "<group>"; };
+		90B5AE5A1D5B349900990614 /* AMPBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPBaseTableViewController.m; path = TableView/AMPBaseTableViewController.m; sourceTree = "<group>"; };
+		90B5AE5C1D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPBaseFlowLayoutCollectionViewController.h; path = CollectionView/AMPBaseFlowLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE5D1D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPBaseFlowLayoutCollectionViewController.m; path = CollectionView/AMPBaseFlowLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE5E1D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPInfeedFlowLayoutCollectionViewController.h; path = CollectionView/AMPInfeedFlowLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE5F1D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPInfeedFlowLayoutCollectionViewController.m; path = CollectionView/AMPInfeedFlowLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE621D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPBaseCustomLayoutCollectionViewController.h; path = CollectionView/AMPBaseCustomLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE631D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPBaseCustomLayoutCollectionViewController.m; path = CollectionView/AMPBaseCustomLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE6A1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPContentStreamFlowLayoutCollectionViewController.h; path = CollectionView/AMPContentStreamFlowLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE6B1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPContentStreamFlowLayoutCollectionViewController.m; path = CollectionView/AMPContentStreamFlowLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE6D1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPCustomTemplateFlowLayoutCollectionViewController.h; path = CollectionView/AMPCustomTemplateFlowLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE6E1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPCustomTemplateFlowLayoutCollectionViewController.m; path = CollectionView/AMPCustomTemplateFlowLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE721D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPCustomTemplateCustomLayoutCollectionViewController.h; path = CollectionView/AMPCustomTemplateCustomLayoutCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE731D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPCustomTemplateCustomLayoutCollectionViewController.m; path = CollectionView/AMPCustomTemplateCustomLayoutCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE7A1D5C610E00990614 /* AMPBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPBaseCollectionViewController.h; sourceTree = "<group>"; };
+		90B5AE7B1D5C610E00990614 /* AMPBaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPBaseCollectionViewController.m; sourceTree = "<group>"; };
+		90B5AE831D5CB4D600990614 /* AMPBaseCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPBaseCollectionViewController.xib; sourceTree = "<group>"; };
+		90B5AE861D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPLocationControlCollectionViewCell.xib; sourceTree = "<group>"; };
+		90B5AE891D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPLocationControlCustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		90B5AE8F1D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPAdContainerCollectionViewCell.xib; sourceTree = "<group>"; };
 		9404BDCCFE487A2D7601723B /* Pods-AmpiriSDKDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoApp/Pods-AmpiriSDKDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AC8D928D79781E1488459F47 /* Pods-AmpiriSDKDemoAppSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmpiriSDKDemoAppSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AmpiriSDKDemoAppSwift/Pods-AmpiriSDKDemoAppSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		BF2CB9B31CEDBEDB00176530 /* AmpiriSDKDemoAppSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmpiriSDKDemoAppSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,10 +208,6 @@
 		BF2CB9E21CEE149800176530 /* NativeBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeBannerView.xib; sourceTree = "<group>"; };
 		BF2CB9E41CEE154300176530 /* NativePlusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativePlusView.xib; sourceTree = "<group>"; };
 		BF2CB9E61CEE15E600176530 /* NativeAdDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeAdDetailsViewController.swift; sourceTree = "<group>"; };
-		BF6686561CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPCollectionViewLocationControlAdDetailsViewController.h; sourceTree = "<group>"; };
-		BF6686571CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPCollectionViewLocationControlAdDetailsViewController.m; sourceTree = "<group>"; };
-		BF6686581CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPTableViewLocationControlAdDetailsViewController.h; sourceTree = "<group>"; };
-		BF6686591CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPTableViewLocationControlAdDetailsViewController.m; sourceTree = "<group>"; };
 		BF6686631CD8E52800B345ED /* AMPLocationControlCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPLocationControlCollectionViewCell.h; sourceTree = "<group>"; };
 		BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPLocationControlCollectionViewCell.m; sourceTree = "<group>"; };
 		BF6686651CD8E52800B345ED /* AMPLocationControlTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPLocationControlTableViewCell.h; sourceTree = "<group>"; };
@@ -195,6 +269,7 @@
 				BF6686691CD8E5D400B345ED /* Data */,
 				7FBB4B571CA41560002F7E15 /* Utils */,
 				7FBB4B561CA41549002F7E15 /* Views */,
+				7FBB4B551CA41538002F7E15 /* Ads */,
 				7FBB4B541CA41507002F7E15 /* Controllers */,
 				7FBB4B581CA4156D002F7E15 /* Supporting Files */,
 				7FBB4B2C1CA414F9002F7E15 /* Images.xcassets */,
@@ -206,44 +281,29 @@
 		7FBB4B541CA41507002F7E15 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7FBB4B551CA41538002F7E15 /* Detail */,
 				7FBB4B351CA414F9002F7E15 /* AMPMasterTableViewController.h */,
 				7FBB4B361CA414F9002F7E15 /* AMPMasterTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		7FBB4B551CA41538002F7E15 /* Detail */ = {
+		7FBB4B551CA41538002F7E15 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
-				BF6686561CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.h */,
-				BF6686571CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m */,
-				BF6686581CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.h */,
-				BF6686591CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m */,
-				7FBB4B381CA414F9002F7E15 /* AMPNativeAdDetailsViewController.h */,
-				7FBB4B391CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m */,
-				7FBB4B3A1CA414F9002F7E15 /* AMPVideosDetailViewController.h */,
-				7FBB4B3B1CA414F9002F7E15 /* AMPVideosDetailViewController.m */,
-				7FBB4B311CA414F9002F7E15 /* AMPBannersDetailViewController.h */,
-				7FBB4B321CA414F9002F7E15 /* AMPBannersDetailViewController.m */,
-				7FBB4B331CA414F9002F7E15 /* AMPFullscreensDetailViewController.h */,
-				7FBB4B341CA414F9002F7E15 /* AMPFullscreensDetailViewController.m */,
+				90B5AE3E1D5B223400990614 /* Banners */,
+				90B5AE411D5B225900990614 /* Interstitials */,
+				90B5AE401D5B224F00990614 /* Videos */,
+				90B5AE3F1D5B223F00990614 /* Native */,
 			);
-			name = Detail;
+			name = Ads;
 			sourceTree = "<group>";
 		};
 		7FBB4B561CA41549002F7E15 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF6686621CD8E4E400B345ED /* FeedCells */,
-				BF66866C1CD8E60700B345ED /* AMPImageView.h */,
-				BF66866D1CD8E60700B345ED /* AMPImageView.m */,
-				7FBB4B3C1CA414F9002F7E15 /* NativeBannerView.h */,
-				7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */,
-				7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */,
-				7FBB4B3F1CA414F9002F7E15 /* NativePlusView.h */,
-				7FBB4B401CA414F9002F7E15 /* NativePlusView.m */,
-				7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */,
+				90B5AE541D5B302B00990614 /* DataViews */,
+				BF6686621CD8E4E400B345ED /* NativeViews */,
+				90B5AE551D5B303400990614 /* UtilityViews */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -255,8 +315,6 @@
 				BF6686771CD8EBB700B345ED /* NSDictionary+AMPHasKey.m */,
 				BF66866A1CD8E60700B345ED /* AMPImageCache.h */,
 				BF66866B1CD8E60700B345ED /* AMPImageCache.m */,
-				7FBB4B421CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.h */,
-				7FBB4B431CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -292,6 +350,245 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		90B5AE3E1D5B223400990614 /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B311CA414F9002F7E15 /* AMPBannersDetailViewController.h */,
+				7FBB4B321CA414F9002F7E15 /* AMPBannersDetailViewController.m */,
+			);
+			name = Banners;
+			sourceTree = "<group>";
+		};
+		90B5AE3F1D5B223F00990614 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE431D5B226E00990614 /* Single Native ad */,
+				90B5AE421D5B226700990614 /* Location Control */,
+			);
+			name = Native;
+			sourceTree = "<group>";
+		};
+		90B5AE401D5B224F00990614 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B3A1CA414F9002F7E15 /* AMPVideosDetailViewController.h */,
+				7FBB4B3B1CA414F9002F7E15 /* AMPVideosDetailViewController.m */,
+			);
+			name = Videos;
+			sourceTree = "<group>";
+		};
+		90B5AE411D5B225900990614 /* Interstitials */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B331CA414F9002F7E15 /* AMPFullscreensDetailViewController.h */,
+				7FBB4B341CA414F9002F7E15 /* AMPFullscreensDetailViewController.m */,
+			);
+			name = Interstitials;
+			sourceTree = "<group>";
+		};
+		90B5AE421D5B226700990614 /* Location Control */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE451D5B228300990614 /* TableView */,
+				90B5AE441D5B227800990614 /* CollectionView */,
+			);
+			name = "Location Control";
+			sourceTree = "<group>";
+		};
+		90B5AE431D5B226E00990614 /* Single Native ad */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB4B381CA414F9002F7E15 /* AMPNativeAdDetailsViewController.h */,
+				7FBB4B391CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m */,
+			);
+			name = "Single Native ad";
+			sourceTree = "<group>";
+		};
+		90B5AE441D5B227800990614 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE7A1D5C610E00990614 /* AMPBaseCollectionViewController.h */,
+				90B5AE7B1D5C610E00990614 /* AMPBaseCollectionViewController.m */,
+				90B5AE471D5B229500990614 /* FlowLayout */,
+				90B5AE461D5B228B00990614 /* CustomLayout */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		90B5AE451D5B228300990614 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE591D5B349900990614 /* AMPBaseTableViewController.h */,
+				90B5AE5A1D5B349900990614 /* AMPBaseTableViewController.m */,
+				90B5AE4C1D5B289B00990614 /* AMPInfeedTableViewController.h */,
+				90B5AE4D1D5B289B00990614 /* AMPInfeedTableViewController.m */,
+				90B5AE511D5B2E7F00990614 /* AMPInfeedEditableTableViewController.h */,
+				90B5AE521D5B2E7F00990614 /* AMPInfeedEditableTableViewController.m */,
+				90B5AE481D5B289B00990614 /* AMPContentStreamTableViewController.h */,
+				90B5AE491D5B289B00990614 /* AMPContentStreamTableViewController.m */,
+				90B5AE4A1D5B289B00990614 /* AMPCustomTableViewController.h */,
+				90B5AE4B1D5B289B00990614 /* AMPCustomTableViewController.m */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		90B5AE461D5B228B00990614 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE621D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.h */,
+				90B5AE631D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.m */,
+				90B5AE721D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.h */,
+				90B5AE731D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.m */,
+			);
+			name = CustomLayout;
+			sourceTree = "<group>";
+		};
+		90B5AE471D5B229500990614 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE5C1D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.h */,
+				90B5AE5D1D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.m */,
+				90B5AE5E1D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.h */,
+				90B5AE5F1D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.m */,
+				90B5AE6A1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.h */,
+				90B5AE6B1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.m */,
+				90B5AE6D1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.h */,
+				90B5AE6E1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.m */,
+			);
+			name = FlowLayout;
+			sourceTree = "<group>";
+		};
+		90B5AE541D5B302B00990614 /* DataViews */ = {
+			isa = PBXGroup;
+			children = (
+				BF6686651CD8E52800B345ED /* AMPLocationControlTableViewCell.h */,
+				BF6686661CD8E52800B345ED /* AMPLocationControlTableViewCell.m */,
+				908BEB5F1D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib */,
+				4856EDDA1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.h */,
+				4856EDDB1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m */,
+				90B5AE891D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib */,
+				BF6686631CD8E52800B345ED /* AMPLocationControlCollectionViewCell.h */,
+				BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */,
+				90B5AE861D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib */,
+			);
+			name = DataViews;
+			sourceTree = "<group>";
+		};
+		90B5AE551D5B303400990614 /* UtilityViews */ = {
+			isa = PBXGroup;
+			children = (
+				BF66866C1CD8E60700B345ED /* AMPImageView.h */,
+				BF66866D1CD8E60700B345ED /* AMPImageView.m */,
+			);
+			name = UtilityViews;
+			sourceTree = "<group>";
+		};
+		90B5AE961D5DDB1800990614 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE9A1D5DDB3C00990614 /* Banners */,
+				90B5AE991D5DDB3400990614 /* Interstitials */,
+				90B5AE981D5DDB2E00990614 /* Videos */,
+				90B5AE971D5DDB1F00990614 /* Native */,
+			);
+			name = Ads;
+			sourceTree = "<group>";
+		};
+		90B5AE971D5DDB1F00990614 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE9C1D5DDB8B00990614 /* Single Native Ad */,
+				90B5AE9B1D5DDB8000990614 /* Location Control */,
+			);
+			name = Native;
+			sourceTree = "<group>";
+		};
+		90B5AE981D5DDB2E00990614 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				BF2CB9CD1CEDE94F00176530 /* VideoDetailViewController.swift */,
+			);
+			name = Videos;
+			sourceTree = "<group>";
+		};
+		90B5AE991D5DDB3400990614 /* Interstitials */ = {
+			isa = PBXGroup;
+			children = (
+				BF2CB9CB1CEDE6EE00176530 /* FullscreensDetailViewController.swift */,
+			);
+			name = Interstitials;
+			sourceTree = "<group>";
+		};
+		90B5AE9A1D5DDB3C00990614 /* Banners */ = {
+			isa = PBXGroup;
+			children = (
+				BF2CB9CF1CEDEA1E00176530 /* BannersDetailViewController.swift */,
+			);
+			name = Banners;
+			sourceTree = "<group>";
+		};
+		90B5AE9B1D5DDB8000990614 /* Location Control */ = {
+			isa = PBXGroup;
+			children = (
+				90B5AE9E1D5DDBA500990614 /* TableView */,
+				90B5AE9D1D5DDB9D00990614 /* CollectionView */,
+			);
+			name = "Location Control";
+			sourceTree = "<group>";
+		};
+		90B5AE9C1D5DDB8B00990614 /* Single Native Ad */ = {
+			isa = PBXGroup;
+			children = (
+				BF2CB9E61CEE15E600176530 /* NativeAdDetailsViewController.swift */,
+			);
+			name = "Single Native Ad";
+			sourceTree = "<group>";
+		};
+		90B5AE9D1D5DDB9D00990614 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				908BEB6A1D5E245D00DF53D6 /* BaseCollectionViewController.xib */,
+				907180C41D7080B2002B1DFD /* AdvancedCollectionViewController.xib */,
+				908BEB621D5E162200DF53D6 /* BaseCollectionViewController.swift */,
+				90B5AEA01D5DDBC100990614 /* FlowLayout */,
+				90B5AE9F1D5DDBB300990614 /* CustomLayout */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		90B5AE9E1D5DDBA500990614 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				908BEB681D5E181600DF53D6 /* BaseTableViewController.xib */,
+				4737AE25132105E99EBF2107 /* BaseTableViewController.swift */,
+				4737AEEE524D0D6F8595666D /* ContentStreamTableViewController.swift */,
+				4737A7904EB7BCFB0AF66E6C /* CustomTemplateTableViewController.swift */,
+				4737A97E5B4C1EDB9669EDDF /* InfeedTableViewController.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		90B5AE9F1D5DDBB300990614 /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4737AACEC6925AC16E10C087 /* BaseCustomLayoutCollectionViewController.swift */,
+				4737A7A8CD6FE1D74A55B8D9 /* CustomTemplateCustomLayoutCollectionViewController.swift */,
+			);
+			name = CustomLayout;
+			sourceTree = "<group>";
+		};
+		90B5AEA01D5DDBC100990614 /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4737A52A75BFB1A5E39A357D /* BaseFlowLayoutCollectionViewController.swift */,
+				4737A811423750A040F27442 /* ContentStreamFlowLayoutCollectionViewController.swift */,
+				4737A2827B63D6185518E770 /* CustomTemplateFlowLayoutCollectionViewController.swift */,
+				4737A2A01815BA0721F65410 /* InfeedFlowLayoutCollectionViewController.swift */,
+				907180C21D707CEE002B1DFD /* AdvancedCollectionViewController.swift */,
+			);
+			name = FlowLayout;
+			sourceTree = "<group>";
+		};
 		B4430A693409229A7E7AA39B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +603,7 @@
 		BF2CB9B41CEDBEDB00176530 /* AmpiriSDKDemoAppSwift */ = {
 			isa = PBXGroup;
 			children = (
+				90B5AE961D5DDB1800990614 /* Ads */,
 				BF2CB9DD1CEE030C00176530 /* NativeViews */,
 				BF2CB9C71CEDCCDD00176530 /* Contollers */,
 				BF2CB9C51CEDBEE700176530 /* Supporting Files */,
@@ -329,23 +627,9 @@
 		BF2CB9C71CEDCCDD00176530 /* Contollers */ = {
 			isa = PBXGroup;
 			children = (
-				BF2CB9CA1CEDE6CE00176530 /* Detail */,
 				BF2CB9C81CEDE53100176530 /* MasterTableViewController.swift */,
 			);
 			name = Contollers;
-			sourceTree = "<group>";
-		};
-		BF2CB9CA1CEDE6CE00176530 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				BF2CB9CB1CEDE6EE00176530 /* FullscreensDetailViewController.swift */,
-				BF2CB9CD1CEDE94F00176530 /* VideoDetailViewController.swift */,
-				BF2CB9CF1CEDEA1E00176530 /* BannersDetailViewController.swift */,
-				BF2CB9E61CEE15E600176530 /* NativeAdDetailsViewController.swift */,
-				4856EDE11D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift */,
-				4856EDE21D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift */,
-			);
-			name = Detail;
 			sourceTree = "<group>";
 		};
 		BF2CB9DD1CEE030C00176530 /* NativeViews */ = {
@@ -359,19 +643,22 @@
 			name = NativeViews;
 			sourceTree = "<group>";
 		};
-		BF6686621CD8E4E400B345ED /* FeedCells */ = {
+		BF6686621CD8E4E400B345ED /* NativeViews */ = {
 			isa = PBXGroup;
 			children = (
-				BF6686631CD8E52800B345ED /* AMPLocationControlCollectionViewCell.h */,
-				BF6686641CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m */,
-				BF6686651CD8E52800B345ED /* AMPLocationControlTableViewCell.h */,
-				BF6686661CD8E52800B345ED /* AMPLocationControlTableViewCell.m */,
 				4856EDD81D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.h */,
 				4856EDD91D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m */,
-				4856EDDA1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.h */,
-				4856EDDB1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m */,
+				90B5AE8F1D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib */,
+				7FBB4B3C1CA414F9002F7E15 /* NativeBannerView.h */,
+				7FBB4B3D1CA414F9002F7E15 /* NativeBannerView.m */,
+				7FBB4B3E1CA414F9002F7E15 /* NativeBannerView.xib */,
+				7FBB4B3F1CA414F9002F7E15 /* NativePlusView.h */,
+				7FBB4B401CA414F9002F7E15 /* NativePlusView.m */,
+				7FBB4B411CA414F9002F7E15 /* NativePlusView.xib */,
+				90B5AE831D5CB4D600990614 /* AMPBaseCollectionViewController.xib */,
+				908BEB581D5DF0EA00DF53D6 /* AMPBaseTableViewController.xib */,
 			);
-			name = FeedCells;
+			name = NativeViews;
 			sourceTree = "<group>";
 		};
 		BF6686691CD8E5D400B345ED /* Data */ = {
@@ -471,10 +758,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B5AE841D5CB4D600990614 /* AMPBaseCollectionViewController.xib in Resources */,
+				90B5AE8A1D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib in Resources */,
+				908BEB601D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib in Resources */,
 				7FBB4B501CA414F9002F7E15 /* NativeBannerView.xib in Resources */,
+				908BEB591D5DF0EA00DF53D6 /* AMPBaseTableViewController.xib in Resources */,
 				7FBB4B451CA414F9002F7E15 /* LaunchScreen.xib in Resources */,
+				90B5AE901D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib in Resources */,
 				7FBB4B461CA414F9002F7E15 /* Images.xcassets in Resources */,
 				7FBB4B521CA414F9002F7E15 /* NativePlusView.xib in Resources */,
+				90B5AE871D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib in Resources */,
 				7FBB4B491CA414F9002F7E15 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,10 +776,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908BEB691D5E181600DF53D6 /* BaseTableViewController.xib in Resources */,
+				90B5AE851D5CB4D600990614 /* AMPBaseCollectionViewController.xib in Resources */,
+				90B5AE8B1D5CC0AA00990614 /* AMPLocationControlCustomCollectionViewCell.xib in Resources */,
 				BF2CB9E51CEE154300176530 /* NativePlusView.xib in Resources */,
 				BF2CB9C01CEDBEDB00176530 /* LaunchScreen.storyboard in Resources */,
+				90B5AE911D5CC0F100990614 /* AMPAdContainerCollectionViewCell.xib in Resources */,
 				BF2CB9E31CEE149800176530 /* NativeBannerView.xib in Resources */,
 				BF2CB9BD1CEDBEDB00176530 /* Assets.xcassets in Resources */,
+				908BEB5C1D5DF0FC00DF53D6 /* NativeBannerView.xib in Resources */,
+				907180C51D7080B2002B1DFD /* AdvancedCollectionViewController.xib in Resources */,
+				908BEB5E1D5DF10400DF53D6 /* NativePlusView.xib in Resources */,
+				908BEB611D5DF42400DF53D6 /* AMPLocationControlTableViewCell.xib in Resources */,
+				90B5AE881D5CC02E00990614 /* AMPLocationControlCollectionViewCell.xib in Resources */,
+				908BEB6B1D5E245D00DF53D6 /* BaseCollectionViewController.xib in Resources */,
 				BF2CB9BB1CEDBEDB00176530 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,28 +894,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B5AE501D5B289B00990614 /* AMPInfeedTableViewController.m in Sources */,
 				BF6686671CD8E52800B345ED /* AMPLocationControlCollectionViewCell.m in Sources */,
 				7FBB4B4D1CA414F9002F7E15 /* AMPNativeAdDetailsViewController.m in Sources */,
+				90B5AE531D5B2E7F00990614 /* AMPInfeedEditableTableViewController.m in Sources */,
 				4856EDDC1D06CC7B008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */,
+				90B5AE4E1D5B289B00990614 /* AMPContentStreamTableViewController.m in Sources */,
 				7FBB4B481CA414F9002F7E15 /* main.m in Sources */,
 				4856EDDD1D06CC7B008E68F8 /* AMPLocationControlCustomCollectionViewCell.m in Sources */,
-				BF66865B1CD8DF0E00B345ED /* AMPTableViewLocationControlAdDetailsViewController.m in Sources */,
 				7FBB4B441CA414F9002F7E15 /* AppDelegate.m in Sources */,
+				90B5AE6C1D5B5B4500990614 /* AMPContentStreamFlowLayoutCollectionViewController.m in Sources */,
 				BF66866F1CD8E60700B345ED /* AMPImageView.m in Sources */,
-				BF66865A1CD8DF0E00B345ED /* AMPCollectionViewLocationControlAdDetailsViewController.m in Sources */,
-				7FBB4B531CA414F9002F7E15 /* UIViewController+AMPLoadFromSroryboard.m in Sources */,
 				4856EDD61D06CBDE008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */,
+				90B5AE611D5B490000990614 /* AMPInfeedFlowLayoutCollectionViewController.m in Sources */,
 				BF6686681CD8E52800B345ED /* AMPLocationControlTableViewCell.m in Sources */,
 				BF6686781CD8EBB700B345ED /* NSDictionary+AMPHasKey.m in Sources */,
 				7FBB4B4E1CA414F9002F7E15 /* AMPVideosDetailViewController.m in Sources */,
 				4856EDD71D06CBDE008E68F8 /* CollectionViewCircleLayout.m in Sources */,
 				7FBB4B4A1CA414F9002F7E15 /* AMPBannersDetailViewController.m in Sources */,
+				90B5AE601D5B490000990614 /* AMPBaseFlowLayoutCollectionViewController.m in Sources */,
+				90B5AE751D5B6C7A00990614 /* AMPCustomTemplateCustomLayoutCollectionViewController.m in Sources */,
 				7FBB4B4F1CA414F9002F7E15 /* NativeBannerView.m in Sources */,
+				90B5AE4F1D5B289B00990614 /* AMPCustomTableViewController.m in Sources */,
 				7FBB4B4C1CA414F9002F7E15 /* AMPMasterTableViewController.m in Sources */,
 				BF66866E1CD8E60700B345ED /* AMPImageCache.m in Sources */,
+				90B5AE6F1D5B5BE900990614 /* AMPCustomTemplateFlowLayoutCollectionViewController.m in Sources */,
+				90B5AE5B1D5B349900990614 /* AMPBaseTableViewController.m in Sources */,
 				482758201D2D35E500FC0921 /* AMPDataUnitManager.m in Sources */,
 				7FBB4B4B1CA414F9002F7E15 /* AMPFullscreensDetailViewController.m in Sources */,
+				90B5AE641D5B4B9000990614 /* AMPBaseCustomLayoutCollectionViewController.m in Sources */,
 				7FBB4B511CA414F9002F7E15 /* NativePlusView.m in Sources */,
+				90B5AE7C1D5C610E00990614 /* AMPBaseCollectionViewController.m in Sources */,
 				4827581F1D2D35E500FC0921 /* AMPDataUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,20 +934,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF2CB9D21CEDFB4700176530 /* AMPLocationControlCollectionViewCell.m in Sources */,
-				BF2CB9D11CEDF19200176530 /* UIViewController+AMPLoadFromSroryboard.m in Sources */,
 				480DDE8C1D2D5D370070C222 /* AMPDataUnitManager.m in Sources */,
-				4856EDE81D070422008E68F8 /* AMPAdContainerCollectionViewCell.m in Sources */,
 				BF2CB9CC1CEDE6EE00176530 /* FullscreensDetailViewController.swift in Sources */,
 				BF2CB9D01CEDEA1E00176530 /* BannersDetailViewController.swift in Sources */,
+				90B5AE7F1D5C6B4400990614 /* AMPAdContainerCollectionViewCell.m in Sources */,
 				4856EDE51D0702BC008E68F8 /* CollectionCircleLayoutAttributes.m in Sources */,
 				BF2CB9DF1CEE12F000176530 /* NativePlusView.swift in Sources */,
 				BF2CB9D31CEDFB4B00176530 /* AMPLocationControlTableViewCell.m in Sources */,
 				4856EDE61D0702BC008E68F8 /* CollectionViewCircleLayout.m in Sources */,
 				BF2CB9D81CEDFC1600176530 /* AMPImageCache.m in Sources */,
 				BF2CB9D41CEDFB4F00176530 /* AMPImageView.m in Sources */,
+				908BEB5D1D5DF10100DF53D6 /* NativePlusView.m in Sources */,
 				480DDE8B1D2D5D370070C222 /* AMPDataUnit.m in Sources */,
-				4856EDE31D0701A4008E68F8 /* CollectionViewLocationControlAdDetailsViewController.swift in Sources */,
-				4856EDE41D0701A4008E68F8 /* TableViewLocationControlAdDetailsViewController.swift in Sources */,
+				908BEB5B1D5DF0F900DF53D6 /* NativeBannerView.m in Sources */,
+				90B5AE7D1D5C610E00990614 /* AMPBaseCollectionViewController.m in Sources */,
 				4856EDE71D070405008E68F8 /* AMPLocationControlCustomCollectionViewCell.m in Sources */,
 				BF2CB9C91CEDE53100176530 /* MasterTableViewController.swift in Sources */,
 				BF2CB9CE1CEDE94F00176530 /* VideoDetailViewController.swift in Sources */,
@@ -643,6 +955,18 @@
 				BF2CB9B61CEDBEDB00176530 /* AppDelegate.swift in Sources */,
 				BF2CB9E11CEE142C00176530 /* NativeBannerView.swift in Sources */,
 				BF2CB9E71CEE15E600176530 /* NativeAdDetailsViewController.swift in Sources */,
+				4737AA92A30C29F583C6BD9A /* BaseTableViewController.swift in Sources */,
+				4737A40669CACE146658F5E3 /* ContentStreamTableViewController.swift in Sources */,
+				4737ACFB5CEE608350A67975 /* CustomTemplateTableViewController.swift in Sources */,
+				4737A8AF775CE13ABFDAE284 /* InfeedTableViewController.swift in Sources */,
+				907180C31D707CEE002B1DFD /* AdvancedCollectionViewController.swift in Sources */,
+				908BEB651D5E162200DF53D6 /* BaseCollectionViewController.swift in Sources */,
+				4737A97F01E7A82AA6A377DD /* BaseCustomLayoutCollectionViewController.swift in Sources */,
+				4737A95F71CC501843E4176F /* CustomTemplateCustomLayoutCollectionViewController.swift in Sources */,
+				4737A96A8962F55AB5CDB431 /* BaseFlowLayoutCollectionViewController.swift in Sources */,
+				4737AD267A68761F69AFB23E /* ContentStreamFlowLayoutCollectionViewController.swift in Sources */,
+				4737A5EABE4A724411F85515 /* CustomTemplateFlowLayoutCollectionViewController.swift in Sources */,
+				4737A8D0D3E3E16107E5CFD1 /* InfeedFlowLayoutCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +1099,7 @@
 			baseConfigurationReference = 9404BDCCFE487A2D7601723B /* Pods-AmpiriSDKDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -820,6 +1145,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.glispa.mediation.test;
 				PRODUCT_NAME = AmpiriSDKDemoApp;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -828,6 +1154,7 @@
 			baseConfigurationReference = 87C8667ABF8086CBAD89142B /* Pods-AmpiriSDKDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -10,15 +10,19 @@
 #import "AMPBannersDetailViewController.h"
 #import "AMPFullscreensDetailViewController.h"
 #import "AMPVideosDetailViewController.h"
-#import "UIViewController+AMPLoadFromSroryboard.h"
 #import "AMPNativeAdDetailsViewController.h"
-#import "AMPTableViewLocationControlAdDetailsViewController.h"
-#import "AMPCollectionViewLocationControlAdDetailsViewController.h"
-
+#import "AMPContentStreamTableViewController.h"
+#import "AMPCustomTableViewController.h"
+#import "AMPInfeedTableViewController.h"
+#import "AMPInfeedEditableTableViewController.h"
+#import "AMPInfeedFlowLayoutCollectionViewController.h"
+#import "AMPContentStreamFlowLayoutCollectionViewController.h"
+#import "AMPCustomTemplateFlowLayoutCollectionViewController.h"
+#import "AMPCustomTemplateCustomLayoutCollectionViewController.h"
 
 @interface AMPMasterTableViewController ()
 
-@property (nonatomic, strong, readonly) NSArray *adItems;
+@property (nonatomic, strong) NSArray *adItems;
 
 @end
 
@@ -29,7 +33,33 @@
 
 
 - (NSArray *)adItems {
-    return @[@"BANNERS", @"INTERSTITIALS", @"VIDEOS", @"NATIVE", @"LOCATION CONTROL"];
+    if (!_adItems) {
+        NSMutableArray *mutableAdItems = [NSMutableArray arrayWithArray:
+                                                                 @[@{@"title" : @"BANNERS", @"controller" : [AMPBannersDetailViewController class]},
+                                                                         @{@"title" : @"INTERSTITIALS", @"controller" : [AMPFullscreensDetailViewController class]},
+                                                                         @{@"title" : @"VIDEOS", @"controller" : [AMPVideosDetailViewController class]},
+                                                                         @{@"title" : @"NATIVE", @"controller" : [AMPNativeAdDetailsViewController class]}]];
+        [mutableAdItems addObject:@{@"title" : @"LOCATION CONTROL", @"adItems" : @[
+                @{@"title" : @"UITableView Examples",
+                        @"adItems" : @[
+                        @{@"title" : @"Infeed", @"xib_controller" : [AMPInfeedTableViewController class], @"xib_name" : @"AMPBaseTableViewController"},
+                        @{@"title" : @"Infeed (editable)", @"xib_controller" : [AMPInfeedEditableTableViewController class], @"xib_name" : @"AMPBaseTableViewController"},
+                        @{@"title" : @"Content stream", @"xib_controller" : [AMPContentStreamTableViewController class], @"xib_name" : @"AMPBaseTableViewController"},
+                        @{@"title" : @"Custom view", @"xib_controller" : [AMPCustomTableViewController class], @"xib_name" : @"AMPBaseTableViewController"}
+                ]},
+                @{@"title" : @"UICollectionView Examples",
+                        @"adItems" : @[
+                        @{@"title" : @"Flow layout", @"adItems" : @[
+                                @{@"title" : @"Infeed", @"xib_controller" : [AMPInfeedFlowLayoutCollectionViewController class], @"xib_name" : @"AMPBaseCollectionViewController"},
+                                @{@"title" : @"Content stream", @"xib_controller" : [AMPContentStreamFlowLayoutCollectionViewController class], @"xib_name" : @"AMPBaseCollectionViewController"},
+                                @{@"title" : @"Custom template", @"xib_controller" : [AMPCustomTemplateFlowLayoutCollectionViewController class], @"xib_name" : @"AMPBaseCollectionViewController"}
+                        ]},
+                        @{@"title" : @"Custom template", @"xib_controller" : [AMPCustomTemplateCustomLayoutCollectionViewController class], @"xib_name" : @"AMPBaseCollectionViewController"}
+                ]}
+        ]}];
+        _adItems = [NSArray arrayWithArray:mutableAdItems];
+    }
+    return _adItems;
 }
 
 
@@ -41,49 +71,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = self.adItems[indexPath.row];
+    cell.textLabel.text = self.adItems[indexPath.row][@"title"];
     
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            [self.splitViewController showDetailViewController:[AMPBannersDetailViewController amp_loadFromStoryboardWithName:@"Main"]
-                                      sender:nil];
-            break;
-        
-        case 1:
-            [self.splitViewController showDetailViewController:[AMPFullscreensDetailViewController amp_loadFromStoryboardWithName:@"Main"]
-                                      sender:nil];
-            break;
-
-        case 2:
-            [self.splitViewController showDetailViewController:[AMPVideosDetailViewController amp_loadFromStoryboardWithName:@"Main"]
-                                      sender:nil];
-            break;
-
-        case 3:
-            [self.splitViewController showDetailViewController:[AMPNativeAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]
-                                      sender:nil];
-            break;
-        
-        case 4: {
-            UITabBarController *tabBarController = [[UITabBarController alloc] init];
-            tabBarController.viewControllers = @[[AMPTableViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"], [AMPCollectionViewLocationControlAdDetailsViewController amp_loadFromStoryboardWithName:@"Main"]];
-            
-            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem *_Nonnull obj,
-                    NSUInteger idx,
-                    BOOL *_Nonnull stop) {
-                obj.title = idx == 0 ? @"Table" : @"Collection";
-            }];
-            [self.splitViewController showDetailViewController:tabBarController sender:nil];
-            break;
-        }
-
-        default:
-            break;
+    NSDictionary *rowDetails = self.adItems[indexPath.row];
+    if (rowDetails[@"controller"]) {
+        UIViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
+                instantiateViewControllerWithIdentifier:NSStringFromClass(rowDetails[@"controller"])];
+        viewController.title = rowDetails[@"title"];
+        [self.navigationController showDetailViewController:viewController sender:nil];
+    } else if (rowDetails[@"xib_controller"] && rowDetails[@"xib_name"]) {
+        Class ViewControllerClass = rowDetails[@"xib_controller"];
+        UIViewController *viewController = (UIViewController *) [[ViewControllerClass alloc] initWithNibName:rowDetails[@"xib_name"] bundle:[NSBundle mainBundle]];
+        [self.navigationController showDetailViewController:viewController sender:nil];
+    } else if (rowDetails[@"adItems"]) {
+        AMPMasterTableViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]]
+                instantiateViewControllerWithIdentifier:NSStringFromClass([AMPMasterTableViewController class])];
+        viewController.adItems = rowDetails[@"adItems"];
+        viewController.title = rowDetails[@"title"];
+        [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 

@@ -84,16 +84,16 @@ To show **native** ads from client-side mediated networks in your application yo
 ```
 
 
-**Warning: Ampiri SDK 3.1.0 was designed and verified to work correctly with the following versions of 3rd party ad network SDKs:**
+**Warning: Ampiri SDK 3.2.2 was designed and verified to work correctly with the following versions of 3rd party ad network SDKs:**
 
-* AdColony – 2.6.1
-* Chartboost – 6.4.4
-* Google Mobile Ads – 7.8.1
+* AdColony – 2.6.2
+* Chartboost – 6.4.6
+* Google Mobile Ads – 7.9.0
 * NativeX – 5.5.6.3
 * Unity Ads – 1.5.6
 * Vungle – 3.2.0.1
-* Facebook Audience – 4.12.0
-* MoPub – 4.6.0
+* Facebook Audience – 4.14.0
+* MoPub – 4.7.0
 * AppLovin – 3.1
 
 We do not guarantee stable and correct behavior of the Ampiri SDK if you manually add other versions of ad network SDKs.
@@ -159,7 +159,7 @@ TO DO list if you have a linking problem:
 - Delete the contents (not the whole folder) of /var/folders
 - Restart Computer
 
-### **7.** ATS settings in iOS 9.0
+### **7.** ATS settings in iOS 9.0 and greater
 Since the Ampiri SDK uses 3rd party networks to load ads and we can't control that these networks load their content via https, you should disable ATS for your application to ensure correct behavior of the Ampiri SDK. To disable ATS add the following settings to your application Info.plist file:
 
 ```
@@ -448,7 +448,6 @@ templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomiz
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
 parentViewController:(UIViewController *)viewController
 adUnitId:(NSString *)adUnitId
-useDefaultGridMode:(BOOL)gridMode
 templateType:(AMPNativeAdsTemplateType)templateType
 templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;                                       
 ```

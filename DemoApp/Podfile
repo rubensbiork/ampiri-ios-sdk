@@ -1,16 +1,15 @@
 source 'https://github.com/CocoaPods/Specs.git'
 source 'git@gitlab.glispa.com:ampiri/Specs.git'
-
 platform :ios, '8.0'
 
 workspace 'AmpiriSDKDemoApp'
 target 'AmpiriSDKDemoApp' do
-  pod 'ampiri-ios-dev', '~> 3.2.1-100'
+  pod 'ampiri-ios-dev', '~> 3.2.2-1'
 
 end
 
 target 'AmpiriSDKDemoAppSwift' do
-  pod 'ampiri-ios-dev', '~> 3.2.1-100'
+  pod 'ampiri-ios-dev', '~> 3.2.2-1'
 end
 
 post_install do |installer|

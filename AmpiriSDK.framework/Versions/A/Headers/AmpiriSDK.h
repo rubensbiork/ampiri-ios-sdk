@@ -20,12 +20,14 @@
 
 #import "AMPTableViewStreamAdapter.h"
 #import "AMPCollectionViewStreamAdapter.h"
+#import "AMPCollectionViewStreamAdapter+CellRendering.h"
 #import "AMPTemplateCustomizationObject.h"
 #import "AMPInfeedNativeAd.h"
 #import "AMPStatistics.h"
 #import "AMPStreamAdapter.h"
 #import "AMPMediaContainerView.h"
-
+#import "UITableView+AMPLocationControl.h"
+#import "UICollectionView+AMPLocationControl.h"
 @interface AmpiriSDK : NSObject
 
 /**
@@ -169,7 +171,6 @@
  *  @param collectionView           - UICollectionView which should content native ads
  *  @param viewController           - UIViewController which delegate collectionView
  *  @param adUnitId                 - your ad unit id
- *  @param gridMode                 - set "YES" if you use UICollectionViewFlowLayout, set "NO" if you use you own custom UICollectionViewLayout
  *  @param templateType             - type of native ads representation template
  *  @param templateCustomization    - (optional) customization for ads representation template
  *
@@ -178,7 +179,6 @@
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
                                                   parentViewController:(UIViewController *)viewController
                                                               adUnitId:(NSString *)adUnitId
-                                                    useDefaultGridMode:(BOOL)gridMode
                                                           templateType:(AMPNativeAdsTemplateType)templateType
                                                  templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
 

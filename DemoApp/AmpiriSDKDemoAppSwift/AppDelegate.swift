@@ -8,6 +8,7 @@
 
 import UIKit
 import AmpiriSDK
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

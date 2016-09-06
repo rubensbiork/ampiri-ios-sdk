@@ -1,6 +1,23 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.2]
+### Added
+- New simplified demo application
+- Multiple ad anits support
+- Cool down timeout for ad requests
+
+### Changed
+- AdColony SDK updated to 2.6.2
+- Chartboost SDK updated to 6.4.6
+- Google Mobile Ads SDK updated to 7.9.0
+- Mopub SDK updated to 4.7.0
+- `useDefaultGridMode` parameter removed from `UICollectionView` templated location control
+
+### Fixed
+- Location control various UI bugs
+- Location control support for data source dynamic changes
+
 ## [3.2.1]
 ### Changed
 - `adUnitId` is used instead of different names for identifying ad units across the test application, demo application and documentation
@@ -62,3 +79,4 @@ All notable changes to this project will be documented in this file.
 [3.1.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.1.0
 [3.2.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.0
 [3.2.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.1
+[3.2.2]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.2

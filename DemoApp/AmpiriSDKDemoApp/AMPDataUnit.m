@@ -9,7 +9,7 @@
 #import "AMPDataUnit.h"
 
 @interface AMPDataUnit ()
-@property (strong, nonatomic) UIImage *photo;
+@property (strong, nonatomic) NSString *photo;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *specification;
 @end
@@ -19,7 +19,7 @@
 @synthesize name = _name;
 @synthesize specification = _specification;
 
-- (instancetype)initDataUnitWithName:(NSString *)name andSpecification:(NSString *)specification andPhoto:(UIImage *)photo {
+- (instancetype)initDataUnitWithName:(NSString *)name andSpecification:(NSString *)specification andPhoto:(NSString *)photo {
     if (self = [super init]) {
         self.name = name;
         self.specification = specification;

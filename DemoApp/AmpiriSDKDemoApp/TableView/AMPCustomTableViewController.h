@@ -1,5 +1,5 @@
 //
-//  AMPTableViewLocationControlAdDetailsViewController.h
+//  AMPCustomTableViewController.h
 //  AmpiriSDKDemoApp
 //
 //  Created by Glispa GmbH on 2/15/16.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMPBaseTableViewController.h"
 
-
-@interface AMPTableViewLocationControlAdDetailsViewController : UIViewController
+@interface AMPCustomTableViewController : AMPBaseTableViewController
 
 @end

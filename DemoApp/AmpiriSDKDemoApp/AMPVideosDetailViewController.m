@@ -37,9 +37,9 @@ static NSString *const kAMPVideoAdUnitId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d6
 
 - (IBAction)loadClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadVideoWithAdUnitId:kAMPVideoAdUnitId
-                           success:^(AMPVideoController *videoController) {
-                               self.videoController = videoController;
-                           } failure:nil];
+                                         success:^(AMPVideoController *videoController) {
+                                             self.videoController = videoController;
+                                         } failure:nil];
 }
 
 
@@ -50,9 +50,9 @@ static NSString *const kAMPVideoAdUnitId = @"87f65c4c-f12d-4bb6-96fd-063fe30c4d6
 
 - (IBAction)loadAndShowClicked:(id)sender {
     [[AmpiriSDK sharedSDK] loadVideoWithAdUnitId:kAMPVideoAdUnitId
-                           success:^(AMPVideoController *videoController) {
-                               [videoController showFromViewController:self];
-                           } failure:nil];
+                                         success:^(AMPVideoController *videoController) {
+                                             [videoController showFromViewController:self];
+                                         } failure:nil];
 }
 
 @end

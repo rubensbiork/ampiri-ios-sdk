@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AmpiriSDK/AmpiriSDK.h>
 
 
 @interface NativePlusView : AMPNativeView

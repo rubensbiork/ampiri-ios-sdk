@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AMPDataUnit : NSObject
-@property (strong, nonatomic, readonly) UIImage *photo;
+@property (strong, nonatomic, readonly) NSString *photo;
 @property (copy, nonatomic, readonly) NSString *name;
 @property (copy, nonatomic, readonly) NSString *specification;
 
-- (instancetype)initDataUnitWithName:(NSString *)name andSpecification:(NSString *)specification andPhoto:(UIImage *)photo;
+- (instancetype)initDataUnitWithName:(NSString *)name andSpecification:(NSString *)specification andPhoto:(NSString *)photo;
 @end

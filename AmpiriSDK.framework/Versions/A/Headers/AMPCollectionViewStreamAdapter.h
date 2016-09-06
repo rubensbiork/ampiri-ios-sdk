@@ -18,6 +18,10 @@
 
 @property (nonatomic, weak) id<AMPCollectionViewStreamAdapterDelegate> delegate;
 
+/**
+ * There is a bug in UICollectionView, it interchanges the minimumInteritemSpacing and minimumLineSpacing if items have different size. If all items in collection have the same size, do not interchange it by yourself, we will do it automatically for you. If you interchange spacings on your side, set this flag to NO and we won't interchange them
+ */
+@property (nonatomic, assign) BOOL interchangeLayoutSpacings;
 @end
 
 
@@ -37,18 +41,7 @@
 
 @end
 
-@interface AMPCollectionViewStreamAdapter (AMPCollectionViewCellRendering)
 
-/**
- *  Render the native ad cell at index path if it should be displayed
- *  @param indexPath               - index path of cell where the ad has to be displayed
- *  @param adCell                  - cell where ad should be rendered
- *
- *  @return UICollectionViewCell with rendered native ad at index path
- */
-- (UICollectionViewCell *)adRenderedAdCellAtIndexPath:(NSIndexPath *)indexPath inCell:(UICollectionViewCell *)adCell;
-
-@end
 
 
 @protocol AMPCollectionViewStreamAdapterDelegate <NSObject>
@@ -61,47 +54,5 @@
  *  @return size of rendered ad cell at index path
  */
 - (CGSize)sizeForAdAtIndexPath:(NSIndexPath *)indexPath;
-
-@end
-
-
-
-@interface UICollectionView (AMPLocationControl)
-
-@property (nonatomic, strong, readonly) AMPCollectionViewStreamAdapter *streamAdapter;
-
-- (id)amp_dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
-
-- (NSArray *)amp_indexPathsForSelectedItems;
-
-- (void)amp_selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UICollectionViewScrollPosition)scrollPosition;
-
-- (void)amp_deselectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
-
-- (UICollectionViewLayoutAttributes *)amp_layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath;
-
-- (NSIndexPath *)amp_indexPathForItemAtPoint:(CGPoint)point;
-
-- (NSIndexPath *)amp_indexPathForCell:(UICollectionViewCell *)cell;
-
-- (NSArray *)amp_visibleCells;
-
-- (NSArray *)amp_indexPathsForVisibleItems;
-
-- (void)amp_scrollToItemAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UICollectionViewScrollPosition)scrollPosition animated:(BOOL)animated;
-
-- (void)amp_insertSections:(NSIndexSet *)sections;
-
-- (void)amp_deleteSections:(NSIndexSet *)sections;
-
-- (void)amp_moveSection:(NSInteger)section toSection:(NSInteger)newSection;
-
-- (void)amp_insertItemsAtIndexPaths:(NSArray *)indexPaths;
-
-- (void)amp_deleteItemsAtIndexPaths:(NSArray *)indexPaths;
-
-- (void)amp_reloadItemsAtIndexPaths:(NSArray *)indexPaths;
-
-- (void)amp_moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
 @end
