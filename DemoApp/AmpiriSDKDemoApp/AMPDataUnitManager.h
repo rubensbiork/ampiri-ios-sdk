@@ -13,7 +13,7 @@
 
 @interface AMPDataUnitManager : NSObject
 
-+ (NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count;
++ (nonnull NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count;
 
-+ (NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count from:(NSUInteger)from;
++ (nonnull NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count from:(NSUInteger)from;
 @end

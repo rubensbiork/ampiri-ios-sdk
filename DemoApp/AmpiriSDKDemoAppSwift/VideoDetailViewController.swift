@@ -15,7 +15,7 @@ class VideoDetailViewController: UIViewController {
     @IBOutlet weak var showButton: UIButton!
     @IBOutlet weak var loadAndShowButton: UIButton!
 
-    private var videoController: AMPVideoController?
+    fileprivate var videoController: AMPVideoController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,27 +24,27 @@ class VideoDetailViewController: UIViewController {
         self.showButton.layer.masksToBounds = true
         self.loadAndShowButton.layer.masksToBounds = true
 
-        self.loadButton.layer.cornerRadius = CGRectGetHeight(self.loadButton.frame) / 3
-        self.showButton.layer.cornerRadius = CGRectGetHeight(self.showButton.frame) / 3
-        self.loadAndShowButton.layer.cornerRadius = CGRectGetHeight(self.loadAndShowButton.frame) / 3
+        self.loadButton.layer.cornerRadius = self.loadButton.frame.height / 3
+        self.showButton.layer.cornerRadius = self.showButton.frame.height / 3
+        self.loadAndShowButton.layer.cornerRadius = self.loadAndShowButton.frame.height / 3
     }
 
 
-    @IBAction func loadClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadVideoWithAdUnitId("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
-            (videoViewController) in
+    @IBAction func loadClicked(_ sender: UIButton) {
+        AmpiriSDK.shared().loadVideo(withAdUnitId: "87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
+            videoViewController in
             self.videoController = videoViewController
         }, failure: nil)
     }
 
-    @IBAction func showClicked(sender: UIButton) {
-        self.videoController?.showFromViewController(self)
+    @IBAction func showClicked(_ sender: UIButton) {
+        self.videoController?.show(from: self)
     }
 
-    @IBAction func loadAndShowClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadVideoWithAdUnitId("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
-            (videoViewController) in
-            videoViewController.showFromViewController(self)
+    @IBAction func loadAndShowClicked(_ sender: UIButton) {
+        AmpiriSDK.shared().loadVideo(withAdUnitId: "87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
+            videoViewController in
+            videoViewController?.show(from: self)
         }, failure: nil)
     }
 

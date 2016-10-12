@@ -20,9 +20,9 @@ class NativeAdDetailsViewController: UIViewController {
     @IBOutlet weak var nativeContainerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var nativeContainerBottomConstraint: NSLayoutConstraint!
 
-    private var desiredHeight: CGFloat = 0
+    fileprivate var desiredHeight: CGFloat = 0
 
-    private var nativeView: UIView?
+    fileprivate var nativeView: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +31,16 @@ class NativeAdDetailsViewController: UIViewController {
         self.showButton.layer.masksToBounds = true
         self.loadAndShowButton.layer.masksToBounds = true
 
-        self.loadButton.layer.cornerRadius = CGRectGetHeight(self.loadButton.frame) / 3
-        self.showButton.layer.cornerRadius = CGRectGetHeight(self.showButton.frame) / 3
-        self.loadAndShowButton.layer.cornerRadius = CGRectGetHeight(self.loadAndShowButton.frame) / 3
-        self.showButton.enabled = false
+        self.loadButton.layer.cornerRadius = self.loadButton.frame.height / 3
+        self.showButton.layer.cornerRadius = self.showButton.frame.height / 3
+        self.loadAndShowButton.layer.cornerRadius = self.loadAndShowButton.frame.height / 3
+        self.showButton.isEnabled = false
 
         self.templateSwitch.selectedSegmentIndex = 0
     }
 
-    @IBAction func loadClicked(sender: UIButton) {
-        self.showButton.enabled = false
+    @IBAction func loadClicked(_ sender: UIButton) {
+        self.showButton.isEnabled = false
 
         self.prepareHeight()
 
@@ -52,30 +52,30 @@ class NativeAdDetailsViewController: UIViewController {
 
         switch (self.templateSwitch.selectedSegmentIndex) {
         case 0:
-            classForRendering = NativeBannerView.classForCoder()
+            classForRendering = NativeBannerView.self
 
 
         case 1:
-            classForRendering = NativePlusView.classForCoder()
+            classForRendering = NativePlusView.self
 
         default:
             break
         }
 
-        AmpiriSDK.sharedSDK().loadNativeAdWithAdUnitId("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
-            (view) in
+        AmpiriSDK.shared().loadNativeAd(withAdUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
+            view in
             self.nativeView = view
-            self.showButton.userInteractionEnabled = true;
-            self.showButton.enabled = true;
+            self.showButton.isUserInteractionEnabled = true;
+            self.showButton.isEnabled = true;
         }, failure: nil)
     }
 
-    @IBAction func showClicked(sender: UIButton) {
+    @IBAction func showClicked(_ sender: UIButton) {
         self.renderBannerAd()
     }
 
-    @IBAction func loadAndShowClicked(sender: UIButton) {
-        self.showButton.enabled = false
+    @IBAction func loadAndShowClicked(_ sender: UIButton) {
+        self.showButton.isEnabled = false
 
         self.prepareHeight()
 
@@ -96,8 +96,8 @@ class NativeAdDetailsViewController: UIViewController {
             break
         }
 
-        AmpiriSDK.sharedSDK().loadNativeAdWithAdUnitId("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
-            (view) in
+        AmpiriSDK.shared().loadNativeAd(withAdUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
+            view in
             self.nativeView = view
             self.renderBannerAd()
         }, failure: nil)
@@ -105,7 +105,7 @@ class NativeAdDetailsViewController: UIViewController {
 
     // MARK: - Private
 
-    private func prepareHeight() {
+    fileprivate func prepareHeight() {
         var height: CGFloat = 0;
         switch (self.templateSwitch.selectedSegmentIndex) {
         case 0:
@@ -120,23 +120,23 @@ class NativeAdDetailsViewController: UIViewController {
         self.desiredHeight = height;
     }
 
-    private func renderBannerAd() {
+    fileprivate func renderBannerAd() {
         if self.nativeView?.superview == nil {
             self.nativeContainerHeightConstraint.constant = self.desiredHeight
             self.adContainerView.layoutIfNeeded()
 
             self.nativeView!.frame = self.adContainerView.bounds;
-            self.nativeView!.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            self.nativeView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             self.adContainerView.addSubview(self.nativeView!)
 
             self.showBannerWithAnimation(true)
         }
     }
 
-    private func showBannerWithAnimation(animated: Bool) {
+    fileprivate func showBannerWithAnimation(_ animated: Bool) {
         self.nativeContainerBottomConstraint.constant = 0;
         if (animated) {
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
             })
         } else {
             self.adContainerView.layoutIfNeeded()

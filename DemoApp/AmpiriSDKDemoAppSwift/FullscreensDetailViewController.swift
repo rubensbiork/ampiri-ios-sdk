@@ -17,7 +17,7 @@ class FullscreensDetailViewController: UIViewController {
     @IBOutlet weak var loadAndShowButton: UIButton!
     @IBOutlet weak var loadAndShowWithDelayButton: UIButton!
 
-    private var fullscreenController: AMPFullscreenBannerController?
+    fileprivate var fullscreenController: AMPFullscreenBannerController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,30 +27,30 @@ class FullscreensDetailViewController: UIViewController {
         self.loadAndShowButton.layer.masksToBounds = true
         self.loadAndShowWithDelayButton.layer.masksToBounds = true
 
-        self.loadButton.layer.cornerRadius = CGRectGetHeight(self.loadButton.frame) / 3
-        self.showButton.layer.cornerRadius = CGRectGetHeight(self.showButton.frame) / 3
-        self.loadAndShowButton.layer.cornerRadius = CGRectGetHeight(self.loadAndShowButton.frame) / 3
-        self.loadAndShowWithDelayButton.layer.cornerRadius = CGRectGetHeight(self.loadAndShowWithDelayButton.frame) / 3
+        self.loadButton.layer.cornerRadius = self.loadButton.frame.height / 3
+        self.showButton.layer.cornerRadius = self.showButton.frame.height / 3
+        self.loadAndShowButton.layer.cornerRadius = self.loadAndShowButton.frame.height / 3
+        self.loadAndShowWithDelayButton.layer.cornerRadius = self.loadAndShowWithDelayButton.frame.height / 3
     }
 
 
-    @IBAction func loadClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithAdUnitId("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .Default, forViewController: self, success: {
-            (fullscreenViewController) in
+    @IBAction func loadClicked(_ sender: UIButton) {
+        AmpiriSDK.shared().loadFullscreen(withAdUnitId: "2cb34a73-0012-4264-9526-bde1fce2ba92", options: .default, for: self, success: {
+            fullscreenViewController in
             self.fullscreenController = fullscreenViewController
         }, failure: nil)
     }
 
-    @IBAction func showClicked(sender: UIButton) {
-        self.fullscreenController?.showFromViewController(self)
+    @IBAction func showClicked(_ sender: UIButton) {
+        self.fullscreenController?.show(from: self)
     }
 
-    @IBAction func loadAndShowClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithAdUnitId("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .ShowAfterLoad, forViewController: self, success: nil, failure: nil)
+    @IBAction func loadAndShowClicked(_ sender: UIButton) {
+        AmpiriSDK.shared().loadFullscreen(withAdUnitId: "2cb34a73-0012-4264-9526-bde1fce2ba92", options: .showAfterLoad, for: self, success: nil, failure: nil)
     }
 
-    @IBAction func loadAndShowWithDelayClicked(sender: UIButton) {
-        AmpiriSDK.sharedSDK().loadFullscreenWithAdUnitId("2cb34a73-0012-4264-9526-bde1fce2ba92", options: .ShowAfterLoadWithDelay, forViewController: self, success: nil, failure: nil)
+    @IBAction func loadAndShowWithDelayClicked(_ sender: UIButton) {
+        AmpiriSDK.shared().loadFullscreen(withAdUnitId: "2cb34a73-0012-4264-9526-bde1fce2ba92", options: .showAfterLoadWithDelay, for: self, success: nil, failure: nil)
     }
 
 }

@@ -28,6 +28,7 @@
 #import "AMPMediaContainerView.h"
 #import "UITableView+AMPLocationControl.h"
 #import "UICollectionView+AMPLocationControl.h"
+
 @interface AmpiriSDK : NSObject
 
 /**
@@ -146,10 +147,11 @@
  *  @return AMPTableViewStreamAdapter object which add native ads to your UITableView and return original indexPaths
  */
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
-                                        parentViewController:(UIViewController *)viewController
-                                                    adUnitId:(NSString *)adUnitId
-                                                templateType:(AMPNativeAdsTemplateType)templateType
-                                       templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
+                               parentViewController:(UIViewController *)viewController
+                               adUnitId:(NSString *)adUnitId
+                               templateType:(AMPNativeAdsTemplateType)templateType
+                               templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
+
 /**
  *  Add location control for native ads to your UITableView
  *  @param tableView                - UITableView which should content native ads
@@ -160,10 +162,9 @@
  *  @return AMPTableViewStreamAdapter object which add native ads to your UITableView and return original indexPaths
  */
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
-                                        parentViewController:(UIViewController *)viewController
-                                                    adUnitId:(NSString *)adUnitId
-                                     adViewClassForRendering:(Class)adViewClass;
-
+                               parentViewController:(UIViewController *)viewController
+                               adUnitId:(NSString *)adUnitId
+                               adViewClassForRendering:(Class)adViewClass;
 
 
 /**
@@ -172,15 +173,17 @@
  *  @param viewController           - UIViewController which delegate collectionView
  *  @param adUnitId                 - your ad unit id
  *  @param templateType             - type of native ads representation template
+ *  @param delegate                 - delegate of AMPCollectionViewStreamAdapter
  *  @param templateCustomization    - (optional) customization for ads representation template
  *
  *  @return AMPCollectionViewStreamAdapter object which add native ads to your UICollectionView and return original indexPaths
  */
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
-                                                  parentViewController:(UIViewController *)viewController
-                                                              adUnitId:(NSString *)adUnitId
-                                                          templateType:(AMPNativeAdsTemplateType)templateType
-                                                 templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
+                                    parentViewController:(UIViewController *)viewController
+                                    adUnitId:(NSString *)adUnitId
+                                    templateType:(AMPNativeAdsTemplateType)templateType
+                                    delegate:(id <AMPCollectionViewStreamAdapterDelegate>)delegate
+                                    templateCustomization:(void (^)(AMPTemplateCustomizationObject *templateCustomizationObject))templateCustomization;
 
 /**
  *  Add location control for native ads to your UICollectionView
@@ -194,11 +197,11 @@
  *  @return AMPCollectionViewStreamAdapter object which add native ads to your UICollectionView and return original indexPaths
  */
 - (AMPCollectionViewStreamAdapter *)addLocationControlToCollectionView:(UICollectionView *)collectionView
-                                                  parentViewController:(UIViewController *)viewController
-                                                              adUnitId:(NSString *)adUnitId
-                                                    useDefaultGridMode:(BOOL)gridMode
-                                                              delegate:(id <AMPCollectionViewStreamAdapterDelegate>)delegate
-                                               adViewClassForRendering:(Class)adViewClass;
+                                    parentViewController:(UIViewController *)viewController
+                                    adUnitId:(NSString *)adUnitId
+                                    useDefaultGridMode:(BOOL)gridMode
+                                    delegate:(id <AMPCollectionViewStreamAdapterDelegate>)delegate
+                                    adViewClassForRendering:(Class)adViewClass;
 
 
 @end
@@ -215,10 +218,10 @@
  *  @param failure                  - (optional) called when native ad download fails, returns AMPError
  */
 - (void)loadNativeAdWithAdUnitId:(NSString *)adUnitId
-            parentViewController:(UIViewController *)viewController
-         adViewClassForRendering:(Class)adViewClass
-                         success:(void (^)(UIView *adNativeViewContainer))success
-                         failure:(void (^)(AMPError *error))failure;
+        parentViewController:(UIViewController *)viewController
+        adViewClassForRendering:(Class)adViewClass
+        success:(void (^)(UIView *adNativeViewContainer))success
+        failure:(void (^)(AMPError *error))failure;
 
 
 @end
@@ -236,9 +239,9 @@
  *  @return AMPBannerView object which you should add to your banner place on screen
  */
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
-                             adUnitId:(NSString *)adUnitId
-                              success:(void (^)(AMPBannerView *banner))success
-                              failure:(void (^)(AMPError *error))failure;
+                   adUnitId:(NSString *)adUnitId
+                   success:(void (^)(AMPBannerView *banner))success
+                   failure:(void (^)(AMPError *error))failure;
 
 /**
  *  Load banner ads
@@ -251,10 +254,10 @@
  *  @return AMPBannerView object which you should add to your banner place on screen
  */
 - (AMPBannerView *)loadBannerWithSize:(CGSize)size
-                             location:(CLLocation *)location
-                             adUnitId:(NSString *)adUnitId
-                              success:(void (^)(AMPBannerView *banner))success
-                              failure:(void (^)(AMPError *error))failure;
+                   location:(CLLocation *)location
+                   adUnitId:(NSString *)adUnitId
+                   success:(void (^)(AMPBannerView *banner))success
+                   failure:(void (^)(AMPError *error))failure;
 
 @end
 
@@ -272,10 +275,10 @@
  *  @param failure                  - (optional) called when interstitial download fails, returns AMPError
  */
 - (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
-                           options:(AMPFullscreenLoadOptions)options
-                 forViewController:(UIViewController *)viewController
-                           success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
-                           failure:(void (^)(AMPError *error))failure;
+        options:(AMPFullscreenLoadOptions)options
+        forViewController:(UIViewController *)viewController
+        success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
+        failure:(void (^)(AMPError *error))failure;
 
 /**
  *  Load interstitial ads
@@ -288,11 +291,11 @@
  *  @param failure                  - (optional) called when interstitial download fails, returns AMPError
  */
 - (void)loadFullscreenWithAdUnitId:(NSString *)adUnitId
-                          location:(CLLocation *)location
-                           options:(AMPFullscreenLoadOptions)options
-                 forViewController:(UIViewController *)viewController
-                           success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
-                           failure:(void (^)(AMPError *error))failure;
+        location:(CLLocation *)location
+        options:(AMPFullscreenLoadOptions)options
+        forViewController:(UIViewController *)viewController
+        success:(void (^)(AMPFullscreenBannerController *fullscreenController))success
+        failure:(void (^)(AMPError *error))failure;
 
 @end
 
@@ -306,8 +309,8 @@
  *  @param failure                  - (optional) called when video download fails, returns AMPError
  */
 - (void)loadVideoWithAdUnitId:(NSString *)adUnitId
-                      success:(void (^)(AMPVideoController *videoController))success
-                      failure:(void (^)(AMPError *error))failure;
+        success:(void (^)(AMPVideoController *videoController))success
+        failure:(void (^)(AMPError *error))failure;
 
 /**
  *  Load video ads
@@ -317,9 +320,9 @@
  *  @param failure                  - (optional) called when video download fails, returns AMPError
  */
 - (void)loadVideoWithAdUnitId:(NSString *)adUnitId
-                     location:(CLLocation *)location
-                      success:(void (^)(AMPVideoController *videoController))success
-                      failure:(void (^)(AMPError *error))failure;
+        location:(CLLocation *)location
+        success:(void (^)(AMPVideoController *videoController))success
+        failure:(void (^)(AMPError *error))failure;
 
 @end
 

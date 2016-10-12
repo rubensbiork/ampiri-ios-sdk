@@ -2,8 +2,8 @@
 //  BaseCollectionViewController.swift
 //  AmpiriSDKDemoApp
 //
-//  Created by Viacheslav Leonov on 12.08.16.
-//  Copyright © 2016 glispa.com. All rights reserved.
+//  Created by Glispa GmbH on 12.08.16.
+//  Copyright © 2016 Glispa GmbH All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class BaseCollectionViewController: UIViewController {
     @IBOutlet weak var loadButton: UIButton!
     var dataSource: [[AMPDataUnit]] = [[AMPDataUnit]]()
 
-    @IBAction func loadClicked(sender: UIButton) {
+    @IBAction func loadClicked(_ sender: UIButton) {
     }
 
 }

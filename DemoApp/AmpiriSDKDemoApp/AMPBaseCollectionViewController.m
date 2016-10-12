@@ -2,8 +2,8 @@
 //  AMPBaseCollectionViewController.m
 //  AmpiriSDKDemoApp
 //
-//  Created by Viacheslav Leonov on 11.08.16.
-//  Copyright © 2016 glispa.com. All rights reserved.
+//  Created by Glispa GmbH on 11.08.16.
+//  Copyright © 2016 Glispa GmbH All rights reserved.
 //
 
 #import "AMPBaseCollectionViewController.h"

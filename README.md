@@ -37,12 +37,15 @@ Adding through Cocoapods
 - `ampiri-ios-sdk/Adapters/AdColonyAdapter` - adapter for [AdColony](https://github.com/AdColony/AdColony-iOS-SDK)
 - `ampiri-ios-sdk/Adapters/AppLovinAdapter` - adapter for [AppLovin](https://www.applovin.com/)
 
+**Note**: The Baidu ad network must be added to your project manually and is not included in the Cocoapods distribution.
+
+
 Adding SDK manually
 ===================
 
 ### **1.** Add SDK files to your project (required)
 
-Add `AmpiriSDK.framework` file to your project.
+Add the `AmpiriSDK.framework` and `AMPVastLib.framework` files to your project.
 
 ### **2.** Add external libraries (recommended)
 
@@ -75,25 +78,27 @@ To show **native** ads from client-side mediated networks in your application yo
 * [Facebook Audience](https://developers.facebook.com/docs/ios) library
 * [MoPub](https://github.com/mopub/mopub-ios-sdk) library
 * [AppLovin](https://www.applovin.com/) library
+* [Baidu](http://mssp.baidu.com/home/developer.html) library
 
-
+**Note: You cannot use Baidu and MoPub both in one app as this results in a compile error**
 
 **Warning: Ampiri SDK 3.2.2 was designed and verified to work correctly with the following versions of 3rd party ad network SDKs:**
 
 * AdColony – 2.6.2
-* Chartboost – 6.4.6
-* Google Mobile Ads – 7.9.0
-* NativeX – 5.5.6.3
+* Chartboost – 6.5.1
+* Google Mobile Ads – 7.12.1
+* NativeX – 5.5.7.1
 * Unity Ads – 1.5.6
-* Vungle – 3.2.0.1
-* Facebook Audience – 4.14.0
-* MoPub – 4.7.0
+* Vungle – 3.2.2
+* Facebook Audience – 4.16.0
+* MoPub – 4.9.1
 * AppLovin – 3.1
+* Baidu - 4.3.1
 
 We do not guarantee stable and correct behavior of the Ampiri SDK if you manually add other versions of ad network SDKs.
 
 ### **3.** Add SDK external adapters to your project
-For each added external ad network from the section above you should add the SDK adapter for this network from the Adapters folder. Just add the necessary adapter to the project
+For each added external ad network from the section above you should add the SDK adapter for this network from the Adapters folder. Just add the necessary adapter to the project.
 
 * AdColony – libAMPAdColonyAdapter
 * Chartboost – libAMPChartboostAdapter
@@ -104,6 +109,7 @@ For each added external ad network from the section above you should add the SDK
 * Facebook Audience – libAMPFBAudienceAdapter
 * MoPub – libAMPMopubAdapter
 * AppLovin – libAMPAppLovinAdapter
+* Baidu - libAMPBaiduAdapter
 
 
 ### **4.** Set up external networks
@@ -142,7 +148,7 @@ The SDK with adapters uses the following system frameworks and libraries. You ca
 - `libsqlite3`
 - `libz`
 
-**Warning: Some Xcode versions support new settings after the Xcode reboot only, after cleaning Xcode cache and other problems.**
+**Warning: Some Xcode versions support new settings only after the Xcode reboot. This also cleans the Xcode cache and remedies other problems.**
 
 TO DO list if you have a linking problem:
 
@@ -153,7 +159,7 @@ TO DO list if you have a linking problem:
 
 ATS settings in iOS 9.0 and greater
 ===================================
-Since the Ampiri SDK uses 3rd party networks to load ads and we have no control over these networks loading their content via https, you should disable ATS for your application to ensure correct behavior of the Ampiri SDK. To disable ATS add the following settings to your application Info.plist file:
+Since the Ampiri SDK uses 3rd party networks to load ads and we have no control over these networks loading their content via https, you should disable ATS for your application to ensure the Ampiri SDK behaves a intended. To disable ATS add the following settings to your application Info.plist file:
 
 ```
 <key>NSAppTransportSecurity</key>
@@ -167,6 +173,7 @@ Standard banners
 
 ID of advertising space for testing (STANDARD): `"04c447d7-ffb8-4ba1-985e-4d2b9f88cd69"`
 Available banner sizes:
+
 - 320x50 (recommended)
 - 728x90
 
@@ -200,12 +207,11 @@ if bannerView != nil {
     bannerView = nil
 }
 
-bannerView = AmpiriSDK.sharedSDK().loadBannerWithSize(bannerSize!, 
+bannerView = AmpiriSDK.shared().loadBanner(with: self.bannerSize!, 
 	adUnitId: "04c447d7-ffb8-4ba1-985e-4d2b9f88cd69", success: nil, failure: nil)
-	view.addSubview(bannerView!)
-
 ```
-Add following code to `viewDidAppear` and `viewWillDisappear` methods:
+
+Add the following code to `viewDidAppear` and `viewWillDisappear` methods:
 
 *objective-c*
 
@@ -246,7 +252,6 @@ If you want to stop and remove banner from screen:
 [self.bannerView stop];
 ```
 
-
 ### Standard banner events handling
 
 To process banner events, you should implement blocks or subscribe to notifications:
@@ -286,7 +291,7 @@ typedef NS_ENUM(NSInteger, AMPFullscreenLoadOptions)
 
 The default option is to load the banner and call the success block if the banner loaded. You can show the banner from this block immediately. The `ShowAfterLoad` option loads the banner, shows it immediately, and calls the success block. From the success block you can save it to your UIViewController subclass property or do nothing. The `ShowAfterLoadWithDelay` option loads the banner, calls the success block and shows it after a delay, which returns from the server. From the success block you can save it to your UIViewController subclass property, show it immediately or do nothing.
 
-**Note: if delay is not specified, the interstitial will be shown immediately after the load is finished.**
+**Note: If delay is not specified, the interstitial will be shown immediately after the load is finished.**
 
 
 For example:
@@ -303,8 +308,8 @@ For example:
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadFullscreenWithAdUnitId("2cb34a73-0012-4264-9526-bde1fce2ba92", 
-	options: .ShowAfterLoad, forViewController: self, success: nil, failure: nil)
+AmpiriSDK.shared().loadFullscreen(withAdUnitId: "2cb34a73-0012-4264-9526-bde1fce2ba92", 
+	options: .showAfterLoad, for: self, success: nil, failure: nil)
 ```
 ### Interstitial events handling
 
@@ -348,28 +353,28 @@ For example:
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadVideoWithAdUnitId("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
+AmpiriSDK.shared().loadVideo(withAdUnitId: "87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
     videoViewController in
-    videoViewController.showFromViewController(self)
+    videoViewController?.show(from: self)
 }, failure: nil)
 ```
 ### Video events handling
 
-To process video ad events, you should implement blocks or subscribe to notifications. The followings is available:
+To process video ad events, you should implement blocks or subscribe to notifications. The following is available:
 
 | Method | Description  |
 |:-----------------------------------------------------------------------|:-------------------------------------------------------------------------|
 |`(void (^)(AMPVideoController` `	*videoController))success `| Called after the video is served. After this method is called, the video ad is ready for display. |
 |`(void (^)(AMPError *error))failure `| Called if the video ad was not downloaded. |
-|`kAMPNotification_VideoControllerWillShow `| Called when video will show (will be shown). |
-|`kAMPNotification_VideoControllerDidShow `| Called when video did show (is shown). |
-|`kAMPNotification_VideoControllerWillHide `| Called when video will hide (will be closed). |
-|`kAMPNotification_VideoControllerDidHide `| Called when video did hide (is closed). |
-|`kAMPNotification_VideoControllerStarted `| Called when video is started. |
-|`kAMPNotification_VideoControllerPause `| Called when video is paused (not implemented yet). |
-|`kAMPNotification_VideoControllerResume `| Called when video is resumed (not implemented yet). |
-|`kAMPNotification_VideoControllerCompleted `| Called when video show is completed. |
-|`kAMPNotification_VideoControllerWillLoad `| Called before sending video request to server. |
+|`kAMPNotification_VideoControllerWillShow `| Called when the video will show (will be shown). |
+|`kAMPNotification_VideoControllerDidShow `| Called when the video did show (is shown). |
+|`kAMPNotification_VideoControllerWillHide `| Called when the video will hide (will be closed). |
+|`kAMPNotification_VideoControllerDidHide `| Called when the video is hidden (is closed). |
+|`kAMPNotification_VideoControllerStarted `| Called when the video is started. |
+|`kAMPNotification_VideoControllerPause `| Called when the video is paused (not implemented yet). |
+|`kAMPNotification_VideoControllerResume `| Called when the video is resumed (not implemented yet). |
+|`kAMPNotification_VideoControllerCompleted `| Called when the video show is completed. |
+|`kAMPNotification_VideoControllerWillLoad `| Called before sending the video request to server. |
 |`kAMPNotification_VideoControllerClicked `| Called after a click on the video. After this event the app will be minimized and an external browser is opened. |
 
 
@@ -393,7 +398,7 @@ Use the following methods in your UIViewController subclass:
 
 The following method performs async downloading of native ads with all linked resources and renders ad data into bound UI controls after that.
 
-There's a common algorithm to use when implementing a native ad:
+There is a common algorithm to use when implementing a native ad:
 
 1. Create your own subclass of `AMPNative` with any name (`MyNativeBannerView` for example)
 2. Choose one of two options:
@@ -401,7 +406,7 @@ There's a common algorithm to use when implementing a native ad:
 	* Coding option - The implementation of `MyNativeBannerView` class must be performed by the creation and placement of UI controls using `<AMPNativeViewInterface>`, which `AMPNativeView` adopts.
 3. Call loadNativeAdWithSize with the required parameters, where the `adUnitId` is your private advertising space ID and className is the name of the `MyNativeBannerView` class. After downloading the ad data, SDK initiates an instance of `MyNativeBannerView` class created in step 2 . After that the SDK renders native ad data in bound controls of this instance. Not all controls are filled this way, only the main ones: `ampTitleTextLabel, ampMainTextLabel,  ampIconImageView, ampMainMediaView`. When rendering is finished, the successful completion block with this instance will be invoked.
 4. Render the other controls, like `ampRatingView`, in ad view container.  
-**Note: property *nativeAd* of *MyNativeBannerView* class can be empty and you will not be able to get ad data for extra rendering**.
+**Note: The property *nativeAd* of *MyNativeBannerView* class can be empty and you will not be able to get ad data for extra rendering**.
 5. Show ad view container on the screen.
 6. Register ad view container for the taps handling.
 
@@ -425,7 +430,7 @@ __weak typeof(self) weakSelf = self;
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadNativeAdWithAdUnitId("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: NativeBannerView.self, success: {
+AmpiriSDK.shared().loadNativeAd(withAdUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
     view in
     nativeView = view
 }, failure: nil)
@@ -457,34 +462,34 @@ List of customizations:
 
 | Property of the AMPTemplateCustomizationObject | Description  |
 |:-----------------------------------------------------------------------|:-------------------------------------------------------------------------|
-|`ampBackgroundColor `| color of ad cells |
-|`ampTitleFont `| font of the title label in ad cells |
-|`ampTitleColor `| text color of the title label in ad cells |
-|`ampDescriptionTextFont `| font of the description label in ad cells |
-|`ampDescriptionTextColor `| text color of the description label in ad cells |
-|`ampDescriptionTextLeftOffset `| left offset for description label in ad cells|
-|`ampDescriptionTextRigthOffset `| right offset for description label in ad cells|
-|`ampCoverImageLeftOffset `| left offset for ad main image view|
-|`ampCoverImageRightOffset `| right offset for ad main image view|
-|`ampCoverImageTopOffset `| top offset for ad main image view|
-|`ampCoverImageBottomOffset `| bottom offset for ad main image view|
-|`ampCoverImageCornerRadius `| corner radius of ad main image layer|
-|`ampCTAFont `| call to action label font |
-|`ampCTAColor `| call to action view background color|
-|`ampCTATextColor `| call to action label text color|
-|`ampCTABorderColor `| call to action layer border color|
-|`ampCTACornerRadius `| call to action layer corner radius |
-|`ampCTABorderWidth `| call to action layer border width|
-|`ampCTARightOffset `| right offset for ad call to action view|
-|`ampCTABottomOffset `| bottom offset for ad call to action view|
-|`ampSponsoredFont `| sponsored label font|
-|`ampSponsoredColor `| sponsored label text color|
-|`ampIconLeftOffset `| left offset for ad app icon view|
-|`ampIconTopOffset `| top offset for ad app icon view|
-|`ampIconHeight `| height for ad app icon view|
-|`ampIconWidth `| width for ad app icon view|
-|`ampIconCornerRadius `| corner radius of ad app icon layer|
-|`ampIconContentMode `| content mode of ad app icon view|
+|`ampBackgroundColor `| Color of the ad cells |
+|`ampTitleFont `| Font of the title label in the ad cells |
+|`ampTitleColor `| Text color of the title label in the ad cells |
+|`ampDescriptionTextFont `| Font of the description label in the ad cells |
+|`ampDescriptionTextColor `| Text color of the description label in the ad cells |
+|`ampDescriptionTextLeftOffset `| Left offset for the description label in the ad cells|
+|`ampDescriptionTextRightOffset `| Right offset for the description label in the ad cells|
+|`ampCoverImageLeftOffset `| Left offset for the ad main image view|
+|`ampCoverImageRightOffset `| Right offset for the ad main image view|
+|`ampCoverImageTopOffset `| Top offset for the ad main image view|
+|`ampCoverImageBottomOffset `| Bottom offset for the ad main image view|
+|`ampCoverImageCornerRadius `| Corner radius of the ad main image layer|
+|`ampCTAFont `| Call to action label font |
+|`ampCTAColor `| Call to action view background color|
+|`ampCTATextColor `| Call to action label text color|
+|`ampCTABorderColor `| Call to action layer border color|
+|`ampCTACornerRadius `| Call to action layer corner radius |
+|`ampCTABorderWidth `| Call to action layer border width|
+|`ampCTARightOffset `| Right offset for ad call to action view|
+|`ampCTABottomOffset `| Bottom offset for ad call to action view|
+|`ampSponsoredFont `| Sponsored label font|
+|`ampSponsoredColor `| Sponsored label text color|
+|`ampIconLeftOffset `| Left offset for ad app icon view|
+|`ampIconTopOffset `| Top offset for ad app icon view|
+|`ampIconHeight `| Height for ad app icon view|
+|`ampIconWidth `| Width for ad app icon view|
+|`ampIconCornerRadius `| Corner radius of ad app icon layer|
+|`ampIconContentMode `| Content mode of ad app icon view|
 
 If you want to use your own representation of a native ad, use these methods:
 
@@ -528,26 +533,24 @@ For `UICollectionView` you have to write some code in `UICollectionViewDelegate`
 *swift*
 
 ```swift
-override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    if (adapter?.shouldDisplayAdAtIndexPath(indexPath) == true) {
-        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("AMPAdContainerCollectionViewCell", forIndexPath: indexPath) as! AMPAdContainerCollectionViewCell
+override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if (adapter?.shouldDisplayAd(at: indexPath) == true) {
+        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AMPAdContainerCollectionViewCell", for: indexPath) as! AMPAdContainerCollectionViewCell
 
         cell.layer.zPosition = 100
-        return (adapter?.adRenderedAdCellAtIndexPath(indexPath, inCell: cell))!
+        return (adapter?.adRenderedAdCell(at: indexPath, in: cell))!
     } else {
         //your feed cell
     }
 }
 ```
 **Note for custom collection view layout: if you want to know the original index path of a cell in your feed without ads use this method (it may be important to load data from your data array):**
+
 ```objective-c
 - (NSIndexPath *)originalIndexPath:(NSIndexPath *)indexPath;
 ```
 
 If you want to use methods of `UITableView` and `UICollectionView` which work with `NSIndexPath` please use `UITableView (AMPLocationControl)` and `UICollectionView (AMPLocationControl)` categories (declared in `AMPTableViewStreamAdapter.h` and `AMPCollectionViewStreamAdapter.h`). There categories contain methods with `amp_` prefix which return original indexPaths.
-
-
-
 
 If you want to know when location control loaded ads, subscribe to the notification `kAMPNotification_LocationControlAdsDidLoad` in the `NSNotificationCenter`.
 
@@ -562,7 +565,6 @@ During the development phase, it is highly recommended to set testMode to `YES` 
 #import <AmpiriSDK/AmpiriSDK.h>
 [AmpiriSDK setTestMode:YES];
 ```
-
 
 ### User data
 

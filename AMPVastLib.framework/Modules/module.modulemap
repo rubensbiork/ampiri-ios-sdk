@@ -1,0 +1,6 @@
+framework module AMPVastLib {
+  umbrella header "AMPVastLib.h"
+
+  export *
+  module * { export * }
+}

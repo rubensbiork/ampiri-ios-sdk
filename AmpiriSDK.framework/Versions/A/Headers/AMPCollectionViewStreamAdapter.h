@@ -13,10 +13,9 @@
 @protocol AMPCollectionViewStreamAdapterDelegate;
 
 
-
 @interface AMPCollectionViewStreamAdapter : AMPStreamAdapter
 
-@property (nonatomic, weak) id<AMPCollectionViewStreamAdapterDelegate> delegate;
+@property (nonatomic, weak) id <AMPCollectionViewStreamAdapterDelegate> delegate;
 
 /**
  * There is a bug in UICollectionView, it interchanges the minimumInteritemSpacing and minimumLineSpacing if items have different size. If all items in collection have the same size, do not interchange it by yourself, we will do it automatically for you. If you interchange spacings on your side, set this flag to NO and we won't interchange them
@@ -40,8 +39,6 @@
 - (void)deleteItemsAtIndexPaths:(NSArray *)indexPaths;
 
 @end
-
-
 
 
 @protocol AMPCollectionViewStreamAdapterDelegate <NSObject>

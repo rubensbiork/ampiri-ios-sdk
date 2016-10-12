@@ -1,6 +1,6 @@
 //
-// Created by Viacheslav Leonov on 12.08.16.
-// Copyright (c) 2016 glispa.com. All rights reserved.
+// Created by Glispa GmbH on 12.08.16.
+// Copyright (c) 2016 Glispa GmbH All rights reserved.
 //
 
 import Foundation
@@ -9,20 +9,20 @@ import AmpiriSDK
 @objc(ContentStreamTableViewController)
 class ContentStreamTableViewController: BaseTableViewController {
 
-    private var adapter: AMPTableViewStreamAdapter?
+    fileprivate var adapter: AMPTableViewStreamAdapter?
 
 
-    override func loadClicked(sender: UIButton) {
-        self.loadButton.enabled = false
+    override func loadClicked(_ sender: UIButton) {
+        self.loadButton.isEnabled = false
 
-        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToTableView(tableView,
+        self.adapter = AmpiriSDK.shared().addLocationControl(to: tableView,
                 parentViewController: self,
                 adUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2",
-                templateType: .ContentStream,
+                templateType: .contentStream,
                 templateCustomization: {
-                    (templateCustomizationObject: AMPTemplateCustomizationObject!) in
-                    templateCustomizationObject.ampCTABorderWidth = 1
-                    templateCustomizationObject.ampCTACornerRadius = 5
+                    templateCustomizationObject in
+                    templateCustomizationObject?.ampCTABorderWidth = 1
+                    templateCustomizationObject?.ampCTACornerRadius = 5
                 })
     }
 }

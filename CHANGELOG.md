@@ -1,6 +1,24 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.0]
+### Added
+- Baidu Ad Network support
+- VAST video support
+
+### Changed
+- Demo application updated to Swift 3.0
+- Chartboost SDK updated to 6.5.1
+- Google Mobile Ads SDK updated to 7.12.1
+- Mopub SDK updated to 4.9.1
+- Vungle SDK updated to 3.2.2
+- Facebook Audience SDK updated to 4.16.0
+- Baidu SDK updated to 4.3.1
+
+### Fixed
+- UI bugs in Location control templates
+
+
 ## [3.2.2]
 ### Added
 - New simplified demo application
@@ -80,3 +98,4 @@ All notable changes to this project will be documented in this file.
 [3.2.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.0
 [3.2.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.1
 [3.2.2]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.2
+[3.3.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.0

@@ -10,13 +10,13 @@
 
 @interface AMPNativeAd : NSObject
 
-@property(nonatomic, strong) UIImage *image;
-@property(nonatomic, strong) UIImage *icon;
-@property(nonatomic, copy) NSString *text;
-@property(nonatomic, copy) NSString *title;
-@property(nonatomic, copy) NSString *subtitle;
-@property(nonatomic, copy) NSString *callToActionTitle;
-@property(nonatomic, assign) CGFloat starRating;
-@property(nonatomic, strong) UIImage *adChoiceIcon;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSString *callToActionTitle;
+@property (nonatomic, assign) CGFloat starRating;
+@property (nonatomic, strong) UIImage *adChoiceIcon;
 
 @end

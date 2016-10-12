@@ -1,6 +1,6 @@
 //
-// Created by Viacheslav Leonov on 12.08.16.
-// Copyright (c) 2016 glispa.com. All rights reserved.
+// Created by Glispa GmbH on 12.08.16.
+// Copyright (c) 2016 Glispa GmbH All rights reserved.
 //
 
 import Foundation
@@ -11,32 +11,32 @@ class BaseCustomLayoutCollectionViewController: BaseCollectionViewController, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.showsHorizontalScrollIndicator = false
-        self.collectionView.registerNib(UINib.init(nibName: NSStringFromClass(AMPLocationControlCustomCollectionViewCell), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: NSStringFromClass(AMPLocationControlCustomCollectionViewCell))
+        self.collectionView.register(UINib.init(nibName: NSStringFromClass(AMPLocationControlCustomCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: NSStringFromClass(AMPLocationControlCustomCollectionViewCell.self))
         applyCustomLayoutMode()
         loadData()
     }
 
 
-    private func applyCustomLayoutMode() {
+    fileprivate func applyCustomLayoutMode() {
         let customLayout: CollectionViewCircleLayout = CollectionViewCircleLayout()
         customLayout.delegate = self;
         self.collectionView.setCollectionViewLayout(customLayout, animated: false) {
-            (finished) in
+            finished in
             self.collectionView.reloadData()
         }
     }
 
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.dataSource.count
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         assert(true, "should be called from derived class")
         return UICollectionViewCell.init()
     }
 
-    func shouldUseDefaultAttributeForItemAtIndexPath(indexPath: NSIndexPath!) -> Bool {
+    func shouldUseDefaultAttributeForItem(at indexPath: IndexPath!) -> Bool {
         assert(true, "should be called from derived class")
         return false
     }
@@ -47,7 +47,7 @@ class BaseCustomLayoutCollectionViewController: BaseCollectionViewController, UI
     }
 
 
-    func organizeData(dataArray: [AMPDataUnit], dividedBySectionsCount sectionsCount: Int) -> [[AMPDataUnit]] {
+    func organizeData(_ dataArray: [AMPDataUnit], dividedBySectionsCount sectionsCount: Int) -> [[AMPDataUnit]] {
         var sections = [[AMPDataUnit]]()
         let itemsInSection: Int = Int(dataArray.count / sectionsCount)
         var startPos: Int = 0

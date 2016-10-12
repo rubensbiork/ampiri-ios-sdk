@@ -38,7 +38,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSAssert(YES, @"should be called from derived class");
     return nil;
 }

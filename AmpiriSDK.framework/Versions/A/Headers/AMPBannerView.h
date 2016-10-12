@@ -15,10 +15,10 @@
 
 @interface AMPBannerView : UIView
 
-@property(nonatomic, readonly) BOOL isStarted;
-@property(nonatomic, assign) CGSize adSize;
-@property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, assign) BOOL autoUpdate;
+@property (nonatomic, readonly) BOOL isStarted;
+@property (nonatomic, assign) CGSize adSize;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign) BOOL autoUpdate;
 
 /**
  *  Dismiss banner

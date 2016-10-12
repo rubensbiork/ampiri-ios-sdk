@@ -30,7 +30,7 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     //custom CollectionViewCircleLayout, developer should manage standard cell and ad cell rendering
     if ([self.adapter shouldDisplayAdAtIndexPath:indexPath]) {
         return [self adCellForCollectionView:collectionView cellForItemAtIndexPath:indexPath];
@@ -40,11 +40,11 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
 }
 
 - (UICollectionViewCell *)standardCellForCollectionView:(UICollectionView *)collectionView
-                                 cellForItemAtIndexPath:(NSIndexPath *)indexPath
-                                              withClass:(Class)cellClass {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath
+                          withClass:(Class)cellClass {
 
     AMPLocationControlCustomCollectionViewCell *adCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(cellClass)
-                                                                                                   forIndexPath:indexPath];
+                                                                         forIndexPath:indexPath];
 
     NSIndexPath *actualPath = indexPath;
     actualPath = [self.adapter originalIndexPath:indexPath] ?: indexPath;
@@ -67,9 +67,9 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
 
 
 - (UICollectionViewCell *)adCellForCollectionView:(UICollectionView *)collectionView
-                           cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     AMPAdContainerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AMPAdContainerCollectionViewCell class])
-                                                                                       forIndexPath:indexPath];
+                                                             forIndexPath:indexPath];
     cell.layer.zPosition = 1000;
     return [self.adapter adRenderedAdCellAtIndexPath:indexPath inCell:cell];
 }
@@ -79,11 +79,11 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
     self.loadButton.enabled = NO;
 
     self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
-                                                        parentViewController:self
-                                                                    adUnitId:kAMPNativeLocationControlAdUnitId
-                                                          useDefaultGridMode:NO
-                                                                    delegate:self
-                                                     adViewClassForRendering:[NativeBannerView class]];
+                                          parentViewController:self
+                                          adUnitId:kAMPNativeLocationControlAdUnitId
+                                          useDefaultGridMode:NO
+                                          delegate:self
+                                          adViewClassForRendering:[NativeBannerView class]];
 }
 
 

@@ -22,11 +22,11 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
 - (IBAction)loadClicked:(id)sender {
     self.loadButton.enabled = NO;
     self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToCollectionView:self.collectionView
-                                                        parentViewController:self
-                                                                    adUnitId:kAMPNativeLocationControlAdUnitId
-                                                          useDefaultGridMode:YES
-                                                                    delegate:self
-                                                     adViewClassForRendering:[NativeBannerView class]];
+                                          parentViewController:self
+                                          adUnitId:kAMPNativeLocationControlAdUnitId
+                                          useDefaultGridMode:YES
+                                          delegate:self
+                                          adViewClassForRendering:[NativeBannerView class]];
 }
 
 #pragma marl - AMPCollectionViewStreamAdapterDelegate

@@ -1,6 +1,6 @@
 //
-// Created by Viacheslav Leonov on 12.08.16.
-// Copyright (c) 2016 glispa.com. All rights reserved.
+// Created by Glispa GmbH on 12.08.16.
+// Copyright (c) 2016 Glispa GmbH All rights reserved.
 //
 
 import Foundation
@@ -11,21 +11,21 @@ class BaseFlowLayoutCollectionViewController: BaseCollectionViewController, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.showsHorizontalScrollIndicator = false
-        self.collectionView.registerNib(UINib.init(nibName: NSStringFromClass(AMPLocationControlCollectionViewCell), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: NSStringFromClass(AMPLocationControlCollectionViewCell))
+        self.collectionView.register(UINib.init(nibName: NSStringFromClass(AMPLocationControlCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: NSStringFromClass(AMPLocationControlCollectionViewCell.self))
     }
 
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataSource.count
     }
 
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource[section].count
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: AMPLocationControlCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("AMPLocationControlCollectionViewCell", forIndexPath: indexPath) as! AMPLocationControlCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: AMPLocationControlCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AMPLocationControlCollectionViewCell", for: indexPath) as! AMPLocationControlCollectionViewCell
 
-        let item: AMPDataUnit = self.dataSource[indexPath.section][indexPath.row]
+        let item: AMPDataUnit = self.dataSource[(indexPath as NSIndexPath).section][(indexPath as NSIndexPath).row]
         cell.tweetNameLabel.text = item.name
         if let imageHeightConstraint = cell.tweetImageHeightConstraint {
             if item.photo == nil {
@@ -42,20 +42,20 @@ class BaseFlowLayoutCollectionViewController: BaseCollectionViewController, UICo
         }
 
         cell.layoutIfNeeded()
-        
+
         return cell
     }
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Int((collectionView.frame.size.width - 4) / 2.0), height: Int((collectionView.frame.size.width - 4) / 1.1))
     }
 
-    func loadData(count: UInt, from: UInt) -> [[AMPDataUnit]] {
+    func loadData(_ count: UInt, from: UInt) -> [[AMPDataUnit]] {
         let units = AMPDataUnitManager.createDataUnitList(count, from: from)
         return organizeData(units, dividedBySectionsCount: 2)
     }
 
-    func organizeData(dataArray: [AMPDataUnit], dividedBySectionsCount sectionsCount: Int) -> [[AMPDataUnit]] {
+    func organizeData(_ dataArray: [AMPDataUnit], dividedBySectionsCount sectionsCount: Int) -> [[AMPDataUnit]] {
         var sections = [[AMPDataUnit]]()
         let itemsInSection: Int = Int(dataArray.count / sectionsCount)
         var startPos: Int = 0

@@ -12,8 +12,8 @@
 
 @interface AMPFullscreenBannerController : NSObject
 
-@property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, readonly) BOOL ready;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, readonly) BOOL ready;
 
 /**
  *  Show fullscreen banner modally

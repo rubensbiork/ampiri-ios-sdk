@@ -35,7 +35,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+                          cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     AMPLocationControlCollectionViewCell *adCell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([AMPLocationControlCollectionViewCell class]) forIndexPath:indexPath];
     AMPDataUnit *item = self.dataSource[indexPath.row];
@@ -56,8 +56,8 @@
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+          layout:(UICollectionViewLayout *)collectionViewLayout
+          sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake((NSInteger) ((self.collectionView.frame.size.width - 4) / 2), (NSInteger) ((self.collectionView.frame.size.width - 4) / 1.1f));
 }
 

@@ -15,61 +15,61 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)defaultCustomization;
 
-@property(nonatomic, strong) UIColor *_Nonnull ampBackgroundColor;
+@property (nonatomic, strong) UIColor *_Nonnull ampBackgroundColor;
 
 /*
  Customization of the title label
  */
-@property(nonatomic, strong) UIFont *_Nonnull ampTitleFont;
-@property(nonatomic, strong) UIColor *_Nonnull ampTitleColor;
+@property (nonatomic, strong) UIFont *_Nonnull ampTitleFont;
+@property (nonatomic, strong) UIColor *_Nonnull ampTitleColor;
 
 /*
 Customization of the description label
  */
-@property(nonatomic, strong) UIFont *_Nonnull ampDescriptionTextFont;
-@property(nonatomic, strong) UIColor *_Nonnull ampDescriptionTextColor;
-@property(nonatomic, assign) CGFloat ampDescriptionTextLeftOffset;
-@property(nonatomic, assign) CGFloat ampDescriptionTextRigthOffset;
+@property (nonatomic, strong) UIFont *_Nonnull ampDescriptionTextFont;
+@property (nonatomic, strong) UIColor *_Nonnull ampDescriptionTextColor;
+@property (nonatomic, assign) CGFloat ampDescriptionTextLeftOffset;
+@property (nonatomic, assign) CGFloat ampDescriptionTextRigthOffset;
 
 
 /*
  Customization of the cover media view
  */
 
-@property(nonatomic, assign) CGFloat ampCoverMediaLeftOffset;
-@property(nonatomic, assign) CGFloat ampCoverMediaRightOffset;
-@property(nonatomic, assign) CGFloat ampCoverMediaTopOffset;
-@property(nonatomic, assign) CGFloat ampCoverMediaBottomOffset;
-@property(nonatomic, assign) CGFloat ampCoverMediaCornerRadius;
-@property(nonatomic, assign) BOOL ampCoverMediaAutoPlayEnabled;
+@property (nonatomic, assign) CGFloat ampCoverMediaLeftOffset;
+@property (nonatomic, assign) CGFloat ampCoverMediaRightOffset;
+@property (nonatomic, assign) CGFloat ampCoverMediaTopOffset;
+@property (nonatomic, assign) CGFloat ampCoverMediaBottomOffset;
+@property (nonatomic, assign) CGFloat ampCoverMediaCornerRadius;
+@property (nonatomic, assign) BOOL ampCoverMediaAutoPlayEnabled;
 
 /*
  Customization of the CTA button
  */
-@property(nonatomic, strong) UIFont *_Nonnull ampCTAFont;
-@property(nonatomic, strong) UIColor *_Nonnull ampCTAColor;
-@property(nonatomic, strong) UIColor *_Nonnull ampCTATextColor;
-@property(nonatomic, strong) UIColor *_Nonnull ampCTABorderColor;
-@property(nonatomic, assign) CGFloat ampCTACornerRadius;
-@property(nonatomic, assign) CGFloat ampCTABorderWidth;
-@property(nonatomic, assign) CGFloat ampCTARightOffset;
-@property(nonatomic, assign) CGFloat ampCTABottomOffset;
+@property (nonatomic, strong) UIFont *_Nonnull ampCTAFont;
+@property (nonatomic, strong) UIColor *_Nonnull ampCTAColor;
+@property (nonatomic, strong) UIColor *_Nonnull ampCTATextColor;
+@property (nonatomic, strong) UIColor *_Nonnull ampCTABorderColor;
+@property (nonatomic, assign) CGFloat ampCTACornerRadius;
+@property (nonatomic, assign) CGFloat ampCTABorderWidth;
+@property (nonatomic, assign) CGFloat ampCTARightOffset;
+@property (nonatomic, assign) CGFloat ampCTABottomOffset;
 
 /*
  Customization of the sponsored label
  */
-@property(nonatomic, strong) UIFont *_Nonnull ampSponsoredFont;
-@property(nonatomic, strong) UIColor *_Nonnull ampSponsoredColor;
+@property (nonatomic, strong) UIFont *_Nonnull ampSponsoredFont;
+@property (nonatomic, strong) UIColor *_Nonnull ampSponsoredColor;
 
 /*
  Customization of the icon
  */
-@property(nonatomic, assign) CGFloat ampIconLeftOffset;
-@property(nonatomic, assign) CGFloat ampIconTopOffset;
-@property(nonatomic, assign) CGFloat ampIconHeight;
-@property(nonatomic, assign) CGFloat ampIconWidth;
-@property(nonatomic, assign) CGFloat ampIconCornerRadius;
-@property(nonatomic, assign) UIViewContentMode ampIconContentMode;
+@property (nonatomic, assign) CGFloat ampIconLeftOffset;
+@property (nonatomic, assign) CGFloat ampIconTopOffset;
+@property (nonatomic, assign) CGFloat ampIconHeight;
+@property (nonatomic, assign) CGFloat ampIconWidth;
+@property (nonatomic, assign) CGFloat ampIconCornerRadius;
+@property (nonatomic, assign) UIViewContentMode ampIconContentMode;
 
 
 NS_ASSUME_NONNULL_END

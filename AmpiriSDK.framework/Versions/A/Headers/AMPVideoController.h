@@ -12,8 +12,8 @@
 
 @interface AMPVideoController : UIViewController
 
-@property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, assign, readonly) BOOL ready;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, assign, readonly) BOOL ready;
 
 /**
  *  Show fullscreen banner modally

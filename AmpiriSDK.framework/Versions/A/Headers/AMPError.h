@@ -25,15 +25,15 @@ typedef enum : NSUInteger {
 
 @interface AMPError : NSError
 
-@property(nonatomic, readonly) NSString *amp_errorDescription;
+@property (nonatomic, readonly) NSString *amp_errorDescription;
 
 + (id)errorWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription;
 
-+ (id)errorWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary*)userInfo;
++ (id)errorWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary *)userInfo;
 
 - (id)initWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription;
 
-- (id)initWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary*)userInfo;
+- (id)initWithCode:(NSInteger)errorCode andLocalizedDescription:(NSString *)localizedDescription userInfo:(NSDictionary *)userInfo;
 
 + (instancetype)amp_invalidHTTPStatusError;
 

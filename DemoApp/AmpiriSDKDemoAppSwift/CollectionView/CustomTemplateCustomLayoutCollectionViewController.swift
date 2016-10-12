@@ -1,6 +1,6 @@
 //
-// Created by Viacheslav Leonov on 12.08.16.
-// Copyright (c) 2016 glispa.com. All rights reserved.
+// Created by Glispa GmbH on 12.08.16.
+// Copyright (c) 2016 Glispa GmbH All rights reserved.
 //
 
 import Foundation
@@ -8,35 +8,40 @@ import AmpiriSDK
 
 @objc(CustomTemplateCustomLayoutCollectionViewController)
 class CustomTemplateCustomLayoutCollectionViewController: BaseCustomLayoutCollectionViewController, AMPCollectionViewStreamAdapterDelegate {
-    private var adapter: AMPCollectionViewStreamAdapter?
+    fileprivate var adapter: AMPCollectionViewStreamAdapter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.registerNib(UINib.init(nibName: NSStringFromClass(AMPAdContainerCollectionViewCell), bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: NSStringFromClass(AMPAdContainerCollectionViewCell))
+        self.collectionView.register(UINib.init(nibName: NSStringFromClass(AMPAdContainerCollectionViewCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: NSStringFromClass(AMPAdContainerCollectionViewCell.self))
     }
 
 
-    override func loadClicked(sender: UIButton) {
-        self.loadButton.enabled = false
+    override func loadClicked(_ sender: UIButton) {
+        self.loadButton.isEnabled = false
 
-        self.adapter = AmpiriSDK.sharedSDK().addLocationControlToCollectionView(self.collectionView, parentViewController: self, adUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2", useDefaultGridMode: false, delegate: self, adViewClassForRendering: NativeBannerView.self)
+        self.adapter = AmpiriSDK.shared().addLocationControl(to: self.collectionView,
+                                                             parentViewController: self,
+                                                             adUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2",
+                                                             useDefaultGridMode: false,
+                                                             delegate: self,
+                                                             adViewClassForRendering: NativeBannerView.self)
     }
 
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        if (self.adapter?.shouldDisplayAdAtIndexPath(indexPath) == true) {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if (self.adapter?.shouldDisplayAd(at: indexPath) == true) {
             return self.adCellForCollectionView(collectionView, cellForItemAtIndexPath: indexPath)
         } else {
             return self.standardCellForCollectionView(collectionView, cellForItemAtIndexPath: indexPath, withCellIdentifier: "AMPLocationControlCustomCollectionViewCell")
         }
     }
 
-    private func standardCellForCollectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath, withCellIdentifier identifier: String) -> UICollectionViewCell {
+    fileprivate func standardCellForCollectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath, withCellIdentifier identifier: String) -> UICollectionViewCell {
 
-        let cell: AMPLocationControlCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! AMPLocationControlCollectionViewCell
+        let cell: AMPLocationControlCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! AMPLocationControlCollectionViewCell
         //you should use originalIndexPath method to get right indexPath from adapter
         let actualIndexPath = self.adapter?.originalIndexPath(indexPath) ?? indexPath
-        let item: AMPDataUnit = self.dataSource[actualIndexPath.section][actualIndexPath.row]
+        let item: AMPDataUnit = self.dataSource[(actualIndexPath as NSIndexPath).section][(actualIndexPath as NSIndexPath).row]
         cell.tweetNameLabel.text = item.name
         if let imageHeightConstraint = cell.tweetImageHeightConstraint {
             if item.photo == nil {
@@ -57,20 +62,20 @@ class CustomTemplateCustomLayoutCollectionViewController: BaseCustomLayoutCollec
         return cell
     }
 
-    private func adCellForCollectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("AMPAdContainerCollectionViewCell", forIndexPath: indexPath) as! AMPAdContainerCollectionViewCell
+    fileprivate func adCellForCollectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AMPAdContainerCollectionViewCell", for: indexPath) as! AMPAdContainerCollectionViewCell
 
         cell.layer.zPosition = 100
-        return (self.adapter?.adRenderedAdCellAtIndexPath(indexPath, inCell: cell))!
+        return (self.adapter?.adRenderedAdCell(at: indexPath, in: cell))!
     }
 
 
-    override func shouldUseDefaultAttributeForItemAtIndexPath(indexPath: NSIndexPath!) -> Bool {
-        return self.adapter != nil ? self.adapter!.shouldDisplayAdAtIndexPath(indexPath) : false
+    override func shouldUseDefaultAttributeForItem(at indexPath: IndexPath!) -> Bool {
+        return self.adapter != nil ? self.adapter!.shouldDisplayAd(at: indexPath) : false
     }
 
 
-    func sizeForAdAtIndexPath(indexPath: NSIndexPath!) -> CGSize {
-        return CGSizeMake(320, NativeBannerView.desiredHeight())
+    func sizeForAd(at indexPath: IndexPath!) -> CGSize {
+        return CGSize(width: 320, height: NativeBannerView.desiredHeight())
     }
 }

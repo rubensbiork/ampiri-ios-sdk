@@ -17,7 +17,7 @@ struct AdExampleItem {
 
 class MasterTableViewController: UITableViewController {
 
-    private var adItems: [AdExampleItem] = [
+    fileprivate var adItems: [AdExampleItem] = [
             AdExampleItem(title: "BANNERS", controller: "BannersDetailViewController", xibName: nil, childItems: nil),
             AdExampleItem(title: "INTERSTITIALS", controller: "FullscreensDetailViewController", xibName: nil, childItems: nil),
             AdExampleItem(title: "VIDEOS", controller: "VideoDetailViewController", xibName: nil, childItems: nil),
@@ -40,30 +40,30 @@ class MasterTableViewController: UITableViewController {
             ])
     ]
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.adItems.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel?.text = self.adItems[indexPath.row].title
+        cell.textLabel?.text = self.adItems[(indexPath as NSIndexPath).row].title
 
         return cell
     }
 
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let item = self.adItems[indexPath.row]
+        let item = self.adItems[(indexPath as NSIndexPath).row]
         if let xibName = item.xibName, let controllerName = item.controller {
             let viewControllerClass = NSClassFromString(controllerName) as! UIViewController.Type
-            let viewController = viewControllerClass.init(nibName: xibName, bundle: NSBundle.mainBundle())
+            let viewController = viewControllerClass.init(nibName: xibName, bundle: Bundle.main)
             self.navigationController?.showDetailViewController(viewController, sender: nil)
         } else if let controllerName = item.controller {
-            self.splitViewController?.showDetailViewController(storyboard.instantiateViewControllerWithIdentifier(controllerName), sender: nil)
+            self.splitViewController?.showDetailViewController(storyboard.instantiateViewController(withIdentifier: controllerName), sender: nil)
         } else if let adItems = item.childItems {
-            let viewController = storyboard.instantiateViewControllerWithIdentifier("MasterTableViewController") as! MasterTableViewController
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MasterTableViewController") as! MasterTableViewController
             viewController.adItems = adItems
             viewController.title = item.title
             self.navigationController?.pushViewController(viewController, animated: true)

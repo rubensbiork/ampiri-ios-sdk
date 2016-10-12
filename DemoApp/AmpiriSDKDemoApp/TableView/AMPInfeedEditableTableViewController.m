@@ -27,13 +27,13 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
     self.loadButton.enabled = NO;
 
     self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
-                                                   parentViewController:self
-                                                               adUnitId:kAMPNativeLocationControlAdUnitId
-                                                           templateType:AMPNativeAdsTemplateTypeInFeed
-                                                  templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
-                                                      //example of editing ad representation via customizationObject
-                                                      templateCustomizationObject.ampCTABorderWidth = 1;
-                                                      templateCustomizationObject.ampCTACornerRadius = 5;
-                                                  }];
+                                          parentViewController:self
+                                          adUnitId:kAMPNativeLocationControlAdUnitId
+                                          templateType:AMPNativeAdsTemplateTypeInFeed
+                                          templateCustomization:^(AMPTemplateCustomizationObject *templateCustomizationObject) {
+                                              //example of editing ad representation via customizationObject
+                                              templateCustomizationObject.ampCTABorderWidth = 1;
+                                              templateCustomizationObject.ampCTACornerRadius = 5;
+                                          }];
 }
 @end

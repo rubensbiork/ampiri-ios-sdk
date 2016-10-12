@@ -12,7 +12,9 @@
 @interface AMPStatistics : NSObject
 
 + (NSDictionary *)statisticsForIdentifier:(NSString *)identifier;
+
 + (void)resetStatisticsForIdentifier:(NSString *)identifier;
+
 + (void)resetStatistics;
 
 @end

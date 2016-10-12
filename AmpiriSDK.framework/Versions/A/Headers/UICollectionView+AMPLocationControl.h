@@ -2,7 +2,7 @@
 //  UICollectionView+AMPLocationControl.h
 //  AmpiriSDK
 //
-//  Created by Viacheslav Leonov on 04.08.16.
+//  Created by Glispa GmbH on 04.08.16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @property (nonatomic, strong, readonly) AMPCollectionViewStreamAdapter *streamAdapter;
 
 - (void)amp_reloadData;
+
 - (id)amp_dequeueReusableCellWithReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 - (NSArray *)amp_indexPathsForSelectedItems;

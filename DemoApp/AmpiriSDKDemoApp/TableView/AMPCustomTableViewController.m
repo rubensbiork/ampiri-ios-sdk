@@ -21,9 +21,9 @@ static NSString *const kAMPNativeLocationControlAdUnitId = @"7f900c7d-7ce3-4190-
 - (IBAction)loadClicked:(id)sender {
     self.loadButton.enabled = NO;
     self.adapter = [[AmpiriSDK sharedSDK] addLocationControlToTableView:self.tableView
-                                                   parentViewController:self
-                                                               adUnitId:kAMPNativeLocationControlAdUnitId
-                                                adViewClassForRendering:[NativeBannerView class]];
+                                          parentViewController:self
+                                          adUnitId:kAMPNativeLocationControlAdUnitId
+                                          adViewClassForRendering:[NativeBannerView class]];
 
 }
 @end

@@ -20,12 +20,12 @@ static NSString *const kAMPUnitDefaultTitle_3 = @"Monkey";
 
 @implementation AMPDataUnitManager
 
-+ (NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count {
++ (nonnull NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count {
     return [AMPDataUnitManager createDataUnitList:count from:1];
 }
 
 
-+ (NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count from:(NSUInteger)from {
++ (nonnull NSArray<AMPDataUnit *> *)createDataUnitList:(NSUInteger)count from:(NSUInteger)from {
     NSMutableArray *units = [NSMutableArray new];
     NSArray *rawData = @[@{@"title" : kAMPUnitDefaultTitle_1, @"text" : kAMPUnitDefaultText_1, @"template" : @"image_cat"},
             @{@"title" : kAMPUnitDefaultTitle_2, @"text" : kAMPUnitDefaultText_2, @"template" : @"image_dog"},
@@ -39,7 +39,7 @@ static NSString *const kAMPUnitDefaultTitle_3 = @"Monkey";
                 NSString *text = item[@"text"];
                 NSString *template = item[@"template"];
                 NSString *name = [NSString stringWithFormat:@"%@ #%lu", title, (unsigned long) i];
-                NSString *photo = [NSString stringWithFormat:@"%@-%lu.jpg", template, (i % 5) + 1];
+                NSString *photo = [NSString stringWithFormat:@"%@-%u.jpg", template, (i % 5) + 1];
                 AMPDataUnit *unit = [[AMPDataUnit alloc] initDataUnitWithName:name andSpecification:text andPhoto:photo];
                 [units addObject:unit];
                 i++;

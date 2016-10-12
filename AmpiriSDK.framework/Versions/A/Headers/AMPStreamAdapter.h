@@ -9,7 +9,7 @@
 
 @interface AMPStreamAdapter : NSObject
 
-@property(nonatomic, strong, readonly) UIViewController *parentViewController;
+@property (nonatomic, strong, readonly) UIViewController *parentViewController;
 
 /**
  *  Cancel loading ads in your feed
@@ -49,7 +49,7 @@
  *
  *  @return actual indexPath in UITableView or UICollectionView considering added Ads
  */
-- (NSIndexPath*)streamIndexPathFromDataSourceIndexPath:(NSIndexPath*)indexPath;
+- (NSIndexPath *)streamIndexPathFromDataSourceIndexPath:(NSIndexPath *)indexPath;
 
 /**
  *  Should display ad at this index path

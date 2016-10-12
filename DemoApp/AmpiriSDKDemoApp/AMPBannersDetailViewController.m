@@ -53,45 +53,48 @@ static NSString *const kAMPBannerAdUnitId = @"04c447d7-ffb8-4ba1-985e-4d2b9f88cd
 
     self.bannerView =
             [[AmpiriSDK sharedSDK] loadBannerWithSize:self.bannerSize
-                                             adUnitId:kAMPBannerAdUnitId
-                                              success:nil
-                                              failure:nil];
+                                   adUnitId:kAMPBannerAdUnitId
+                                   success:nil
+                                   failure:nil];
 
+    if (self.bannerView == nil) {
+        return;
+    }
     [self.view addSubview:self.bannerView];
 
     self.bannerView.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView
-                                                          attribute:NSLayoutAttributeBottom
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.bottomLayoutGuide
-                                                          attribute:NSLayoutAttributeBottom
-                                                         multiplier:1
-                                                           constant:-20.0f]];
+                                                 attribute:NSLayoutAttributeBottom
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.bottomLayoutGuide
+                                                 attribute:NSLayoutAttributeBottom
+                                                 multiplier:1
+                                                 constant:-20.0f]];
 
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView
-                                                          attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1
-                                                           constant:0]];
+                                                 attribute:NSLayoutAttributeCenterX
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                                 attribute:NSLayoutAttributeCenterX
+                                                 multiplier:1
+                                                 constant:0]];
 
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView
-                                                          attribute:NSLayoutAttributeWidth
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeWidth
-                                                         multiplier:0
-                                                           constant:self.bannerSize.width]];
+                                                 attribute:NSLayoutAttributeWidth
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                                 attribute:NSLayoutAttributeWidth
+                                                 multiplier:0
+                                                 constant:self.bannerSize.width]];
 
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerView
-                                                          attribute:NSLayoutAttributeHeight
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeHeight
-                                                         multiplier:0
-                                                           constant:self.bannerSize.height]];
+                                                 attribute:NSLayoutAttributeHeight
+                                                 relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                                 attribute:NSLayoutAttributeHeight
+                                                 multiplier:0
+                                                 constant:self.bannerSize.height]];
 
 
     self.bannerView.autoUpdate = self.autoupdateSwitch.isOn;

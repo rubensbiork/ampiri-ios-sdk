@@ -57,14 +57,14 @@ static NSString *const kAMPNativeAdUnitId = @"7f900c7d-7ce3-4190-8e93-310053e70c
         [self prepareHeight];
         
         [[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:kAMPNativeAdUnitId
-                                   parentViewController:self adViewClassForRendering:adViewClass
-                                                success:^(UIView *adNativeViewContainer) {
-                                                    [weakSelf.nativeView removeFromSuperview];
+                               parentViewController:self adViewClassForRendering:adViewClass
+                               success:^(UIView *adNativeViewContainer) {
+                                   [weakSelf.nativeView removeFromSuperview];
 
-                                                    weakSelf.nativeView = adNativeViewContainer;
-                                                    weakSelf.showButton.userInteractionEnabled = YES;
-                                                    weakSelf.showButton.enabled = YES;
-                                                } failure:nil];
+                                   weakSelf.nativeView = adNativeViewContainer;
+                                   weakSelf.showButton.userInteractionEnabled = YES;
+                                   weakSelf.showButton.enabled = YES;
+                               } failure:nil];
     } else {
         NSLog(@"Native Ad: invalid view class");
     }
@@ -85,13 +85,13 @@ static NSString *const kAMPNativeAdUnitId = @"7f900c7d-7ce3-4190-8e93-310053e70c
         [self prepareHeight];
         
         [[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:kAMPNativeAdUnitId
-                                   parentViewController:self adViewClassForRendering:adViewClass
-                                                success:^(UIView *adNativeViewContainer) {
-                                                    [weakSelf.nativeView removeFromSuperview];
+                               parentViewController:self adViewClassForRendering:adViewClass
+                               success:^(UIView *adNativeViewContainer) {
+                                   [weakSelf.nativeView removeFromSuperview];
 
-                                                    weakSelf.nativeView = adNativeViewContainer;
-                                                    [weakSelf renderAd];
-                                                } failure:nil];
+                                   weakSelf.nativeView = adNativeViewContainer;
+                                   [weakSelf renderAd];
+                               } failure:nil];
     } else {
         NSLog(@"Native Ad: invalid view class");
     }

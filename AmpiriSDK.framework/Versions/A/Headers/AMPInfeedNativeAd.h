@@ -10,7 +10,7 @@
 @protocol AMPNativeViewInterface;
 
 @interface AMPInfeedNativeAd : NSObject
-@property(strong, nonatomic, readonly) UIView <AMPNativeViewInterface> *adView;
-@property(assign, nonatomic) CGRect desiredFrame;
+@property (strong, nonatomic, readonly) UIView <AMPNativeViewInterface> *adView;
+@property (assign, nonatomic) CGRect desiredFrame;
 
 @end

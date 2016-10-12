@@ -2,7 +2,7 @@
 //  AMPAdResource.h
 //  AmpiriSDK
 //
-//  Created by Siarhei Barmotska on 17/08/16.
+//  Created by Glispa GmbH on 17/08/16.
 //  Copyright © 2016 Glispa GmbH. All rights reserved.
 //
 

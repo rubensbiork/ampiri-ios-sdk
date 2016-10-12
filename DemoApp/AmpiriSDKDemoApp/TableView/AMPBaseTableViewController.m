@@ -2,8 +2,8 @@
 //  AMPBaseTableViewController.m
 //  AmpiriSDKDemoApp
 //
-//  Created by Viacheslav Leonov on 10.08.16.
-//  Copyright © 2016 glispa.com. All rights reserved.
+//  Created by Glispa GmbH on 10.08.16.
+//  Copyright © 2016 Glispa GmbH All rights reserved.
 //
 
 #import "AMPBaseTableViewController.h"
@@ -92,7 +92,7 @@ static NSInteger const kAMPSectionsCount = 3;
 
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
-           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+                               editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
 }
 
@@ -101,9 +101,9 @@ static NSInteger const kAMPSectionsCount = 3;
 }
 
 
-- (void) tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
- forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+        forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSMutableArray *itemsGroupe = self.dataSource[indexPath.section];
         [itemsGroupe removeObjectAtIndex:indexPath.row];
@@ -117,16 +117,16 @@ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 }
 
 
-- (NSIndexPath *)              tableView:(UITableView *)tableView
-targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-                     toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
+- (NSIndexPath *)tableView:(UITableView *)tableView
+                 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+                 toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
     return proposedDestinationIndexPath;
 }
 
 
-- (void) tableView:(UITableView *)tableView
-moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-       toIndexPath:(NSIndexPath *)destinationIndexPath {
+- (void)tableView:(UITableView *)tableView
+        moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+        toIndexPath:(NSIndexPath *)destinationIndexPath {
     AMPDataUnit *unit = self.dataSource[sourceIndexPath.section][sourceIndexPath.row];
     [self.dataSource[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];
     [self.dataSource[destinationIndexPath.section] insertObject:unit atIndex:destinationIndexPath.row];
