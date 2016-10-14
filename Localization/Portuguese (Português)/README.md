@@ -38,11 +38,13 @@ Os adaptadores irão adicionar automaticamente as suas bibliotecas dependentes.
 - `ampiri-ios- sdk/Adapters/AdColonyAdapter` - adaptador para [AdColony](https://github.com/AdColony/AdColony-iOS- SDK)
 - `ampiri-ios- sdk/Adapters/AppLovinAdapter` - adaptador para [AppLovin](https://www.applovin.com/)
 
+**Nota: A rede de anúncios Baidu deve ser incluida manualmente ao seu projeto e não está disponível no Cocoapods **
+
 Adding SDK manually
 ===================
 
 ### **1.** Adicionar os arquivos SDK ao seu projeto (necessário)
-Adicione `AmpiriSDK.framework` ao seu projeto.
+Adicione `AmpiriSDK.framework` e `AMPVastLib.framework` ao seu projeto.
 
 ### **2.** Adicionar as bibliotecas externas (recomendado)
 Para visualizar os anúncios de banner **padrão** das redes mediadas no cliente na sua
@@ -78,19 +80,23 @@ deve-se adicionar:
 * Biblioteca [Facebook Audience](https://developers.facebook.com/docs/ios)
 * Biblioteca [MoPub](https://github.com/mopub/mopub-ios- sdk)
 * Biblioteca [AppLovin](https://www.applovin.com/)
+* Biblioteca [Baidu](http://mssp.baidu.com/home/developer.html)
+
+**Nota: Não é possivel usar ambas Baidu e MoPub no mesmo app resultando em erro de compilação**
 
 **Aviso: O Ampiri SDK 3.2.2 foi desenvolvido e verificado para funcionar corretamente com
 as seguintes versões de redes SDK de anúncios de terceiros:**
 
 * AdColony – 2.6.2
-* Chartboost – 6.4.6
-* Google Mobile Ads – 7.9.0
-* NativeX – 5.5.6.3
+* Chartboost – 6.5.1
+* Google Mobile Ads – 7.12.1
+* NativeX – 5.5.7.1
 * Unity Ads – 1.5.6
-* Vungle – 3.2.0.1
-* Facebook Audience – 4.14.0
-* MoPub – 4.7.0
+* Vungle – 3.2.2
+* Facebook Audience – 4.16.0
+* MoPub – 4.9.1
 * AppLovin – 3.1
+* Baidu - 4.3.1
 
 Não garantimos um comportamento estável e correto do Ampiri SDK se forem adicionadas
 manualmente outras versões de SDKs da rede de anúncios.
@@ -100,6 +106,17 @@ manualmente outras versões de SDKs da rede de anúncios.
 Para cada rede de anúncios externa adicionada a partir da secção anterior, deve-se adicionar
 o adaptador SDK para esta rede a partir da pasta de Adaptadores. Adicione apenas o
 adaptador necessário para o projeto
+
+* AdColony – libAMPAdColonyAdapter
+* Chartboost – libAMPChartboostAdapter
+* Google Mobile Ads – libAMPGoogleMobileAdsAdapter
+* NativeX – libAMPNativeXAdapter
+* Unity Ads – libAMPUnityAdsAdapter
+* Vungle – libAMPVungleAdapter
+* Facebook Audience – libAMPFBAudienceAdapter
+* MoPub – libAMPMopubAdapter
+* AppLovin – libAMPAppLovinAdapter
+* Baidu - libAMPBaiduAdapter
 
 ### **4.** Configurar redes externas
 
@@ -140,8 +157,8 @@ O SDK com adaptadores utiliza as seguintes estruturas e bibliotecas do sistema. 
 - `libsqlite3`
 - `libz`
 
-**Aviso: Algumas versões Xcode suportam novas configurações apenas após o reinício do
-Xcode, após limpar a memória Xcode e outros problemas.**
+**Aviso: Algumas versões do Xcode suportam novas configurações apenas após o reinício do
+Xcode, após limpar o cache do XCode outros problemas também podem ser resolvidos.**
 
 O QUE FAZER se tiver algum problema de ligação:
 
@@ -198,16 +215,14 @@ self.bannerView = [[AmpiriSDK sharedSDK] loadBannerWithSize:AMP_BANNER_SIZE_320x
 *swift*
 
 ```swift
-if self.bannerView != nil {
-    self.bannerView?.stop()
-    self.bannerView?.removeFromSuperview()
-    self.bannerView = nil
+if bannerView != nil {
+    bannerView?.stop()
+    bannerView?.removeFromSuperview()
+    bannerView = nil
 }
 
-self.bannerView = AmpiriSDK.sharedSDK().loadBannerWithSize(self.bannerSize!, 
+bannerView = AmpiriSDK.shared().loadBanner(with: self.bannerSize!,
 	adUnitId: "04c447d7-ffb8-4ba1-985e-4d2b9f88cd69", success: nil, failure: nil)
-	self.view.addSubview(self.bannerView!)
-
 ```
 
 Adicionar o seguinte código para os métodos `"viewDidAppear"` e `"viewWillDisappear"`:
@@ -310,8 +325,8 @@ Por exemplo:
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadFullscreenWithAdUnitId("2cb34a73-0012-4264-9526-bde1fce2ba92", 
-	options: .ShowAfterLoad, forViewController: self, success: nil, failure: nil)
+AmpiriSDK.shared().loadFullscreen(withAdUnitId: "2cb34a73-0012-4264-9526-bde1fce2ba92",
+	options: .showAfterLoad, for: self, success: nil, failure: nil)
 ```
 
 ### Manuseamento de eventos intersticiais
@@ -355,9 +370,9 @@ Por exemplo:
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadVideoWithAdUnitId("87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
+AmpiriSDK.shared().loadVideo(withAdUnitId: "87f65c4c-f12d-4bb6-96fd-063fe30c4d69", success: {
     videoViewController in
-    videoViewController.showFromViewController(self)
+    videoViewController?.show(from: self)
 }, failure: nil)
 ```
 
@@ -441,7 +456,7 @@ Por exemplo:
 
 ```objective-c
 __weak typeof(self) weakSelf = self;
-[[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:@"7f900c7d-7ce3-4190-8e93-310053e70ca2" 
+[[AmpiriSDK sharedSDK] loadNativeAdWithAdUnitId:@"7f900c7d-7ce3-4190-8e93-310053e70ca2"
 	parentViewController:self
 	classForRendering:NSStringFromClass([MyNativeBannerView class])
 	success:^(UIView *adNativeViewContainer) {
@@ -455,9 +470,9 @@ __weak typeof(self) weakSelf = self;
 *swift*
 
 ```swift
-AmpiriSDK.sharedSDK().loadNativeAdWithAdUnitId("7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: NativeBannerView.self, success: {
+AmpiriSDK.shared().loadNativeAd(withAdUnitId: "7f900c7d-7ce3-4190-8e93-310053e70ca2", parentViewController: self, adViewClassForRendering: classForRendering, success: {
     view in
-    self.nativeView = view
+    nativeView = view
 }, failure: nil)
 ```
 
@@ -491,34 +506,34 @@ Lista de personalizações:
 
 | Propriedade de AMPTemplateCustomizationObject | Descrição |
 |:-----------------------------------------------------------------------|:-------------------------------------------------------------------------|
-|`ampBackgroundColor `| cor das células do anúncio |
-|`ampTitleFont `| fonte do label do título nas células do anúncio |
-|`ampTitleColor `| cor do label do título nas células do anúncio |
-|`ampDescriptionTextFont `| fonte do label de descrição nas células do anúncio |
-|`ampDescriptionTextColor `| cor do label de descrição nas células do anúncio |
-|`ampDescriptionTextLeftOffset `| desvio esquerdo para o label de descrição nas células do anúncio |
-|`ampDescriptionTextRigthOffset `| desvio direito para o label de descrição nas células do anúncio |
-|`ampCoverImageLeftOffset `| desvio esquerdo para visualização da imagem principal do anúncio|
-|`ampCoverImageRightOffset `| desvio direito para visualização da imagem principal do anúncio |
-|`ampCoverImageTopOffset `| desvio superior para visualização da imagem principal do anúncio |
-|`ampCoverImageBottomOffset `| desvio inferior para visualização da imagem principal do anúncio |
-|`ampCoverImageCornerRadius `| formato do canto da camada da imagem principal do anúncio |
-|`ampCTAFont `| selecione para ativar a fonte do label |
-|`ampCTAColor `| selecione para ativar a visualização da cor de fundo|
-|`ampCTATextColor `| selecione para ativar a cor do texto do label|
-|`ampCTABorderColor `| selecione para ativar a cor da borda da camada|
-|`ampCTACornerRadius `| selecione para ativar o ângulo do canto da camada |
-|`ampCTABorderWidth `| selecione para ativar a largura da borda da camada|
-|`ampCTARightOffset `| desvio direito para ativar a visualização do anúncio|
-|`ampCTABottomOffset `| desvio inferior para ativar a visualização do anúncio |
-|`ampSponsoredFont `| fonte do label patrocinada |
-|`ampSponsoredColor `| cor do texto do label patrocinada|
-|`ampIconLeftOffset `| desvio esquerdo para visualização do ícone app do anúncio|
-|`ampIconTopOffset `| desvio superior para visualização do ícone app do anúncio |
-|`ampIconHeight `| altura para visualização do ícone app do anúncio |
-|`ampIconWidth `| largura para visualização do ícone app do anúncio |
-|`ampIconCornerRadius `| formato do canto da camada do ícone app do anúncio |
-|`ampIconContentMode `| modo de conteúdo da visualização do ícone app do anúncio |
+|`ampBackgroundColor `| Cor das células do anúncio |
+|`ampTitleFont `| Fonte do label do título nas células do anúncio |
+|`ampTitleColor `| Cor do label do título nas células do anúncio |
+|`ampDescriptionTextFont `| Fonte do label de descrição nas células do anúncio |
+|`ampDescriptionTextColor `| Cor do label de descrição nas células do anúncio |
+|`ampDescriptionTextLeftOffset `| Desvio esquerdo para o label de descrição nas células do anúncio |
+|`ampDescriptionTextRigthOffset `| Desvio direito para o label de descrição nas células do anúncio |
+|`ampCoverImageLeftOffset `| Desvio esquerdo para visualização da imagem principal do anúncio|
+|`ampCoverImageRightOffset `| Desvio direito para visualização da imagem principal do anúncio |
+|`ampCoverImageTopOffset `| Desvio superior para visualização da imagem principal do anúncio |
+|`ampCoverImageBottomOffset `| Desvio inferior para visualização da imagem principal do anúncio |
+|`ampCoverImageCornerRadius `| Formato do canto da camada da imagem principal do anúncio |
+|`ampCTAFont `| Selecione para ativar a fonte do label |
+|`ampCTAColor `| Selecione para ativar a visualização da cor de fundo|
+|`ampCTATextColor `| Selecione para ativar a cor do texto do label|
+|`ampCTABorderColor `| Selecione para ativar a cor da borda da camada|
+|`ampCTACornerRadius `| Selecione para ativar o ângulo do canto da camada |
+|`ampCTABorderWidth `| Selecione para ativar a largura da borda da camada|
+|`ampCTARightOffset `| Desvio direito para ativar a visualização do anúncio|
+|`ampCTABottomOffset `| Desvio inferior para ativar a visualização do anúncio |
+|`ampSponsoredFont `| Fonte do label patrocinada |
+|`ampSponsoredColor `| Cor do texto do label patrocinada|
+|`ampIconLeftOffset `| Desvio esquerdo para visualização do ícone app do anúncio|
+|`ampIconTopOffset `| Desvio superior para visualização do ícone app do anúncio |
+|`ampIconHeight `| Altura para visualização do ícone app do anúncio |
+|`ampIconWidth `| Largura para visualização do ícone app do anúncio |
+|`ampIconCornerRadius `| Formato do canto da camada do ícone app do anúncio |
+|`ampIconContentMode `| Modo de conteúdo da visualização do ícone app do anúncio |
 
 Se pretender utilizar a sua própria representação de um anúncio nativo, deve-se utilizar estes métodos:
 
@@ -537,7 +552,7 @@ Se pretender utilizar a sua própria representação de um anúncio nativo, deve
 ```
 
 Estes métodos funcionam da mesma forma que os [Anúncios nativos](#anúncios-nativos). É necessário
-utilizar as instruções deste tipo de anúncio para configurar o campo `adViewClass` nos métodos, 
+utilizar as instruções deste tipo de anúncio para configurar o campo `adViewClass` nos métodos,
 mas você precisa implementar o protocolo `AMPCollectionViewStreamAdapterDelegate` ou setar a propriedade `estimatedItemSize` do seu `UICollectionViewFlowLayout`.
 
 Para o `UITableView` não precisa fazer nada nos métodos `UITableViewDelegate` e
@@ -569,12 +584,12 @@ transmissão se utilizar apenas a disposição de vista de esquema personalizada
 *swift*
 
 ```swift
-override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    if (self.adapter?.shouldDisplayAdAtIndexPath(indexPath) == true) {
-        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("AMPAdContainerCollectionViewCell", forIndexPath: indexPath) as! AMPAdContainerCollectionViewCell
+override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    if (adapter?.shouldDisplayAd(at: indexPath) == true) {
+        let cell: AMPAdContainerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AMPAdContainerCollectionViewCell", for: indexPath) as! AMPAdContainerCollectionViewCell
 
         cell.layer.zPosition = 100
-        return (self.adapter?.adRenderedAdCellAtIndexPath(indexPath, inCell: cell))!
+        return (adapter?.adRenderedAdCell(at: indexPath, in: cell))!
     } else {
         //your feed cell
     }

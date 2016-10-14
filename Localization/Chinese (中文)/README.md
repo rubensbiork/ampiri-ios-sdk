@@ -11,7 +11,6 @@
 * [位置控制](#location-control)
 * [其它](#other)
 
-
 初始化
 ==============
 
@@ -35,13 +34,16 @@ Ampiri iOS SDK 支持 iOS 8.0 或更高版。
 - `ampiri-ios-sdk/Adapters/VungleAdapter` - 用于 [Vungle] 的适配器(https://v.vungle.com/sdk)
 - `ampiri-ios-sdk/Adapters/AdColonyAdapter` - 用于 [AdColony] 的适配器(https://github.com/AdColony/AdColony-iOS-SDK)
 - `ampiri-ios-sdk/Adapters/AppLovinAdapter` - 用于 [AppLovin] 的适配器(https://www.applovin.com/)
+- `ampiri-ios-sdk/Adapters/BaiduAdapter` - 用于 [Baidu] 的适配器(http://mssp.baidu.com/home/developer.html)
+
+**注释: 不能在一个应用程序中使用百度和MoPub因为这会导致编译错误**
 
 手动添加SDK
 ===================
 
 ### **1.**对你的项目添加SDK（要求） 
 
-对你的项目添加 AmpiriSDK.framework 
+对你的项目添加 `AmpiriSDK.framework` and `AMPVastLib.framework`
 
 ### **2.** 添加外部库（推荐）
 
@@ -74,6 +76,7 @@ Ampiri iOS SDK 支持 iOS 8.0 或更高版。
 * [Facebook Audience](https://developers.facebook.com/docs/ios) 库
 * [MoPub](https://github.com/mopub/mopub-ios-sdk) 库
 * [AppLovin](https://www.applovin.com/) 库
+* [Baidu](http://mssp.baidu.com/home/developer.html) 库
 
 **警告： Ampiri SDK 3.2.2可以与以下版本的第三方广告网络SDK一起正常运行:**
 
@@ -86,12 +89,22 @@ Ampiri iOS SDK 支持 iOS 8.0 或更高版。
 * Facebook Audience – 4.14.0
 * MoPub – 4.7.0
 * AppLovin – 3.1
+* Baidu - 4.3.1
 
 如果你手动添加其它版本的广告网络SDK，我们不能保证Ampiri SDK功能的稳定和正确。
 
 ### **3.**向你的项目添加SDK外部适配器
 对于从上一段添加的每一个外部广告网络，你应当从Adapters文件夹对该网络添加SDK适配器。仅对项目添加必要的适配器。
-
+* AdColony – libAMPAdColonyAdapter
+* Chartboost – libAMPChartboostAdapter		
+* Google Mobile Ads – libAMPGoogleMobileAdsAdapter
+* NativeX – libAMPNativeXAdapter
+* Unity Ads – libAMPUnityAdsAdapter	
+* Vungle – libAMPVungleAdapter
+* Facebook Audience – libAMPFBAudienceAdapter
+* MoPub – libAMPMopubAdapter
+* AppLovin – libAMPAppLovinAdapter
+* Baidu - libAMPBaidu Adapter
 
 ### **4.**设置外部网络
 你应当在Ampiri网站设置每一个添加的外部网络，否则它们不能用于显示广告。
@@ -138,7 +151,7 @@ Ampiri iOS SDK 支持 iOS 8.0 或更高版。
 - 删除你放在`~/Library/Developer/Xcode/DerivedData`中的DerivedData文件夹
 - 重启计算机
 
-iOS 9.0以上中的ATS设置
+iOS 9.0 以上中的ATS设置
 ======================
 由于Ampiri SDK使用第3方网络加载广告，我们不能控制这些网络通过https加载它们自己的内容，你可以对你的程序禁用ATS，以确保Ampiri SDK的行为正确。为了禁用ATS，应对你的程序Info.plistfile添加以下设置：
 
@@ -368,7 +381,7 @@ AmpiriSDK.sharedSDK().loadVideoWithAdUnitId("87f65c4c-f12d-4bb6-96fd-063fe30c4d6
 用于测试的广告空间ID (Native ad): `"7f900c7d-7ce3-4190-8e93-310053e70ca2"`
 
 原生广告是无任何预定义包装UI的自然呈现，这使开发者能够自由的设计和控制广告。
-开发者通过Interface Builder (making .xib file)或手动在代码中创建UI控制配置原生广告的布局。
+开发者通过Interface Builder (creating .xib file)或手动在代码中创建UI控制配置原生广告的布局。
 在你的`UIViewController`子类中使用以下方法：
 
 ```objective-c
@@ -435,7 +448,7 @@ AmpiriSDK.sharedSDK().loadNativeAdWithAdUnitId("7f900c7d-7ce3-4190-8e93-310053e7
 
 位置控制是基于`UITableView` 或 `UICollectionView` 在你的推送中添加原生广告的智能技术。用于位置控制的设置从服务器一侧返回，并且可以按需要进行改变。
 
-为了更方便的整合，你可以使用我们的可定制模板：基于`AMPNativeAdsTemplateType`枚举的`in-Feed` 和 `Content Stream`:
+为了更方便的集合ji'he，你可以使用我们的可定制模板：基于`AMPNativeAdsTemplateType`枚举的`in-Feed` 和 `Content Stream`:
 
 ```objective-c
 - (AMPTableViewStreamAdapter *)addLocationControlToTableView:(UITableView *)tableView
@@ -588,7 +601,6 @@ UITableView`和` UICollectionView`的`方法与`NSIndexPath`共事。如果你�
 
 //remove all user data from everywhere
 [AmpiriSDK resetUserData];
-
 [AmpiriSDK setGender:AMPUserGenderMale];
 [AmpiriSDK setAge:25];
 [AmpiriSDK setBirthday:[NSDate date]];
