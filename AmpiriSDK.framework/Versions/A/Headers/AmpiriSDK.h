@@ -332,6 +332,10 @@
  Called after ads for location control have been loaded. After this event you can reload your UITableView/UICollectionView or could wait - ads will be added automatically during scrolling.
  */
 extern NSString *const kAMPNotification_LocationControlAdsDidLoad;
+/*
+ Called after ads for location control failed to loaded.
+ */
+extern NSString *const kAMPNotification_LocationControlAdsFailed;
 
 //BANNERS
 /*
