@@ -9,7 +9,7 @@
 
 @interface AMPStreamAdapter : NSObject
 
-@property (nonatomic, strong, readonly) UIViewController *parentViewController;
+@property (nonatomic, weak, readonly) UIViewController *parentViewController;
 
 /**
  *  Cancel loading ads in your feed
