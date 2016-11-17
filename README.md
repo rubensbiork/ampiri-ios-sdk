@@ -82,7 +82,7 @@ To show **native** ads from client-side mediated networks in your application yo
 
 **Note: You cannot use Baidu and MoPub both in one app as this results in a compile error**
 
-**Warning: Ampiri SDK 3.3.3 was designed and verified to work correctly with the following versions of 3rd party ad network SDKs:**
+**Warning: Ampiri SDK 3.3.4 was designed and verified to work correctly with the following versions of 3rd party ad network SDKs:**
 
 * AdColony – 2.6.2
 * Chartboost – 6.5.1

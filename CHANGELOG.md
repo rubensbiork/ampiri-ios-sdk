@@ -1,19 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.3.3]
+## [3.3.4]
 ### Fixed
 - Location control minor issues
 
-
-## [3.3.2]
-### Fixed
-- Location control minor issues
-
-## [3.3.1]
-### Fixed
-- Native ad cache timeouts
-- Location control minor issues
 
 ## [3.3.0]
 ### Added
@@ -113,6 +104,4 @@ All notable changes to this project will be documented in this file.
 [3.2.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.1
 [3.2.2]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.2.2
 [3.3.0]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.0
-[3.3.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.1
-[3.3.2]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.2
-[3.3.3]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.3
+[3.3.1]: https://github.com/ampiri/ampiri-ios-sdk/releases/tag/v3.3.4

@@ -3,12 +3,12 @@ platform :ios, '8.0'
 
 workspace 'AmpiriSDKDemoApp'
 target 'AmpiriSDKDemoApp' do
-  pod 'ampiri-ios-sdk', '~> 3.3.3'
+  pod 'ampiri-ios-sdk', '~> 3.3.4'
 
 end
 
 target 'AmpiriSDKDemoAppSwift' do
-  pod 'ampiri-ios-sdk', '~> 3.3.3'
+  pod 'ampiri-ios-sdk', '~> 3.3.4'
 end
 
 post_install do |installer|
