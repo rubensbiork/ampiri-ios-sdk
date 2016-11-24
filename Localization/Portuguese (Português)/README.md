@@ -11,6 +11,17 @@
 * [Controlo da localização](#controle-da-localização)
 * [Outro](#outro)
 
+Suporte Ampiri
+==============
+
+* Nota: Os tutorias a seguir estão em Inglês. A versão em Português estará disponível em breve.
+
+Documentos adicionais sobre a integração do Ampiri SDK com o seu iOS app pode ser encontrado clicando nos links.
+
+- [Ampiri.com](http://www.ampiri.com/tutorials/)  - Tutoriais
+- [Guia do desenvolvedor](https://ampiri.zendesk.com/hc/en-us/articles/213857245-Publisher-s-Self-Serve-UI-User-Guide) - Guia do desenvolvedor
+- [Começando com Ampiri SDK iOS](https://ampiri.zendesk.com/hc/en-us/articles/212990765-Ampiri-SDK-iOS-Quickstart) - Integração básica para testes
+- [Manual de integração Ampiri SDK iOS](https://ampiri.zendesk.com/hc/en-us/articles/212489389-Ampiri-SDK-iOS-Integration-Manual) - Manual da Ampiri SDK
 
 Inicialização
 ==============
